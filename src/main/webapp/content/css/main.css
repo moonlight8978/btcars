@@ -1,0 +1,692 @@
+body {
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333; }
+
+* {
+  border-radius: 0 !important; }
+
+/* ==========================================================================
+Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
+========================================================================== */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+/* ==========================================================================
+Development Ribbon
+========================================================================== */
+.ribbon {
+  background-color: #a00;
+  box-shadow: 0 0 10px #888;
+  left: -3.5em;
+  moz-box-shadow: 0 0 10px #888;
+  moz-transform: rotate(-45deg);
+  ms-transform: rotate(-45deg);
+  o-transform: rotate(-45deg);
+  overflow: hidden;
+  position: absolute;
+  top: 40px;
+  transform: rotate(-45deg);
+  webkit-box-shadow: 0 0 10px #888;
+  webkit-transform: rotate(-45deg);
+  white-space: nowrap;
+  width: 15em;
+  z-index: 9999;
+  pointer-events: none; }
+
+.ribbon a {
+  border: 1px solid #faa;
+  color: #fff;
+  display: block;
+  font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 1px 0;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 0 5px #444;
+  pointer-events: none; }
+
+/* ==========================================================================
+Version number in navbar
+========================================================================== */
+.navbar-version {
+  font-size: 10px;
+  color: #ccc; }
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0; }
+
+/* ==========================================================================
+Logo styles
+========================================================================== */
+.navbar-brand.logo {
+  padding: 5px 15px; }
+
+.logo .logo-img {
+  height: 45px;
+  display: inline-block; }
+
+/* ==========================================================================
+Main page styles
+========================================================================== */
+.hero-unit {
+  margin: 50px auto 0 auto;
+  width: 300px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 60px; }
+
+.hero-unit h1 {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px; }
+
+.hipster {
+  display: inline-block;
+  width: 347px;
+  height: 497px;
+  background: url("../images/hipster.png") no-repeat center top;
+  background-size: contain; }
+
+/* wait autoprefixer update to allow simple generation of high pixel density media query */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .hipster {
+    background: url("../images/hipster2x.png") no-repeat center top;
+    background-size: contain; } }
+
+/* ==========================================================================
+Generic styles
+========================================================================== */
+.error {
+  color: white;
+  background-color: red; }
+
+.pad {
+  padding: 10px; }
+
+.break {
+  white-space: normal;
+  word-break: break-all; }
+
+.voffset {
+  margin-top: 2px; }
+
+.voffset1 {
+  margin-top: 5px; }
+
+.voffset2 {
+  margin-top: 10px; }
+
+.voffset3 {
+  margin-top: 15px; }
+
+.voffset4 {
+  margin-top: 30px; }
+
+.voffset5 {
+  margin-top: 40px; }
+
+.voffset6 {
+  margin-top: 60px; }
+
+.voffset7 {
+  margin-top: 80px; }
+
+.voffset8 {
+  margin-top: 100px; }
+
+.voffset9 {
+  margin-top: 150px; }
+
+.readonly {
+  background-color: #eee;
+  opacity: 1; }
+
+/* ==========================================================================
+make sure browsers use the pointer cursor for anchors, even with no href
+========================================================================== */
+a:hover {
+  cursor: pointer; }
+
+.hand {
+  cursor: pointer; }
+
+/* ==========================================================================
+Metrics and Health styles
+========================================================================== */
+#threadDump .popover, #healthCheck .popover {
+  top: inherit;
+  display: block;
+  font-size: 10px;
+  max-width: 1024px; }
+
+#healthCheck .popover {
+  margin-left: -50px; }
+
+.health-details {
+  min-width: 400px; }
+
+/* ==========================================================================
+start Password strength bar style
+========================================================================== */
+ul#strengthBar {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  margin-left: 15px;
+  padding: 0;
+  vertical-align: 2px; }
+
+.point:last {
+  margin: 0 !important; }
+
+.point {
+  background: #DDD;
+  border-radius: 2px;
+  display: inline-block;
+  height: 5px;
+  margin-right: 1px;
+  width: 20px; }
+
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
+.alerts .alert {
+  text-overflow: ellipsis; }
+
+.alert pre {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  padding: 0;
+  margin: 0; }
+
+.alert .popover pre {
+  font-size: 10px; }
+
+.alerts .toast {
+  position: fixed;
+  width: 100%; }
+
+.alerts .toast.left {
+  left: 5px; }
+
+.alerts .toast.right {
+  right: 5px; }
+
+.alerts .toast.top {
+  top: 55px; }
+
+.alerts .toast.bottom {
+  bottom: 55px; }
+
+@media screen and (min-width: 480px) {
+  .alerts .toast {
+    width: 50%; } }
+
+/* ==========================================================================
+entity tables helpers
+========================================================================== */
+/* Remove Bootstrap padding from the element
+   http://stackoverflow.com/questions/19562903/remove-padding-from-columns-in-bootstrap-3 */
+.no-padding-left {
+  padding-left: 0 !important; }
+
+.no-padding-right {
+  padding-right: 0 !important; }
+
+.no-padding-top {
+  padding-top: 0 !important; }
+
+.no-padding-bottom {
+  padding-bottom: 0 !important; }
+
+.no-padding {
+  padding: 0 !important; }
+
+/* bootstrap 3 input-group 100% width
+   http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
+.width-min {
+  width: 1% !important; }
+
+/* Makes toolbar not wrap on smaller screens
+ http://www.sketchingwithcss.com/samplechapter/cheatsheet.html#right */
+.flex-btn-group-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end; }
+
+.jh-table > tbody > tr > td {
+  /* Align text in td vertically (top aligned by Bootstrap) */
+  vertical-align: middle; }
+
+.jh-table > thead > tr > th > .glyphicon-sort, .jh-table > thead > tr > th > .glyphicon-sort-by-attributes, .jh-table > thead > tr > th > .glyphicon-sort-by-attributes-alt {
+  /* less visible sorting icons */
+  opacity: 0.5; }
+
+.jh-table > thead > tr > th > .glyphicon-sort:hover, .jh-table > thead > tr > th > .glyphicon-sort-by-attributes:hover, .jh-table > thead > tr > th > .glyphicon-sort-by-attributes-alt:hover {
+  /* full visible sorting icons and pointer when mouse is over them */
+  opacity: 1;
+  cursor: pointer; }
+
+/* ==========================================================================
+entity detail page css
+========================================================================== */
+.row.jh-entity-details > dd {
+  margin-bottom: 15px; }
+
+@media screen and (min-width: 768px) {
+  .row.jh-entity-details > dt {
+    margin-bottom: 15px; }
+  .row.jh-entity-details > dd {
+    border-bottom: 1px solid #eee;
+    padding-left: 180px;
+    margin-left: 0; } }
+
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer; }
+
+.datetime-picker-dropdown > li.date-picker-menu div > table .btn-default,
+.uib-datepicker-popup > li > div.uib-datepicker > table .btn-default {
+  border: 0; }
+
+.datetime-picker-dropdown > li.date-picker-menu div > table:focus,
+.uib-datepicker-popup > li > div.uib-datepicker > table:focus {
+  outline: none; }
+
+/* ==========================================================================
+Social Buttons
+========================================================================== */
+.jh-btn-social {
+  margin-bottom: 5px; }
+
+.jh-btn-google {
+  background-color: #dd4b39;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+.jh-btn-google:hover, .jh-btn-google:focus, .jh-btn-google:active, .jh-btn-google.active, .open > .dropdown-toggle.jh-btn-google {
+  background-color: #c23321;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+.jh-btn-facebook {
+  background-color: #3b5998;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+.jh-btn-facebook:hover, .jh-btn-facebook:focus, .jh-btn-facebook:active, .jh-btn-facebook.active, .open > .dropdown-toggle.jh-btn-facebook {
+  background-color: #2d4373;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+.jh-btn-twitter {
+  background-color: #55acee;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+.jh-btn-twitter:hover, .jh-btn-twitter:focus, .jh-btn-twitter:active, .jh-btn-twitter.active, .open > .dropdown-toggle.jh-btn-twitter {
+  background-color: #2795e9;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #fff; }
+
+/* jhipster-needle-css-add-main JHipster will add new css style */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif; }
+
+a {
+  text-decoration: none !important;
+  color: #1f2228; }
+  a:hover {
+    text-decoration: none !important;
+    color: #1f2228; }
+
+.container {
+  background: #e0f2f6; }
+
+.clear {
+  clear: both; }
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  margin: auto; }
+
+.sidebar-img {
+  padding: 0 !important; }
+
+.breadcrumb {
+  background-color: #fff !important;
+  border-radius: 0 !important;
+  margin: 30px 0; }
+  .breadcrumb a {
+    color: #1f2228; }
+    .breadcrumb a:hover {
+      color: #e74c3c; }
+
+@media (min-width: 768px) {
+  .sidebar {
+    margin-top: 0 !important; }
+  .container {
+    width: 970px !important;
+    padding: 0 20px !important; }
+  .car-item-wrap-3:nth-child(1) {
+    padding-right: 10px !important; }
+  .car-item-wrap-3:nth-child(2) {
+    padding-left: 5px !important;
+    padding-right: 5px !important; }
+  .car-item-wrap-3:nth-child(3) {
+    padding-left: 10px !important; }
+  .car-item-wrap-2:nth-child(odd) {
+    padding-right: 15px !important;
+    clear: left; }
+  .car-item-wrap-2:nth-child(even) {
+    padding-left: 15px !important; }
+  .car-buy .status {
+    border-right: 1px solid #fff; }
+  .car-buy .buy-now {
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff; }
+  .car-buy .add-to-cart {
+    border-left: 1px solid #fff; }
+  .left-lg {
+    float: left !important; }
+  .right-lg {
+    float: right !important; }
+  .detail-specs table th, .detail-specs table td {
+    display: table-cell !important; }
+  .detail-specs table th {
+    width: 30%; } }
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px !important;
+    padding: 30px !important; } }
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1230px !important;
+    padding: 0 30px !important; }
+  .control {
+    visibility: visible !important; } }
+
+.slide-custom {
+  background: #fff; }
+  .slide-custom .slide-control {
+    color: #ccc;
+    background: #34495e;
+    padding: 10px;
+    opacity: 0.5;
+    position: absolute;
+    top: 45%; }
+    .slide-custom .slide-control.slide-control-left {
+      left: 30px; }
+    .slide-custom .slide-control.slide-control-right {
+      right: 30px; }
+    .slide-custom .slide-control:hover {
+      opacity: 0.8;
+      color: #fff !important; }
+
+.sidebar {
+  margin-top: 30px; }
+
+#sideslide {
+  padding: 0; }
+  #sideslide .slide-control {
+    padding: 5px;
+    top: auto;
+    bottom: 8px; }
+    #sideslide .slide-control.slide-control-left {
+      left: 5px; }
+    #sideslide .slide-control.slide-control-right {
+      right: 5px; }
+  #sideslide .caption {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 10px 0; }
+
+.sidebar-group {
+  margin-bottom: 30px !important; }
+  .sidebar-group .sidebar-list-title {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none !important;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    padding: 12px 20px !important; }
+    .sidebar-group .sidebar-list-title.filter {
+      background-color: #1abc9c; }
+    .sidebar-group .sidebar-list-title.sort {
+      background-color: #3498db; }
+    .sidebar-group .sidebar-list-title.hot {
+      background-color: #9b59b6; }
+  .sidebar-group .sidebar-list-body {
+    padding: 10px 0;
+    background: #fff; }
+    .sidebar-group .sidebar-list-body li {
+      color: #1f2228; }
+      .sidebar-group .sidebar-list-body li:hover {
+        background: #f7f7f7;
+        color: #e74c3c; }
+  .sidebar-group .list-group-item {
+    border-radius: 0 !important;
+    border: none !important; }
+  .sidebar-group:last-child {
+    margin-bottom: 0; }
+
+.sidebar-carlist .info {
+  padding-right: 0 !important; }
+
+.sidebar-carlist .sidebar-content-title {
+  color: #1f2228; }
+
+.sidebar-carlist .price {
+  color: red;
+  font-weight: bold;
+  font-size: 1.1em; }
+
+.sidebar-carlist li:hover .emp {
+  color: #1f2228; }
+
+.sidebar-carlist li:hover .sidebar-content-title {
+  color: #e74c3c; }
+  .sidebar-carlist li:hover .sidebar-content-title:hover {
+    color: #e74c3c; }
+
+.car-container .car-container-title {
+  background: #34495e;
+  color: #fff;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-size: 1.3em; }
+
+.car-container.car-container-home {
+  margin-top: 30px; }
+
+.car-container-body .car-item-wrap {
+  padding: 0; }
+
+.car-container-body .car-item-wrap-2 {
+  margin-top: 30px; }
+
+.car-container-body .car-item-wrap-3 {
+  margin-top: 15px; }
+
+.car-container-body .car-item {
+  background: #fff; }
+
+.car-container-body img {
+  margin: auto; }
+
+.car-container-body .car-info {
+  padding: 10px 15px; }
+  .car-container-body .car-info > div {
+    padding: 3px 0px; }
+  .car-container-body .car-info span {
+    color: #1f2228; }
+  .car-container-body .car-info a {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    font-size: 1.2em; }
+    .car-container-body .car-info a:hover span {
+      color: #e74c3c; }
+
+.car-container-body .price {
+  color: red;
+  font-weight: bold;
+  font-size: 1.3em; }
+
+.car-buy {
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.1em; }
+  .car-buy div {
+    padding: 10px 0 !important; }
+  .car-buy .status.status-instock {
+    background-color: #2ecc71; }
+  .car-buy .status.status-outofstock {
+    background-color: #f5791f; }
+  .car-buy .status.status-suspended {
+    background-color: #e74c3c; }
+  .car-buy .buy-now {
+    background-color: #3498db; }
+  .car-buy .add-to-cart {
+    background-color: #9b59b6; }
+
+.row {
+  margin-left: 0;
+  margin-right: 0; }
+
+.car-detail-infobox {
+  background-color: #fff; }
+
+.slideshow-container {
+  padding: 20px 10px; }
+
+.detail-slide {
+  position: relative; }
+  .detail-slide .carousel-indicators {
+    all: initial; }
+  .detail-slide .detail-indicators {
+    display: block;
+    max-width: 200px;
+    padding-top: 20px;
+    white-space: nowrap;
+    margin: auto; }
+    .detail-slide .detail-indicators img {
+      max-width: 60px;
+      display: inline-block;
+      border-radius: 0 !important;
+      border: 1px solid #999;
+      background-color: transparent; }
+      .detail-slide .detail-indicators img.active {
+        border-color: #000;
+        width: auto;
+        height: auto; }
+      .detail-slide .detail-indicators img:nth-child(2) {
+        margin: 0 10px; }
+  .detail-slide .control {
+    position: absolute;
+    bottom: 0;
+    font-size: 30px;
+    visibility: hidden; }
+    .detail-slide .control.control-left {
+      left: 10px; }
+    .detail-slide .control.control-right {
+      right: 10px; }
+
+.detail-buy {
+  padding: 20px 10px 20px 20px; }
+  .detail-buy h2 {
+    margin-top: 0; }
+  .detail-buy .info {
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .detail-buy .price {
+    font-size: 1.5em;
+    word-spacing: 1.3;
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px; }
+
+.detail-specs {
+  background-color: #fff;
+  margin-top: 30px;
+  padding-bottom: 20px; }
+  .detail-specs li a {
+    background-color: #a1aaaf; }
+  .detail-specs .descr.active a, .detail-specs .descr a:hover {
+    background-color: #e74c3c !important; }
+  .detail-specs .specs.active a, .detail-specs .specs a:hover {
+    background-color: #1abc9c !important; }
+  .detail-specs a {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    color: #fff !important;
+    border: 0 !important;
+    border-radius: 0 !important; }
+    .detail-specs a:first-child {
+      margin-right: 1px; }
+  .detail-specs .tab-content {
+    padding: 0 20px; }
+    .detail-specs .tab-content h3 {
+      text-align: center; }
+    .detail-specs .tab-content table {
+      max-width: 100%; }
+      .detail-specs .tab-content table tr {
+        border-bottom: 1px solid #fff; }
+      .detail-specs .tab-content table th, .detail-specs .tab-content table td {
+        display: block;
+        padding: 10px; }
+      .detail-specs .tab-content table th {
+        background-color: #34495e;
+        color: #fff; }
+      .detail-specs .tab-content table td {
+        background-color: #f1f1f1; }
+
+.account-block {
+  background-color: #fff; }
+  .account-block .account-container-title {
+    background: #34495e;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 1.3em; }
+  .account-block .account-container-body {
+    padding: 20px 20px; }
+  .account-block:first-child {
+    margin-bottom: 30px; }
+  .account-block .btn {
+    color: #fff;
+    float: right;
+    text-transform: uppercase;
+    padding: 10px 15px; }
+    .account-block .btn.btn-account-info {
+      background-color: #f5791f; }
+    .account-block .btn.btn-account-password {
+      background-color: #3498db; }

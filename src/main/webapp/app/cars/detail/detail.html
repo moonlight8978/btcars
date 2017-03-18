@@ -1,0 +1,184 @@
+<div class="col-sm-12">
+   <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
+      <li class="breadcrumb-item"><a ui-sref="cars">Cars</a></li>
+      <li class="breadcrumb-item active">
+         {{ car.year }}
+         {{ car.make }}
+         {{ car.model }}
+         {{ car.trim }}
+      </li>
+   </ol>
+</div>
+
+<div class="col-sm-9">
+   <div class="car-detail-infobox row">
+      <div class="col-sm-5 slideshow-container">
+         <div id="slidedetail" class="carousel slide detail-slide" data-ride="carousel">
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+               <div class="item active">
+                  <img ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
+                  <div class="carousel-caption">
+                  </div>
+               </div>
+               <div class="item">
+                  <img ng-src="content/images/cars/{{ car.id }}/2.jpg" alt="">
+                  <div class="carousel-caption">
+                     <h3></h3>
+                     <p></p>
+                  </div>
+               </div>
+               <div class="item">
+                  <img ng-src="content/images/cars/{{ car.id }}/3.jpg" alt="">
+                  <div class="carousel-caption">
+                     <h3></h3>
+                     <p></p>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Controls -->
+            <a class="control control-left" data-target="#slidedetail" data-slide="prev">
+               <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="control control-right" data-target="#slidedetail" data-slide="next">
+               <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+
+            <!-- Indicators -->
+            <ol class="carousel-indicators detail-indicators">
+               <img data-target="#slidedetail" data-slide-to="0" class="img-thumbnail active"
+                     ng-src="content/images/cars/{{ car.id }}/1.jpg">
+               <img data-target="#slidedetail" data-slide-to="1" class="img-thumbnail"
+                     ng-src="content/images/cars/{{ car.id }}/2.jpg">
+               <img data-target="#slidedetail" data-slide-to="2"  class="img-thumbnail"
+                     ng-src="content/images/cars/{{ car.id }}/3.jpg">
+            </ol>
+         </div>
+      </div>
+
+      <div class="col-sm-7 detail-buy">
+         <h2>
+            {{ car.year }}
+            {{ car.make }}
+            {{ car.model }}
+            {{ car.trim }}
+         </h2>
+
+         <div class="code">
+            No. {{ car.id }}
+         </div>
+
+         <div class="info">
+            <strong>Model:</strong> {{ car.make }} {{ car.model }}<br>
+            <strong>Trim:</strong> {{ car.trim }}<br>
+            <strong>Year:</strong> {{ car.year }}
+         </div>
+
+         <div class="price">
+            ${{ car.priceFix }}
+         </div>
+
+         <div class="car-buy">
+            <div class="col-sm-2 status status-instock" data-toggle="tooltip" title="IN STOCK"
+                     ng-show="(car.status == 1) && ((car.quantity - car.sold) != 0)">
+                  <i class="fa fa-check"></i>
+            </div>
+            <div class="col-sm-2 status status-outofstock" data-toggle="tooltip" title="OUT OF STOCK"
+                     ng-show="(car.status == 1) && ((car.quantity - car.sold) == 0)">
+               <i class="fa fa-exclamation"></i>
+            </div>
+            <div class="col-sm-2 status status-suspended" data-toggle="tooltip" title="SUSPENDED TRADING"
+                     ng-show="(car.status == 0)">
+               <i class="fa fa-times"></i>
+            </div>
+            <div role="button" class="col-sm-5 buy-now"
+                     ng-disabled="(car.status == 0) || ((car.quantity - car.sold) == 0)">
+               <i class="fa fa-shopping-cart"></i>
+               <span>buy now</span>
+            </div>
+            <div role="button" class="col-sm-5 add-to-cart" ng-click="vm.addItem(car)"
+                     ng-disabled="(car.status == 0) || ((car.quantity - car.sold) == 0)">
+               <i class="fa fa-cart-plus"></i>
+               <span>add to cart</span>
+            </div>
+         </div>
+      </div>
+      <div class="clearfix"></div>
+   </div>
+
+   <div class="row detail-specs">
+      <ul class="nav nav-tabs tab-heading">
+         <li class="descr active"><a data-toggle="tab" data-target="#descr">Description</a></li>
+         <li class="specs"><a data-toggle="tab" data-target="#specs">Specifications</a></li>
+      </ul>
+
+      <div class="tab-content">
+         <div id="descr" class="tab-pane fade in active">
+            <h3>Car Description</h3>
+            <p>BT Cars - Best Choice!</p>
+         </div>
+         <div id="specs" class="tab-pane fade">
+            <h3>Car Specifications</h3>
+            <table>
+               <tr>
+                  <th>Make</th>
+                  <td>{{ car.make }}</td>
+               </tr>
+               <tr>
+                  <th>Model</th>
+                  <td>{{ car.model }}</td>
+               </tr>
+               <tr>
+                  <th>Trim</th>
+                  <td>{{ car.trim }}</td>
+               </tr>
+               <tr>
+                  <th>Year</th>
+                  <td>{{ car.year }}</td>
+               </tr>
+               <tr>
+                  <th>Country</th>
+                  <td>{{ car.country }}</td>
+               </tr>
+               <tr>
+                  <th>Engine Displacement (Litre)</th>
+                  <td>
+                     <span ng-show="car.ed">{{ car.ed }}</span>
+                     <span ng-hide="car.ed">Unavailable</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Engine Valves</th>
+                  <td>
+                     <span ng-show="car.ev">{{ car.ev }}</span>
+                     <span ng-hide="car.ev">Unavailable</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Engine Max Power (HP)</th>
+                  <td>
+                     <span ng-show="car.emp">{{ car.emp }}</span>
+                     <span ng-hide="car.emp">Unavailable</span>
+                  </td>
+               </tr>
+               <tr>
+                  <th>Weight (kg)</th>
+                  <td>
+                     <span ng-show="car.w">{{ car.w }}</span>
+                     <span ng-hide="car.w">Unavailable</span>
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+   </div>
+
+</div>
+
+<div class="col-sm-3 sidebar">
+   <div ng-include="'app/cars/detail/detail-sidebar.html'"></div>
+</div>
+
+<div class="clearfix"></div>

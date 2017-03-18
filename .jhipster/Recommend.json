@@ -1,0 +1,19 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "car",
+            "otherEntityName": "car",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "recommend"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20170310035917",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "recommend",
+    "pagination": "no"
+}

@@ -1,0 +1,15 @@
+entity Car {
+	make String required,
+    model String required,
+    year Integer required,
+    trim String required,
+    country String required,
+    price Integer required,
+    ed Integer,
+    ev Integer,
+    emp Integer,
+    w Integer,
+    status Integer required,
+    quantity Integer required,
+    sold Integer required
+}

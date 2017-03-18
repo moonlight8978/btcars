@@ -1,0 +1,71 @@
+
+<div>
+    <h2><span>Car</span> {{vm.car.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span>Make</span></dt>
+        <dd>
+            <span>{{vm.car.make}}</span>
+        </dd>
+        <dt><span>Model</span></dt>
+        <dd>
+            <span>{{vm.car.model}}</span>
+        </dd>
+        <dt><span>Year</span></dt>
+        <dd>
+            <span>{{vm.car.year}}</span>
+        </dd>
+        <dt><span>Trim</span></dt>
+        <dd>
+            <span>{{vm.car.trim}}</span>
+        </dd>
+        <dt><span>Country</span></dt>
+        <dd>
+            <span>{{vm.car.country}}</span>
+        </dd>
+        <dt><span>Price</span></dt>
+        <dd>
+            <span>{{vm.car.price}}</span>
+        </dd>
+        <dt><span>Ed</span></dt>
+        <dd>
+            <span>{{vm.car.ed}}</span>
+        </dd>
+        <dt><span>Ev</span></dt>
+        <dd>
+            <span>{{vm.car.ev}}</span>
+        </dd>
+        <dt><span>Emp</span></dt>
+        <dd>
+            <span>{{vm.car.emp}}</span>
+        </dd>
+        <dt><span>W</span></dt>
+        <dd>
+            <span>{{vm.car.w}}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+            <span>{{vm.car.status}}</span>
+        </dd>
+        <dt><span>Quantity</span></dt>
+        <dd>
+            <span>{{vm.car.quantity}}</span>
+        </dd>
+        <dt><span>Sold</span></dt>
+        <dd>
+            <span>{{vm.car.sold}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="car-detail.edit({id:vm.car.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

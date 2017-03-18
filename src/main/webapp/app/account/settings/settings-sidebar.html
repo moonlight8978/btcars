@@ -1,0 +1,29 @@
+<ul class="list-group sidebar-group sidebar-carlist">
+   <li class="list-group-item sidebar-list-title hot">
+      <i class="fa fa-shopping-cart"></i>
+      cart
+   </li>
+   <div class="sidebar-list-body">
+      <li class="list-group-item" ng-show="$storage.customer.carts.length == 0">
+         Cart is Empty!
+      </li>
+      <li class="list-group-item item" ng-repeat="car in $storage.customer.carts">
+         <span class="badge" ng-click="vm.deleteItem(car)">x</span>
+         <div class="col-xs-5 sidebar-img">
+            <img class="img-responsive img-thumbnail" ng-src="content/images/cars/{{car.id}}/1.jpg" alt="">
+         </div>
+         <div class="col-xs-7 info">
+            <a class="sidebar-content-title" ui-sref="detail({id:{{ car.id }}})">
+               Detail
+            </a>
+            <div class="price">
+               ${{ car.priceFix }}
+            </div>
+         </div>
+         <div class="clearfix"></div>
+      </li>
+      <li class="list-group-item total">
+         Total: <span class="price">${{ $storage.totalFix }}</span>
+      </li>
+   </div>
+</ul>

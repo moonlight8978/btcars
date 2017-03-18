@@ -1,0 +1,103 @@
+<ul class="list-group sidebar-group">
+   <li class="list-group-item sidebar-list-title">
+      <i class="fa fa-folder-open-o"></i>
+      Manufactures
+   </li>
+   <div class="sidebar-list-body">
+      <a ui-sref="company({company:'ferrari'})"><li class="list-group-item">Ferrari</li></a>
+      <a ui-sref="company({company:'lamborghini'})"><li class="list-group-item">Lamborghini</li></a>
+      <a ui-sref="company({company:'porsche'})"><li class="list-group-item">Porsche</li></a>
+      <a ui-sref="company({company:'rollsroyce'})"><li class="list-group-item">Rolls-Royce</li></a>
+   </div>
+</ul>
+
+<ul class="list-group">
+   <div class="sidebar-filtersorting sidebar-group">
+      <li class="list-group-item sidebar-list-title filter" role="button"
+               data-toggle="collapse" data-target="#filter-body">
+         <i class="fa fa-filter"></i>
+         Filter
+      </li>
+      <div id="filter-body" class="collapse sidebar-list-body">
+         <div class="list-group-item">
+            <div class="filter-block-title">
+               <i class="fa fa-usd"></i>
+               Filter by Price
+            </div>
+            <div class="radio">
+               <label>
+                  <input name="price" type="radio" ng-focus="$parent.setPriceFilter(0, 999999999)" checked>
+                  All
+               </label><br>
+               <label>
+                  <input name="price" type="radio" ng-focus="$parent.setPriceFilter(0, 199999)">
+                  Less than $200,000
+               </label><br>
+               <label>
+                  <input name="price" type="radio" ng-focus="$parent.setPriceFilter(200000, 500000)">
+                  $200,000 - $500,000
+               </label>
+               <label>
+                  <input name="price" type="radio" ng-focus="$parent.setPriceFilter(500001, 999999999)">
+                  Greater than $500,000
+               </label>
+            </div>
+         </div>
+
+         <div class="list-group-item">
+            <div class="filter-block-title">
+               <i class="fa fa-tachometer"></i>
+               Filter by Horse Power
+            </div>
+            <div class="radio">
+               <label>
+                  <input name="hp" type="radio" ng-focus="$parent.setHpFilter(0, 99999)" checked>
+                  All
+               </label><br>
+               <label>
+                  <input name="hp" type="radio" ng-focus="$parent.setHpFilter(0, 499)">
+                  Less than 500
+               </label><br>
+               <label>
+                  <input name="hp" type="radio" ng-focus="$parent.setHpFilter(500, 99999)">
+                  Greater than 500
+               </label>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="sidebar-filtersorting sidebar-group">
+      <li class="list-group-item sidebar-list-title sort" role="button"
+               data-toggle="collapse" data-target="#sorting-body">
+         <i class="fa fa-sort-amount-asc"></i>
+         Sorting
+      </li>
+      <div id="sorting-body" class="collapse sidebar-list-body">
+         <div class="sorting-block">
+            <div class="list-group-item">
+               <div class="radio">
+                  <label>
+                     <input name="sort" type="radio" ng-model="$parent.sort" value="id" selected>
+                     Default
+                  </label><br>
+                  <label>
+                     <input name="sort" type="radio" ng-model="$parent.sort" value="price">
+                     Sort by Price
+                  </label><br>
+                  <label>
+                     <input name="sort" type="radio" ng-model="$parent.sort" value="emp">
+                     Sort by Horse Power
+                  </label><br>
+                  <label>
+                     <input name="sort" type="radio" ng-model="$parent.sort" value="w">
+                     Sort by Weight
+                  </label><br>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</ul>
+
+<div ng-include="'app/layouts/sidebar/best-seller.html'"></div>

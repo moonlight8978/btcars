@@ -1,0 +1,29 @@
+
+<div>
+    <h2><span>Customer</span> {{vm.customer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row jh-entity-details">
+        <dt><span>Cart</span></dt>
+        <dd>
+            <span ng-repeat="cart in vm.customer.carts">
+                <a ui-sref="car-detail({id: cart.id})">{{cart.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{vm.customer.user.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="customer-detail.edit({id:vm.customer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

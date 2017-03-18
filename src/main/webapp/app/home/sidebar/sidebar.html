@@ -1,0 +1,41 @@
+<ul class="list-group sidebar-group">
+   <li class="list-group-item sidebar-list-title">
+      <i class="fa fa-folder-open-o"></i>
+      Manufactures
+   </li>
+   <div class="sidebar-list-body">
+      <a ui-sref="company({company:'ferrari'})"><li class="list-group-item">Ferrari</li></a>
+      <a ui-sref="company({company:'lamborghini'})"><li class="list-group-item">Lamborghini</li></a>
+      <a ui-sref="company({company:'porsche'})"><li class="list-group-item">Porsche</li></a>
+      <a ui-sref="company({company:'rollsroyce'})"><li class="list-group-item">Rolls-Royce</li></a>
+   </div>
+</ul>
+<div class="sidebar-group">
+   <div id="sideslide" class="carousel slide slide-custom" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+         <div class="item active">
+            <img ng-src="content/images/cars/{{ hots[0].id }}/1.jpg" alt="" />
+         </div>
+         <div class="item" ng-repeat="hot in hots" ng-if="$index >= 1">
+            <img ng-src="content/images/cars/{{ hot.id }}/1.jpg" alt="" />
+         </div>
+      </div>
+
+      <a class="slide-control slide-control-left" data-target="#sideslide" role="button" data-slide="prev">
+         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+         <span class="sr-only">Previous</span>
+      </a>
+      <a class="slide-control slide-control-right" data-target="#sideslide" role="button" data-slide="next">
+         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+         <span class="sr-only">Next</span>
+      </a>
+
+      <div class="caption">
+         Hot! Buy Now!
+      </div>
+   </div>
+</div>
+
+<div class="sidebar-group">
+   <div ng-include="'app/layouts/sidebar/best-seller.html'"></div>
+</div>

@@ -1,0 +1,98 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "cart",
+            "otherEntityName": "customer",
+            "relationshipType": "many-to-many",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "cart"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "make",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "model",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "trim",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ed",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ev",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "emp",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "w",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sold",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170309161920",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "car",
+    "pagination": "no"
+}

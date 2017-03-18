@@ -1,0 +1,66 @@
+<div class="col-sm-12">
+   <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
+      <li class="breadcrumb-item"><a ui-sref="cars">Cars</a></li>
+      <li class="breadcrumb-item active">{{ cars[0].make }}</li>
+   </ol>
+</div>
+
+<div class="col-sm-9 right-lg">
+   <div class="car-container">
+      <div class="car-container-title">
+         {{ cars[0].make }}
+      </div>
+      <div class="car-container-body">
+         <div class="col-sm-6 car-item-wrap car-item-wrap-2"
+                  ng-repeat="car in cars | priceFilter:range | horsePowerFilter:hpRange | orderBy:sort">
+            <div class="car-item">
+               <div class="car-img">
+                  <img class="img-responsive" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
+               </div>
+               <div class="car-info">
+                  <div>
+                     <a ui-sref="detail({id:{{ car.id }}})">
+                        <span>{{ car.make }}<span>
+                        <span>{{ car.model }}<span>
+                     </a>
+                  </div>
+                  <div>{{ car.year }}</div>
+                  <div class="price">${{ car.priceFix }}</div>
+               </div>
+               <div class="car-buy">
+                  <div class="col-sm-2 status status-instock" data-toggle="tooltip" title="IN STOCK"
+                           ng-show="(car.status == 1) && ((car.quantity - car.sold) != 0)">
+                        <i class="fa fa-check"></i>
+                  </div>
+                  <div class="col-sm-2 status status-outofstock" data-toggle="tooltip" title="OUT OF STOCK"
+                           ng-show="(car.status == 1) && ((car.quantity - car.sold) == 0)">
+                     <i class="fa fa-exclamation"></i>
+                  </div>
+                  <div class="col-sm-2 status status-suspended" data-toggle="tooltip" title="SUSPENDED TRADING"
+                           ng-show="(car.status == 0)">
+                     <i class="fa fa-times"></i>
+                  </div>
+                  <div role="button" class="col-sm-5 buy-now"
+                           ng-disabled="(car.status == 0) || ((car.quantity - car.sold) == 0)">
+                     <i class="fa fa-shopping-cart"></i>
+                     <span>buy now</span>
+                  </div>
+                  <div role="button" class="col-sm-5 add-to-cart" ng-click="vm.addItem(car)"
+                           ng-disabled="(car.status == 0) || ((car.quantity - car.sold) == 0)">
+                     <i class="fa fa-cart-plus"></i>
+                     <span>add to cart</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="clear"></div>
+      </div>
+   </div>
+</div>
+
+<div class="col-sm-3 left-lg sidebar">
+   <div ng-include="'app/cars/company/company-sidebar.html'"></div>
+</div>
+
+<div class="clearfix"></div>
