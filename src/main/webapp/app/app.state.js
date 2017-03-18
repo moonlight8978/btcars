@@ -22,13 +22,7 @@
                     function (Auth) {
                         return Auth.authorize();
                     }
-                ],
-                hot: function (getCarFactory) {
-                    var response = getCarFactory.getData('/api/cars/hot').then(function (data) {
-                        return data;
-                    });
-                    return response;
-                }
+                ]
             }
         });
     }

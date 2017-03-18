@@ -12,7 +12,8 @@
             parent: 'app',
             url: '/',
             data: {
-                authorities: []
+                authorities: [],
+                pageTitle: 'Home ・ BT Cars - Best Choice!'
             },
             views: {
                 'content@': {

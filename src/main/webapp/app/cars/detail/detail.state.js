@@ -12,7 +12,8 @@
             parent: 'cars',
             url: '/car?id',
             data: {
-                authorities: []
+                authorities: [],
+                pageTitle: 'BT Cars - Best Choice!'
             },
             views: {
                 'content@': {
