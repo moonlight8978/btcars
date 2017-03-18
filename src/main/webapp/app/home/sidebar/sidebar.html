@@ -14,9 +14,9 @@
    <div id="sideslide" class="carousel slide slide-custom" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
          <div class="item active">
-            <img ng-src="content/images/cars/{{ hots[0].id }}/1.jpg" alt="" />
+            <img ng-src="content/images/cars/{{ vm.hot[0].id }}/1.jpg" alt="" />
          </div>
-         <div class="item" ng-repeat="hot in hots" ng-if="$index >= 1">
+         <div class="item" ng-repeat="hot in vm.hot" ng-if="$index >= 1">
             <img ng-src="content/images/cars/{{ hot.id }}/1.jpg" alt="" />
          </div>
       </div>

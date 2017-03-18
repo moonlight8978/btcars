@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$localStorage', 'getCarFactory', 'CartService', 'hot', 'news', 'random'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$localStorage', 'getCarFactory', 'CartService'];
 
-    function HomeController ($scope, Principal, LoginService, $state, $localStorage, getCarFactory, CartService, hot, news, random) {
+    function HomeController ($scope, Principal, LoginService, $state, $localStorage, getCarFactory, CartService) {
         var vm = this;
 
         vm.account = null;
@@ -15,9 +15,13 @@
         vm.login = LoginService.open;
         vm.register = register;
         vm.addItem = CartService.addItem;
-
+        vm.hot = [];
+        vm.recommend = [];
+        vm.random = [];
+        vm.new = [];
         $localStorage.customer = {};
         $scope.$storage = $localStorage;
+
         $scope.$on('authenticationSuccess', function() {
             getAccount();
         });
@@ -34,6 +38,7 @@
         function register () {
             $state.go('register');
         }
+
         function getCart(id) {
             getCarFactory.getData('api/customers/user/' + id).then(function (customer) {
                 $localStorage.customer = customer.data;
@@ -46,14 +51,37 @@
             });
         }
 
-        $scope.hots = hot.data;
-        getCarFactory.priceWithCommas($scope.hots, true);
+        getCarFactory.getHotCar().then(function (responseHot) {
+            vm.hot = responseHot.data;
+            getCarFactory.priceWithCommas(vm.hot, true);
+        }, function (error) {
+            console.log('Error while getting hot cars!');
+        });
 
-        $scope.news = news.data;
-        getCarFactory.priceWithCommas($scope.news, true);
+        getCarFactory.getNewCar().then(function (responseNew) {
+            vm.new = responseNew.data;
+            getCarFactory.priceWithCommas(vm.new, true);
+        }, function (error) {
+            console.log('Error while getting new cars!');
+        });
 
-        $scope.random = random.data;
-        getCarFactory.priceWithCommas($scope.random, true);
+        getCarFactory.getRndCar().then(function (responseRandom) {
+            vm.random = responseRandom.data;
+            getCarFactory.priceWithCommas(vm.random, true);
+        }, function (error) {
+            console.log('Error while getting random cars!');
+        });
+
+        getCarFactory.getRecommendCar().then(function (responseRecommend) {
+            var recc = responseRecommend.data,
+                length = recc.length,
+                i;
+            for (i=0; i<length; i++)
+                vm.recommend.push(recc[i].car);
+            getCarFactory.priceWithCommas(vm.recommend, true);
+        }, function (error) {
+            console.log('Error while getting random cars!');
+        });
 
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();

@@ -3,11 +3,11 @@
 
     angular
         .module('btcarsApp')
-        .controller('companyController', companyController);
+        .controller('CompanyController', CompanyController);
 
-    companyController.$inject = ['$scope', 'Principal', 'LoginService', '$state', 'cars', 'hot', 'getCarFactory', 'CartService'];
+    CompanyController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$stateParams', 'getCarFactory', 'CartService'];
 
-    function companyController($scope, Principal, LoginService, $state, cars, hot, getCarFactory, CartService) {
+    function CompanyController($scope, Principal, LoginService, $state, $stateParams, getCarFactory, CartService) {
         var vm = this;
 
         vm.account = null;
@@ -16,6 +16,19 @@
         vm.register = register;
 
         vm.addItem = CartService.addItem;
+        vm.cars = [];
+        vm.hots = [];
+        vm.sort = 'id';
+        vm.range = {
+            min: 0,
+            max: 999999999
+        };
+        vm.setPriceFilter = setPriceFilter;
+        vm.hpRange = {
+            min: 0,
+            max: 99999
+        };
+        vm.setHpFilter = setHpFilter;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -33,34 +46,27 @@
             $state.go('register');
         }
 
-        $scope.cars = cars.data;
-        getCarFactory.priceWithCommas($scope.cars, true);
+        getCarFactory.getHotCar().then(function (responseHot) {
+            vm.hot = responseHot.data;
+            getCarFactory.priceWithCommas(vm.hot, true);
+        }, function (error) {
+            console.log('Error while getting hot cars!');
+        });
+        getCarFactory.getCarByCompany($stateParams.company).then(function (responseCarFilterByCompany) {
+            vm.cars = responseCarFilterByCompany.data;
+            getCarFactory.priceWithCommas(vm.cars, true);
+        }, function (error) {
+            console.log('Error while getting cars!');
+        });
 
-        $scope.hots = hot.data;
-        getCarFactory.priceWithCommas($scope.hots, true);
-
-        $scope.sort = 'id';
-
-        $scope.range = {
-            min: 0,
-            max: 999999999
-        };
-
-        $scope.hpRange ={
-            min: 0,
-            max: 99999
-        };
-
-
-        $scope.setPriceFilter = function (min, max) {
-            $scope.range.min = min;
-            $scope.range.max = max;
-        };
-
-        $scope.setHpFilter = function (min, max) {
-            $scope.hpRange.min = min;
-            $scope.hpRange.max = max;
-        };
+        function setPriceFilter(min, max) {
+            vm.range.min = min;
+            vm.range.max = max;
+        }
+        function setHpFilter(min, max) {
+            vm.hpRange.min = min;
+            vm.hpRange.max = max;
+        }
 
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();

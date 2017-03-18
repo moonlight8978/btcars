@@ -3,11 +3,11 @@
 
     angular
         .module('btcarsApp')
-        .controller('carController', carController);
+        .controller('CarController', CarController);
 
-    carController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$stateParams', 'hot', 'getCarFactory', 'CartService'];
+    CarController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$stateParams', 'getCarFactory', 'CartService'];
 
-    function carController($scope, Principal, LoginService, $state, $stateParams, hot, getCarFactory, CartService) {
+    function CarController($scope, Principal, LoginService, $state, $stateParams, getCarFactory, CartService) {
         var vm = this;
 
         vm.account = null;
@@ -16,6 +16,8 @@
         vm.register = register;
 
         vm.addItem = CartService.addItem;
+        vm.hot = [];
+        vm.car = {};
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -33,18 +35,21 @@
             $state.go('register');
         }
 
-        getCarFactory.getData('api/cars/' + $stateParams.id).then(function (car) {
-            $scope.car = car.data;
-            getCarFactory.priceWithCommas($scope.car, false);
+        getCarFactory.getCarById($stateParams.id).then(function (responseCar) {
+            vm.car = responseCar.data;
+            getCarFactory.priceWithCommas(vm.car, false);
+        }, function (error) {
+            console.log('Error while getting hot cars!');
         });
-
-
-        $scope.hots = hot.data;
-        getCarFactory.priceWithCommas($scope.hots, true);
+        getCarFactory.getHotCar().then(function (responseHot) {
+            vm.hot = responseHot.data;
+            getCarFactory.priceWithCommas(vm.hot, true);
+        }, function (error) {
+            console.log('Error while getting hot cars!');
+        });
 
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
         });
     }
-
 })();

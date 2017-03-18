@@ -21,20 +21,7 @@
                     controllerAs: 'vm'
                 }
             },
-            resolve: {
-                news: function (getCarFactory) {
-                    var response = getCarFactory.getData('api/cars/new').then(function (data) {
-                        return data;
-                    });
-                    return response;
-                },
-                random: function (getCarFactory) {
-                    var response = getCarFactory.getData('api/cars/random').then(function (data) {
-                        return data;
-                    });
-                    return response;
-                }
-            }
+            resolve: {}
         });
     }
 })();

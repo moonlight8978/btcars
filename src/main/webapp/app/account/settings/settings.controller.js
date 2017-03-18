@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('SettingsController', SettingsController);
 
-    SettingsController.$inject = ['Principal', 'Auth', 'getCarFactory', 'CartService', '$localStorage', '$scope'];
+    SettingsController.$inject = ['Principal', 'Auth', 'getCarFactory', 'CartService', '$localStorage'];
 
-    function SettingsController (Principal, Auth, getCarFactory, CartService, $localStorage, $scope) {
+    function SettingsController (Principal, Auth, getCarFactory, CartService, $localStorage) {
         var vm = this;
 
         vm.error = null;
@@ -16,7 +16,7 @@
         vm.success = null;
 
         vm.deleteItem = CartService.deleteItem;
-        $scope.$storage = $localStorage;
+        vm.$storage = $localStorage;
         /**
          * Store the "settings account" in a separate variable, and not in the shared "account" variable.
          */

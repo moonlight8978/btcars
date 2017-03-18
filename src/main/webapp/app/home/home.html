@@ -8,9 +8,9 @@
    <div id="homeslide" class="carousel slide slide-custom" data-ride="carousel">
       <div class="carousel-inner" role="listbox">
          <div class="item active">
-            <img ng-src="content/images/cars/{{ hots[0].id }}/1.jpg" alt="" width="600px">
+            <img ng-src="content/images/cars/{{ vm.hot[0].id }}/1.jpg" alt="" width="600px">
          </div>
-         <div class="item" ng-repeat="hot in hots" ng-if="$index >= 1">
+         <div class="item" ng-repeat="hot in vm.hot" ng-if="$index >= 1">
             <img ng-src="content/images/cars/{{ hot.id }}/1.jpg" alt="" width="600px">
          </div>
       </div>
@@ -31,7 +31,7 @@
             featured cars
          </div>
          <div class="car-container-body">
-            <div class="col-sm-4 car-item-wrap car-item-wrap-3" ng-repeat="car in random">
+            <div class="col-sm-4 car-item-wrap car-item-wrap-3" ng-repeat="car in vm.recommend">
                <div class="car-item">
                   <div class="car-img">
                      <img class="img-responsive" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
@@ -81,7 +81,7 @@
             new cars
          </div>
          <div class="car-container-body">
-            <div class="col-sm-4 car-item-wrap car-item-wrap-3" ng-repeat="car in news">
+            <div class="col-sm-4 car-item-wrap car-item-wrap-3" ng-repeat="car in vm.new">
                <div class="car-item">
                   <div class="car-img">
                      <img class="img-responsive" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
@@ -131,7 +131,7 @@
             random cars
          </div>
          <div class="car-container-body">
-            <div class="col-sm-4 car-item-wrap car-item-wrap-3" ng-repeat="car in random">
+            <div class="col-sm-4 car-item-wrap car-item-wrap-3" ng-repeat="car in vm.random">
                <div class="car-item">
                   <div class="car-img">
                      <img class="img-responsive" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
@@ -164,7 +164,7 @@
                         <i class="fa fa-shopping-cart"></i>
                         <span>Buy</span>
                      </div>
-                     <div role="button" class="col-sm-5 add-to-cart"
+                     <div role="button" class="col-sm-5 add-to-cart" ng-click="vm.addItem(car)"
                               ng-disabled="(car.status == 0) || ((car.quantity - car.sold) == 0)">
                         <i class="fa fa-cart-plus"></i>
                         <span>Cart</span>

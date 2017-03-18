@@ -17,18 +17,11 @@
             views: {
                 'content@': {
                     templateUrl: 'app/cars/company/company.html',
-                    controller: 'companyController',
+                    controller: 'CompanyController',
                     controllerAs: 'vm'
                 }
             },
-            resolve: {
-                cars: function (getCarFactory, $stateParams) {
-                    var response = getCarFactory.getData('/api/cars/' + $stateParams.company).then(function (response) {
-                        return response;
-                    });
-                    return response;
-                }
-            }
+            resolve: {}
         });
     }
 

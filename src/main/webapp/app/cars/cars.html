@@ -11,7 +11,7 @@
          All Cars
       </div>
       <div class="car-container-body">
-         <div class="col-sm-6 car-item-wrap car-item-wrap-2" ng-repeat="car in all | priceFilter:range | horsePowerFilter:hpRange | orderBy:sort">
+         <div class="col-sm-6 car-item-wrap car-item-wrap-2" ng-repeat="car in vm.all | priceFilter:vm.range | horsePowerFilter:vm.hpRange | orderBy:vm.sort">
             <div class="car-item">
                <div class="car-img">
                   <img class="img-responsive" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">

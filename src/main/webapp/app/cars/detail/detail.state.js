@@ -17,7 +17,7 @@
             views: {
                 'content@': {
                     templateUrl: 'app/cars/detail/detail.html',
-                    controller: 'carController',
+                    controller: 'CarController',
                     controllerAs: 'vm'
                 }
             }

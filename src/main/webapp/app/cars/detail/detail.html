@@ -3,10 +3,10 @@
       <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
       <li class="breadcrumb-item"><a ui-sref="cars">Cars</a></li>
       <li class="breadcrumb-item active">
-         {{ car.year }}
-         {{ car.make }}
-         {{ car.model }}
-         {{ car.trim }}
+         {{ vm.car.year }}
+         {{ vm.car.make }}
+         {{ vm.car.model }}
+         {{ vm.car.trim }}
       </li>
    </ol>
 </div>
@@ -18,19 +18,19 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                <div class="item active">
-                  <img ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
+                  <img ng-src="content/images/cars/{{ vm.car.id }}/1.jpg" alt="">
                   <div class="carousel-caption">
                   </div>
                </div>
                <div class="item">
-                  <img ng-src="content/images/cars/{{ car.id }}/2.jpg" alt="">
+                  <img ng-src="content/images/cars/{{ vm.car.id }}/2.jpg" alt="">
                   <div class="carousel-caption">
                      <h3></h3>
                      <p></p>
                   </div>
                </div>
                <div class="item">
-                  <img ng-src="content/images/cars/{{ car.id }}/3.jpg" alt="">
+                  <img ng-src="content/images/cars/{{ vm.car.id }}/3.jpg" alt="">
                   <div class="carousel-caption">
                      <h3></h3>
                      <p></p>
@@ -49,57 +49,57 @@
             <!-- Indicators -->
             <ol class="carousel-indicators detail-indicators">
                <img data-target="#slidedetail" data-slide-to="0" class="img-thumbnail active"
-                     ng-src="content/images/cars/{{ car.id }}/1.jpg">
+                     ng-src="content/images/cars/{{ vm.car.id }}/1.jpg">
                <img data-target="#slidedetail" data-slide-to="1" class="img-thumbnail"
-                     ng-src="content/images/cars/{{ car.id }}/2.jpg">
+                     ng-src="content/images/cars/{{ vm.car.id }}/2.jpg">
                <img data-target="#slidedetail" data-slide-to="2"  class="img-thumbnail"
-                     ng-src="content/images/cars/{{ car.id }}/3.jpg">
+                     ng-src="content/images/cars/{{ vm.car.id }}/3.jpg">
             </ol>
          </div>
       </div>
 
       <div class="col-sm-7 detail-buy">
          <h2>
-            {{ car.year }}
-            {{ car.make }}
-            {{ car.model }}
-            {{ car.trim }}
+            {{ vm.car.year }}
+            {{ vm.car.make }}
+            {{ vm.car.model }}
+            {{ vm.car.trim }}
          </h2>
 
          <div class="code">
-            No. {{ car.id }}
+            No. {{ vm.car.id }}
          </div>
 
          <div class="info">
-            <strong>Model:</strong> {{ car.make }} {{ car.model }}<br>
-            <strong>Trim:</strong> {{ car.trim }}<br>
-            <strong>Year:</strong> {{ car.year }}
+            <strong>Model:</strong> {{ vm.car.make }} {{ vm.car.model }}<br>
+            <strong>Trim:</strong> {{ vm.car.trim }}<br>
+            <strong>Year:</strong> {{ vm.car.year }}
          </div>
 
          <div class="price">
-            ${{ car.priceFix }}
+            ${{ vm.car.priceFix }}
          </div>
 
          <div class="car-buy">
             <div class="col-sm-2 status status-instock" data-toggle="tooltip" title="IN STOCK"
-                     ng-show="(car.status == 1) && ((car.quantity - car.sold) != 0)">
+                     ng-show="(vm.car.status == 1) && ((vm.car.quantity - vm.car.sold) != 0)">
                   <i class="fa fa-check"></i>
             </div>
             <div class="col-sm-2 status status-outofstock" data-toggle="tooltip" title="OUT OF STOCK"
-                     ng-show="(car.status == 1) && ((car.quantity - car.sold) == 0)">
+                     ng-show="(vm.car.status == 1) && ((vm.car.quantity - vm.car.sold) == 0)">
                <i class="fa fa-exclamation"></i>
             </div>
             <div class="col-sm-2 status status-suspended" data-toggle="tooltip" title="SUSPENDED TRADING"
-                     ng-show="(car.status == 0)">
+                     ng-show="(vm.car.status == 0)">
                <i class="fa fa-times"></i>
             </div>
             <div role="button" class="col-sm-5 buy-now"
-                     ng-disabled="(car.status == 0) || ((car.quantity - car.sold) == 0)">
+                     ng-disabled="(vm.car.status == 0) || ((vm.car.quantity - vm.car.sold) == 0)">
                <i class="fa fa-shopping-cart"></i>
                <span>buy now</span>
             </div>
-            <div role="button" class="col-sm-5 add-to-cart" ng-click="vm.addItem(car)"
-                     ng-disabled="(car.status == 0) || ((car.quantity - car.sold) == 0)">
+            <div role="button" class="col-sm-5 add-to-cart" ng-click="vm.addItem(vm.car)"
+                     ng-disabled="(vm.car.status == 0) || ((vm.car.quantity - vm.car.sold) == 0)">
                <i class="fa fa-cart-plus"></i>
                <span>add to cart</span>
             </div>
@@ -124,50 +124,50 @@
             <table>
                <tr>
                   <th>Make</th>
-                  <td>{{ car.make }}</td>
+                  <td>{{ vm.car.make }}</td>
                </tr>
                <tr>
                   <th>Model</th>
-                  <td>{{ car.model }}</td>
+                  <td>{{ vm.car.model }}</td>
                </tr>
                <tr>
                   <th>Trim</th>
-                  <td>{{ car.trim }}</td>
+                  <td>{{ vm.car.trim }}</td>
                </tr>
                <tr>
                   <th>Year</th>
-                  <td>{{ car.year }}</td>
+                  <td>{{ vm.car.year }}</td>
                </tr>
                <tr>
                   <th>Country</th>
-                  <td>{{ car.country }}</td>
+                  <td>{{ vm.car.country }}</td>
                </tr>
                <tr>
                   <th>Engine Displacement (Litre)</th>
                   <td>
-                     <span ng-show="car.ed">{{ car.ed }}</span>
-                     <span ng-hide="car.ed">Unavailable</span>
+                     <span ng-show="vm.car.ed">{{ vm.car.ed }}</span>
+                     <span ng-hide="vm.car.ed">Unavailable</span>
                   </td>
                </tr>
                <tr>
                   <th>Engine Valves</th>
                   <td>
-                     <span ng-show="car.ev">{{ car.ev }}</span>
-                     <span ng-hide="car.ev">Unavailable</span>
+                     <span ng-show="vm.car.ev">{{ vm.car.ev }}</span>
+                     <span ng-hide="vm.car.ev">Unavailable</span>
                   </td>
                </tr>
                <tr>
                   <th>Engine Max Power (HP)</th>
                   <td>
-                     <span ng-show="car.emp">{{ car.emp }}</span>
-                     <span ng-hide="car.emp">Unavailable</span>
+                     <span ng-show="vm.car.emp">{{ vm.car.emp }}</span>
+                     <span ng-hide="vm.car.emp">Unavailable</span>
                   </td>
                </tr>
                <tr>
                   <th>Weight (kg)</th>
                   <td>
-                     <span ng-show="car.w">{{ car.w }}</span>
-                     <span ng-hide="car.w">Unavailable</span>
+                     <span ng-show="vm.car.w">{{ vm.car.w }}</span>
+                     <span ng-hide="vm.car.w">Unavailable</span>
                   </td>
                </tr>
             </table>

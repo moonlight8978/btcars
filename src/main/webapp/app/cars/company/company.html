@@ -2,18 +2,18 @@
    <ol class="breadcrumb">
       <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
       <li class="breadcrumb-item"><a ui-sref="cars">Cars</a></li>
-      <li class="breadcrumb-item active">{{ cars[0].make }}</li>
+      <li class="breadcrumb-item active">{{ vm.cars[0].make }}</li>
    </ol>
 </div>
 
 <div class="col-sm-9 right-lg">
    <div class="car-container">
       <div class="car-container-title">
-         {{ cars[0].make }}
+         {{ vm.cars[0].make }}
       </div>
       <div class="car-container-body">
          <div class="col-sm-6 car-item-wrap car-item-wrap-2"
-                  ng-repeat="car in cars | priceFilter:range | horsePowerFilter:hpRange | orderBy:sort">
+                  ng-repeat="car in vm.cars | priceFilter:vm.range | horsePowerFilter:vm.hpRange | orderBy:vm.sort">
             <div class="car-item">
                <div class="car-img">
                   <img class="img-responsive" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
