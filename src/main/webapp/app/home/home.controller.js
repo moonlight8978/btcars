@@ -14,13 +14,14 @@
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
         vm.register = register;
+
         vm.addItem = CartService.addItem;
         vm.hot = [];
         vm.recommend = [];
         vm.random = [];
         vm.new = [];
+
         $localStorage.customer = {};
-        $scope.$storage = $localStorage;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -32,7 +33,8 @@
             Principal.identity().then(function(account) {
                 vm.account = account;
                 vm.isAuthenticated = Principal.isAuthenticated;
-                getCart(account.id);
+                if (vm.account !== null)
+                    getCart(vm.account.id);
             });
         }
         function register () {

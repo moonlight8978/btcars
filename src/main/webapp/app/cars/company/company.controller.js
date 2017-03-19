@@ -5,15 +5,10 @@
         .module('btcarsApp')
         .controller('CompanyController', CompanyController);
 
-    CompanyController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$stateParams', 'getCarFactory', 'CartService'];
+    CompanyController.$inject = ['$stateParams', 'getCarFactory', 'CartService'];
 
-    function CompanyController($scope, Principal, LoginService, $state, $stateParams, getCarFactory, CartService) {
+    function CompanyController($stateParams, getCarFactory, CartService) {
         var vm = this;
-
-        vm.account = null;
-        vm.isAuthenticated = null;
-        vm.login = LoginService.open;
-        vm.register = register;
 
         vm.addItem = CartService.addItem;
         vm.cars = [];
@@ -29,22 +24,6 @@
             max: 99999
         };
         vm.setHpFilter = setHpFilter;
-
-        $scope.$on('authenticationSuccess', function() {
-            getAccount();
-        });
-
-        getAccount();
-
-        function getAccount() {
-            Principal.identity().then(function(account) {
-                vm.account = account;
-                vm.isAuthenticated = Principal.isAuthenticated;
-            });
-        }
-        function register () {
-            $state.go('register');
-        }
 
         getCarFactory.getHotCar().then(function (responseHot) {
             vm.hot = responseHot.data;

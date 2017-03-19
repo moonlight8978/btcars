@@ -6,10 +6,6 @@ body {
     color: #333;
 }
 
-* {
-   border-radius: 0 !important;
-}
-
 /* ==========================================================================
 Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 ========================================================================== */
@@ -400,6 +396,8 @@ a {
    }
 }
 
+* {border-radius: 0 !important;}
+
 .container {background: $bgColor;}
 
 .clear {clear: both;}
@@ -449,6 +447,7 @@ a {
       th, td {display: table-cell !important;}
       th {width: 30%;}
    }
+   .navbar-right {margin-right: 0 !important;}
 }
 @media (min-width: 992px) {
    .container {
@@ -471,6 +470,24 @@ a {
 //          Navbar
 // ****************************************
 // ****************************************
+.navbar-collapse {
+   padding: 0 !important;
+   overflow-x: hidden;
+}
+
+.nav > li > a {text-align: center;}
+
+.dropdown-menu > li > a {text-align: center;}
+
+.dropdown-hover {
+   position: relative;
+   .dropdown-menu {
+      top: 0;
+      left: 100%;
+   }
+   &:hover .dropdown-menu {display: block;}
+}
+
 
 // END NAVBAR
 

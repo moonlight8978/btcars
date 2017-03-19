@@ -3,9 +3,6 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333; }
 
-* {
-  border-radius: 0 !important; }
-
 /* ==========================================================================
 Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 ========================================================================== */
@@ -362,6 +359,9 @@ a {
     text-decoration: none !important;
     color: #1f2228; }
 
+* {
+  border-radius: 0 !important; }
+
 .container {
   background: #e0f2f6; }
 
@@ -415,7 +415,9 @@ a {
   .detail-specs table th, .detail-specs table td {
     display: table-cell !important; }
   .detail-specs table th {
-    width: 30%; } }
+    width: 30%; }
+  .navbar-right {
+    margin-right: 0 !important; } }
 
 @media (min-width: 992px) {
   .container {
@@ -428,6 +430,24 @@ a {
     padding: 0 30px !important; }
   .control {
     visibility: visible !important; } }
+
+.navbar-collapse {
+  padding: 0 !important;
+  overflow-x: hidden; }
+
+.nav > li > a {
+  text-align: center; }
+
+.dropdown-menu > li > a {
+  text-align: center; }
+
+.dropdown-hover {
+  position: relative; }
+  .dropdown-hover .dropdown-menu {
+    top: 0;
+    left: 100%; }
+  .dropdown-hover:hover .dropdown-menu {
+    display: block; }
 
 .slide-custom {
   background: #fff; }

@@ -119,73 +119,66 @@ public class CarResource {
     }
 	
 	/* ----- Get Top6 Sold Cars ----- */
-	@GetMapping("/cars/hot")
-	@Timed
-	public ResponseEntity<List<Car>> getTop5Sold() {
-		List<Car> list = carRepository.findTop5ByOrderBySoldDesc();
-		if (list.isEmpty())
-			return new ResponseEntity<List<Car>>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<List<Car>>(list, HttpStatus.OK);
-	}
-	
-	/* ----- Get Top3 New Cars ----- */
+    @GetMapping("/cars/hot")
+    @Timed
+    public List<Car> getTop5Sold() {
+        log.debug("REST request to get all Cars");
+        List<Car> cars = carRepository.findTop5ByOrderBySoldDesc();
+        return cars;
+    }
+    
+    /* ----- Get Top3 New Cars ----- */
 	@GetMapping("/cars/new")
 	@Timed
-	public ResponseEntity<List<Car>> getTop3New() {
-		List<Car> list = carRepository.findTop3ByOrderByIdDesc();
-		if (list.isEmpty())
-			return new ResponseEntity<List<Car>>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<List<Car>>(list, HttpStatus.OK);
-	}
+    public List<Car> getTop3New() {
+        log.debug("REST request to get all Cars");
+        List<Car> cars = carRepository.findTop3ByOrderByIdDesc();
+        return cars;
+    }
 	
 	/* ----- Get Top3 Random Cars ----- */
 	@GetMapping("/cars/random")
 	@Timed
-	public ResponseEntity<List<Car>> getTop3Rand() {
-		List<Car> list = carRepository.findTop3Rand();
-		if (list.isEmpty())
-			return new ResponseEntity<List<Car>>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<List<Car>>(list, HttpStatus.OK);
-	}
+    public List<Car> getTop3Rand() {
+        log.debug("REST request to get all Cars");
+        List<Car> cars = carRepository.findTop3Rand();
+        return cars;
+    }
 	
 	/* ----- Get Lamborghini Cars ----- */
 	@GetMapping("/cars/lamborghini")
 	@Timed
-	public ResponseEntity<List<Car>> getLamborghini() {
-		List<Car> list = carRepository.findByMake("Lamborghini");
-		if (list.isEmpty())
-			return new ResponseEntity<List<Car>>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<List<Car>>(list, HttpStatus.OK);
-	}
+    public List<Car> getLamborghini() {
+        log.debug("REST request to get all Cars");
+        List<Car> cars = carRepository.findByMake("Lamborghini");
+        return cars;
+    }
 	
 	/* ----- Get Ferrari Cars ----- */
 	@GetMapping("/cars/ferrari")
 	@Timed
-	public ResponseEntity<List<Car>> getFerrari() {
-		List<Car> list = carRepository.findByMake("Ferrari");
-		if (list.isEmpty())
-			return new ResponseEntity<List<Car>>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<List<Car>>(list, HttpStatus.OK);
-	}
+    public List<Car> getFerrari() {
+        log.debug("REST request to get all Cars");
+        List<Car> cars = carRepository.findByMake("Ferrari");
+        return cars;
+    }
 	
 	/* ----- Get Porsche Cars ----- */
 	@GetMapping("/cars/porsche")
 	@Timed
-	public ResponseEntity<List<Car>> getPorsche() {
-		List<Car> list = carRepository.findByMake("Porsche");
-		if (list.isEmpty())
-			return new ResponseEntity<List<Car>>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<List<Car>>(list, HttpStatus.OK);
-	}
+    public List<Car> getPorsche() {
+        log.debug("REST request to get all Cars");
+        List<Car> cars = carRepository.findByMake("Porsche");
+        return cars;
+    }
 	
 	/* ----- Get Rolls-Royces Cars ----- */
 	@GetMapping("/cars/rollsroyce")
 	@Timed
-	public ResponseEntity<List<Car>> getRollsRoyce() {
-		List<Car> list = carRepository.findByMake("Rolls-Royce");
-		if (list.isEmpty())
-			return new ResponseEntity<List<Car>>(HttpStatus.NOT_FOUND);
-		return new ResponseEntity<List<Car>>(list, HttpStatus.OK);
-	}
+    public List<Car> getRollsRoyce() {
+        log.debug("REST request to get all Cars");
+        List<Car> cars = carRepository.findByMake("Rolls-Royce");
+        return cars;
+    }
 
 }

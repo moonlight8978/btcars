@@ -60,8 +60,9 @@
         }
 
         function calTotalPrice(array) {
-            let total = 0;
-            for (var i = 0; i < array.length; i++)
+            var total = 0,
+                i;
+            for (i = 0; i < array.length; i++)
                 total += array[i].price;
             return total;
         }
