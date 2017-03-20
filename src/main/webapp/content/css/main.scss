@@ -419,11 +419,12 @@ a {
 }
 
 @media (min-width: 768px) {
-   .sidebar {margin-top: 0 !important;}
-   .container {
-      width: 970px !important;
-      padding: 0 20px !important;
+   .sidebar {
+      margin-top: 0 !important;
+      width: 30% !important;
    }
+   .content-container {width: 70% !important;}
+   .container {padding: 0 20px !important;}
    .car-item-wrap-3 {
       &:nth-child(1){padding-right: 10px !important;}
       &:nth-child(2){padding-left: 5px !important; padding-right: 5px !important;}
@@ -434,6 +435,7 @@ a {
       &:nth-child(even){padding-left: 15px !important;}
    }
    .car-buy {
+      font-size: 0.9em !important;
       .status {border-right: 1px solid $bgMain;}
       .buy-now {
          border-left: 1px solid $bgMain;
@@ -450,10 +452,13 @@ a {
    .navbar-right {margin-right: 0 !important;}
 }
 @media (min-width: 992px) {
-   .container {
-      width: 970px !important;
-      padding: 30px !important;
+   .container {padding: 0 30px !important;}
+   .sidebar {
+      margin-top: 0 !important;
+      width: 25% !important;
    }
+   .content-container {width: 75% !important;}
+   .car-buy {font-size: 1.1em !important;}
 }
 
 @media (min-width: 1200px) {
@@ -488,6 +493,204 @@ a {
    &:hover .dropdown-menu {display: block;}
 }
 
+.mainmenu {
+   .head {
+      position: relative;
+      text-align: center;
+      .title {
+         font-size: 1.3em;
+         line-height: 44px;
+      }
+      .navbar-toggle {
+         position: absolute;
+         top: -2px;
+         right: 10px;
+      }
+   }
+   .nav > li span {
+      text-transform: uppercase;
+      font-size: 1.3em;
+      color: $textColorDarkBg;
+   }
+}
+
+//media main mainmenu
+@media (min-width: 768px) {
+   .mainmenu.navbar {
+      background-color: transparent !important;
+      border: 0 !important;
+      margin-bottom: 0;
+      .navbar-nav {
+         display: table;
+         width: 100%;
+      }
+   }
+   .mainmenu-item {
+      position: relative;
+      display: table-cell !important;
+      height: 86px !important;
+      padding-right: 1px;
+      > a {
+         padding-top: 30px !important;
+         padding-bottom: 30px !important;
+         text-align: center !important;
+         transition: background-color 0.1s ease;
+      }
+      &:last-child {padding-right: 0;}
+   }
+   .mainmenu-home {
+      width: 21%;
+      a {background-color: $navhome !important;}
+   }
+   .mainmenu-all {
+      width: 21%;
+      a {background-color: $navall !important;}
+   }
+   .mainmenu-contacts {
+      width: 21%;
+      a {background-color: $navcontacts !important;}
+   }
+   .mainmenu-about {
+      width: 21%;
+      a {background-color: $navabout !important;}
+   }
+   .mainmenu-search {
+      width: 16%;
+      a {background-color: $navsearch !important;}
+   }
+}
+
+@media (min-width: 992px) {
+   .mainmenu.navbar {
+      background-color: transparent !important;
+      border: 0 !important;
+      margin-bottom: 0;
+      .navbar-nav {
+         display: table;
+         width: 100%;
+      }
+   }
+   .mainmenu-item {
+      position: relative;
+      display: table-cell !important;
+      height: 86px !important;
+      padding-right: 1px;
+      > a {
+         padding-top: 40px !important;
+         padding-left: 20px !important;
+         height: 32px;
+         text-align: left !important;
+         height: 100%;
+         transition: background-color 0.1s ease;
+      }
+      .icon {
+         position: absolute;
+         top: 15px;
+         right: 20px;
+         transition: right 0.3s ease;
+         i {font-size: 1.3em;}
+      }
+      &:last-child {padding-right: 0;}
+      &:hover {
+         a {background-color: $navhover !important;}
+         .icon {right: 35px;}
+      }
+   }
+   .mainmenu-home {
+      width: 21%;
+      a {background-color: $navhome !important;}
+   }
+   .mainmenu-all {
+      width: 21%;
+      a {background-color: $navall !important;}
+   }
+   .mainmenu-contacts {
+      width: 21%;
+      a {background-color: $navcontacts !important;}
+   }
+   .mainmenu-about {
+      width: 21%;
+      a {background-color: $navabout !important;}
+   }
+   .mainmenu-search {
+      width: 16%;
+      a {background-color: $navsearch !important;}
+   }
+}
+
+.nav-middle {
+   margin: 20px 0;
+   > div, .logo {
+      padding-left: 0;
+      padding-right: 0;
+   }
+   .logo img {
+      max-width: 300px;
+      margin: auto;
+   }
+   .worktime {
+      text-align: center;
+      .phone {
+         padding: 10px 0 5px 0;
+         color: $phone;
+         font-size: 1.7em;
+         font-weight: bold;
+      }
+   }
+   .mini-nav {
+      font-size: 0;
+      padding-top: 10px;
+      > div {
+         width: 121px;
+         margin: auto;
+      }
+      .mini-nav-item {
+         margin-right: 1px;
+         display: inline-block;
+         a {
+            display: block;
+            font-size: 22px;
+            color: $textColorDarkBg;
+            width: 60px;
+            text-align: center;
+            padding: 15px 0;
+            &.nav-cart {background-color: $navcart;}
+            &.nav-total {background-color: $navtotal;}
+         }
+         &:last-child {margin-right: 0;}
+      }
+   }
+}
+
+//media for nav-middle
+@media (min-width: 768px) {
+   .mini-nav {
+      margin: 0 !important;
+      > div {float: right !important;}
+   }
+   .logo img {
+      max-width: 100% !important;
+      margin: 0 !important;
+   }
+}
+
+@media (min-width: 992px) {
+   .logo img {
+      max-width: 240px !important;
+   }
+}
+
+.nav-top {
+   min-height: auto;
+   margin: 0 !important;
+   background-color: $bgMain;
+   .navbar-nav > li > a {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      font-size: 0.9em;
+      color: $defaultTextColor;
+   }
+}
 
 // END NAVBAR
 
