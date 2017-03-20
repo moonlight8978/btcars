@@ -3,11 +3,11 @@
 
     angular
         .module('btcarsApp')
-        .controller('CarController', CarController);
+        .controller('DetailController', DetailController);
 
-    CarController.$inject = ['$stateParams', 'getCarFactory', 'CartService'];
+    DetailController.$inject = ['$stateParams', 'getCarFactory', 'CartService'];
 
-    function CarController($stateParams, getCarFactory, CartService) {
+    function DetailController($stateParams, getCarFactory, CartService) {
         var vm = this;
 
         vm.addItem = CartService.addItem;
@@ -18,7 +18,7 @@
             vm.car = responseCar.data;
             getCarFactory.priceWithCommas(vm.car, false);
         }, function (error) {
-            console.log('Error while getting hot cars!');
+            console.log('Error while getting car!');
         });
         getCarFactory.getHotCar().then(function (responseHot) {
             vm.hot = responseHot.data;
