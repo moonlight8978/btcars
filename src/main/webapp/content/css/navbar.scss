@@ -1,0 +1,246 @@
+@import "color";
+
+.navbar-collapse {
+   padding: 0 !important;
+   overflow-x: hidden;
+}
+
+.nav > li > a {text-align: center;}
+
+.navbar-nav {margin: 0 -15px;}
+@media (min-width: 768px) { .navbar-nav {
+   float: left ;
+   margin: 0;
+}}
+
+.navbar {
+   min-height: auto;
+   margin: 0 !important;
+   background-color: $bgMain;
+   border: 0 !important;
+   .head {
+      position: relative;
+      text-align: center;
+      .title {
+         font-size: 1.3em;
+         line-height: 44px;
+      }
+      .navbar-toggle {
+         position: absolute;
+         top: -2px;
+         right: 10px;
+      }
+   }
+}
+
+// ****************************************
+// ****************************************
+//          nav top
+// ****************************************
+// ****************************************
+.nav-top {
+   a {
+      color: $defaultTextColor !important;
+      background-color: transparent !important;
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+      font-size: 0.9em;
+      &:hover {
+         color: $linkHover !important;
+      }
+   }
+   .nav > li > a {
+      border-bottom: 1px solid $lighterBorder !important;
+   }
+   #logout > a {
+      border-bottom: 0px;
+   }
+}
+
+.dropdown-menu {
+   border: 0 !important;
+   border-bottom: 1px solid $lighterBorder !important;
+   background-color: $bgMain !important;
+   box-shadow: none !important;
+   > li > a {text-align: center;}
+}
+
+.dropdown-hover {
+   position: relative;
+   .dropdown-menu {
+      top: 0;
+      left: 100%;
+   }
+   &:hover .dropdown-menu {display: block;}
+}
+
+@media (min-width: 992px) {
+   .dropdown-menu {
+      border-bottom: 0 !important;
+   }
+}
+// END nav top
+
+
+// ****************************************
+// ****************************************
+//          nav middle
+// ****************************************
+// ****************************************
+.nav-middle {
+   margin: 20px 0;
+   > div, .logo {
+      padding-left: 0;
+      padding-right: 0;
+   }
+   .logo img {
+      max-width: 300px;
+      margin: auto;
+   }
+   .worktime {
+      text-align: center;
+      .phone {
+         padding: 10px 0 5px 0;
+         color: $phone;
+         font-size: 1.7em;
+         font-weight: bold;
+      }
+   }
+   .mini-nav {
+      font-size: 0;
+      padding-top: 10px;
+      > div {
+         width: 120px;
+         margin: auto;
+      }
+      .mini-nav-item {
+         display: inline-block;
+         a {
+            display: block;
+            font-size: 22px;
+            color: $textColorDarkBg;
+            width: 60px;
+            text-align: center;
+            padding: 15px 0;
+            border-left: 1px solid $bgColor;
+            &.nav-cart {background-color: $navcart;}
+            &.nav-total {background-color: $navtotal;}
+         }
+         &.cart:hover a {background-color: $navcartHover;}
+         &.total:hover a {background-color: $navtotalHover;}
+      }
+   }
+}
+
+//media for nav-middle
+@media (min-width: 768px) {
+   .mini-nav {
+      margin: 0 !important;
+      > div {float: right !important;}
+   }
+   .logo img {
+      max-width: 100% !important;
+      margin: 0 !important;
+   }
+}
+
+@media (min-width: 992px) {
+   .logo img {
+      max-width: 240px !important;
+   }
+}
+//END nav middle
+
+
+// ****************************************
+// ****************************************
+//          main menu
+// ****************************************
+// ****************************************
+.mainmenu {
+   a {
+      color: $defaultTextColor !important;
+      background-color: transparent !important;
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      font-size: 1.3em;
+      > i {
+         padding-right: 5px;
+      }
+      &:hover {
+         color: $linkHover !important;
+      }
+   }
+   .nav > li > a {
+      border-bottom: 1px solid $lighterBorder !important;
+   }
+}
+
+//media main mainmenu
+@media (min-width: 768px) {
+   .mainmenu .nav > li span {color: $textColorDarkBg !important;}
+   .mainmenu.navbar {
+      background-color: transparent !important;
+      border: 0 !important;
+      margin-bottom: 0;
+      .navbar-nav {
+         display: table;
+         width: 100%;
+      }
+   }
+   .mainmenu-item {
+      position: relative;
+      display: table-cell !important;
+      height: 86px !important;
+      > a {
+         padding-top: 30px !important;
+         padding-bottom: 30px !important;
+         text-align: center !important;
+         transition: background-color 0.1s ease;
+         border-right: 1px solid $bgColor;
+      }
+      &:last-child {border-right: 0;}
+      &:hover a {background-color: $navhover !important;}
+   }
+   .mainmenu-home {
+      width: 21%;
+      a {background-color: $navhome !important;}
+   }
+   .mainmenu-all {
+      width: 21%;
+      a {background-color: $navall !important;}
+   }
+   .mainmenu-contacts {
+      width: 21%;
+      a {background-color: $navcontacts !important;}
+   }
+   .mainmenu-about {
+      width: 21%;
+      a {background-color: $navabout !important;}
+   }
+   .mainmenu-search {
+      width: 16%;
+      a {background-color: $navsearch !important;}
+   }
+}
+
+@media (min-width: 992px) {
+   .mainmenu-item {
+      > a {
+         padding-top: 40px !important;
+         text-align: left !important;
+      }
+      .icon {
+         position: absolute;
+         top: 15px;
+         right: 20px;
+         transition: right 0.3s ease;
+         i {font-size: 1.3em;}
+      }
+      &:hover .icon {right: 35px;}
+   }
+}
+
+//END main menu

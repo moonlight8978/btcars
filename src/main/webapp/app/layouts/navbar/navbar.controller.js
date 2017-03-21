@@ -5,12 +5,13 @@
         .module('btcarsApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService'];
+    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService', '$localStorage'];
 
-    function NavbarController ($state, Auth, Principal, ProfileService, LoginService) {
+    function NavbarController ($state, Auth, Principal, ProfileService, LoginService, $localStorage) {
         var vm = this;
 
         vm.isNavbarCollapsed = true;
+        vm.isMenuCollapsed = true;
         vm.isAuthenticated = Principal.isAuthenticated;
 
         ProfileService.getProfileInfo().then(function(response) {
@@ -22,7 +23,10 @@
         vm.logout = logout;
         vm.toggleNavbar = toggleNavbar;
         vm.collapseNavbar = collapseNavbar;
+        vm.toggleMenu = toggleMenu;
+        vm.collapseMenu = collapseMenu;
         vm.$state = $state;
+        vm.$storage = $localStorage;
 
         function login() {
             collapseNavbar();
@@ -42,5 +46,17 @@
         function collapseNavbar() {
             vm.isNavbarCollapsed = true;
         }
+
+        function toggleMenu() {
+            vm.isMenuCollapsed = !vm.isMenuCollapsed;
+        }
+
+        function collapseMenu() {
+            vm.isMenuCollapsed = true;
+        }
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     }
 })();
