@@ -378,6 +378,10 @@ a {
 
 * {border-radius: 0 !important;}
 
+*:focus {
+   outline: none;
+}
+
 .container {background: $bgColor;}
 
 .clear {clear: both;}

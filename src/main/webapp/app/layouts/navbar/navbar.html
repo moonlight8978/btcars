@@ -174,7 +174,7 @@
 
       <div class="navbar-collapse" uib-collapse="vm.isMenuCollapsed" ng-switch="vm.isAuthenticated()">
          <ul class="nav navbar-nav">
-            <li class="mainmenu-item mainmenu-home">
+            <li class="mainmenu-item mainmenu-home" ng-class="{'search-enable': vm.isSearchEnable}">
                <a ui-sref="home" ng-click="vm.collapseMenu()">
                   <i class="fa fa-home hidden-sm hidden-md hidden-lg"></i>
                   <span>Home</span>
@@ -183,7 +183,7 @@
                   </span>
                </a>
             </li>
-            <li class="mainmenu-item mainmenu-all">
+            <li class="mainmenu-item mainmenu-all" ng-class="{'search-enable': vm.isSearchEnable}">
                <a ui-sref="cars" ng-click="vm.collapseMenu()">
                   <i class="fa fa-car hidden-sm hidden-md hidden-lg"></i>
                   <span>All Cars</span>
@@ -192,7 +192,7 @@
                   </span>
                </a>
             </li>
-            <li class="mainmenu-item mainmenu-contacts">
+            <li class="mainmenu-item mainmenu-contacts" ng-class="{'search-enable': vm.isSearchEnable}">
                <a ui-sref="contacts" ng-click="vm.collapseMenu()">
                   <i class="fa fa-map-marker hidden-sm hidden-md hidden-lg"></i>
                   <span>Contacts</span>
@@ -201,7 +201,7 @@
                   </span>
                </a>
             </li>
-            <li class="mainmenu-item mainmenu-about">
+            <li class="mainmenu-item mainmenu-about" ng-class="{'search-enable': vm.isSearchEnable}">
                <a ui-sref="about" ng-click="vm.collapseMenu()">
                   <i class="fa fa-question hidden-sm hidden-md hidden-lg"></i>
                   <span>About us</span>
@@ -210,13 +210,30 @@
                   </span>
                </a>
             </li>
-            <li class="mainmenu-item mainmenu-search">
+            <li class="mainmenu-item mainmenu-search" ng-class="{'search-enable': vm.isSearchEnable}">
                <a>
-                  <i class="fa fa-search hidden-sm hidden-md hidden-lg"></i>
-                  <span>Search</span>
-                  <span class="icon hidden-xs hidden-sm">
-                     <i class="fa fa-search"></i>
-                  </span>
+                  <div class="search-wrap" ng-click="vm.enableSearch()" ng-class="{'search-enable': vm.isSearchEnable}">
+                     <i class="fa fa-search hidden-sm hidden-md hidden-lg"></i>
+                     <span>Search</span>
+                     <span class="icon hidden-xs hidden-sm">
+                        <i class="fa fa-search"></i>
+                     </span>
+                  </div>
+                  <div class="searchbar">
+                     <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                           <input type="text" class="form-control" placeholder="Search...">
+                           <span class="input-group-btn">
+                              <button class="btn btn-info btn-lg" type="button">
+                                 <i class="glyphicon glyphicon-search"></i>
+                              </button>
+                              <button class="btn btn-info btn-lg" type="button">
+                                 <i class="fa fa-times" ng-click="vm.disableSearch()"></i>
+                              </button>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
                </a>
             </li>
          </ul>

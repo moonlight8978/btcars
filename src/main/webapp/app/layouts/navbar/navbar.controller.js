@@ -12,6 +12,7 @@
 
         vm.isNavbarCollapsed = true;
         vm.isMenuCollapsed = true;
+        vm.isSearchEnable = false;
         vm.isAuthenticated = Principal.isAuthenticated;
 
         ProfileService.getProfileInfo().then(function(response) {
@@ -25,6 +26,8 @@
         vm.collapseNavbar = collapseNavbar;
         vm.toggleMenu = toggleMenu;
         vm.collapseMenu = collapseMenu;
+        vm.enableSearch = enableSearch;
+        vm.disableSearch = disableSearch;
         vm.$state = $state;
         vm.$storage = $localStorage;
 
@@ -53,6 +56,14 @@
 
         function collapseMenu() {
             vm.isMenuCollapsed = true;
+        }
+
+        function enableSearch() {
+            vm.isSearchEnable = true;
+        }
+
+        function disableSearch() {
+            vm.isSearchEnable = false;
         }
 
         $(document).ready(function(){
