@@ -101,12 +101,12 @@
                </ul>
             </li>
             <li ui-sref-active="active">
-               <a href="contacts">
+               <a ui-sref="contacts">
                   <span>Contacts</span>
                </a>
             </li>
             <li ui-sref-active="active">
-               <a href="about">
+               <a ui-sref="about">
                   <span>About us</span>
                </a>
             </li>
@@ -215,27 +215,25 @@
                </a>
             </li>
             <li class="mainmenu-item mainmenu-search" ng-class="{'search-enable': vm.isSearchEnable}">
-               <a>
-                  <span class="search-wrap" ng-click="vm.enableSearch()" ng-class="{'search-enable': vm.isSearchEnable}">
-                     <i class="fa fa-search hidden-sm hidden-md hidden-lg"></i>
-                     <span>Search</span>
-                     <span class="icon hidden-xs hidden-sm">
-                        <i class="fa fa-search"></i>
-                     </span>
+               <a class="search-wrap" ng-click="vm.enableSearch()">
+                  <i class="fa fa-search hidden-sm hidden-md hidden-lg"></i>
+                  <span>Search</span>
+                  <span class="icon hidden-xs hidden-sm">
+                     <i class="fa fa-search"></i>
                   </span>
-                  <div class="searchbar">
-                     <div id="custom-search-input">
-                        <div class="input-group col-md-12">
-                           <input type="text" class="form-control" placeholder="Search...">
-                           <span class="input-group-btn">
-                              <button class="btn btn-info btn-lg" type="button">
-                                 <i class="glyphicon glyphicon-search"></i>
-                              </button>
-                              <button class="btn btn-info btn-lg" type="button">
-                                 <i class="fa fa-times" ng-click="vm.disableSearch()"></i>
-                              </button>
-                           </span>
-                        </div>
+               </a>
+               <a class="searchbar">
+                  <div id="custom-search-input">
+                     <div class="input-group col-md-12">
+                        <input type="text" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                           <button class="btn btn-info btn-lg" type="button">
+                              <i class="glyphicon glyphicon-search"></i>
+                           </button>
+                           <button class="btn btn-info btn-lg" type="button">
+                              <i class="fa fa-times" ng-click="vm.disableSearch()"></i>
+                           </button>
+                        </span>
                      </div>
                   </div>
                </a>
