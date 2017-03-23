@@ -191,10 +191,6 @@
   .mainmenu-item:hover .icon {
     right: 35px; } }
 
-.searchbar {
-  opacity: 0;
-  display: none; }
-
 #custom-search-input {
   padding: 3px;
   border: solid 1px #E4E4E4;
@@ -220,10 +216,19 @@
       box-shadow: none;
       border-left: solid 1px #ccc; }
 
+.searchbar {
+  display: none; }
+
+.mainmenu-search.search-enable .search-wrap {
+  display: none !important; }
+
+.mainmenu-search.search-enable .searchbar {
+  display: block;
+  width: 90%;
+  margin: auto; }
+
 @media (min-width: 768px) {
   .mainmenu-item.search-enable {
-    display: none !important; }
-  .search-wrap.search-enable {
     display: none !important; }
   .mainmenu-search.search-enable {
     width: 100% !important;
@@ -235,8 +240,9 @@
       text-align: left !important;
       padding: 0 30px !important; }
     .mainmenu-search.search-enable .searchbar {
-      opacity: 1;
-      display: block; } }
+      display: block;
+      width: 100%;
+      margin: 0; } }
 
 @media (min-width: 992px) {
   .mainmenu-search.search-enable a {

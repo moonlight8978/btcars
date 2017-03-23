@@ -243,11 +243,6 @@
 }
 
 //search bar
-.searchbar {
-   opacity: 0;
-   display: none;
-}
-
 #custom-search-input {
    padding: 3px;
    border: solid 1px #E4E4E4;
@@ -275,10 +270,20 @@
    }
 }
 
+.searchbar {display: none;}
+
+.mainmenu-search.search-enable {
+   .search-wrap {display: none !important;}
+   .searchbar {
+      display: block;
+      width: 90%;
+      margin: auto;
+   }
+}
+
    //media for searchbar
 @media (min-width: 768px) {
    .mainmenu-item.search-enable {display: none !important;}
-   .search-wrap.search-enable {display: none !important;}
    .mainmenu-search.search-enable {
       width: 100% !important;
       display: table !important;
@@ -290,8 +295,9 @@
          padding: 0 30px !important;
       }
       .searchbar {
-         opacity: 1;
          display: block;
+         width: 100%;
+         margin: 0;
       }
    }
 }
