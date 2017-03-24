@@ -4,7 +4,6 @@ import com.codahale.metrics.annotation.Timed;
 import com.btcars.domain.Car;
 
 import com.btcars.repository.CarRepository;
-import org.springframework.http.*;
 import com.btcars.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;

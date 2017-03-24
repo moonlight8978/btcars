@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('CarDetailController', CarDetailController);
 
-    CarDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Car', 'Customer'];
+    CarDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Car', 'Customer', 'Orderlist'];
 
-    function CarDetailController($scope, $rootScope, $stateParams, previousState, entity, Car, Customer) {
+    function CarDetailController($scope, $rootScope, $stateParams, previousState, entity, Car, Customer, Orderlist) {
         var vm = this;
 
         vm.car = entity;

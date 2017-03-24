@@ -3,18 +3,17 @@
 
     angular
         .module('btcarsApp')
-        .controller('CarDialogController', CarDialogController);
+        .controller('OrderlistDialogController', OrderlistDialogController);
 
-    CarDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Car', 'Customer', 'Orderlist'];
+    OrderlistDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Orderlist', 'Car'];
 
-    function CarDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Car, Customer, Orderlist) {
+    function OrderlistDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Orderlist, Car) {
         var vm = this;
 
-        vm.car = entity;
+        vm.orderlist = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.customers = Customer.query();
-        vm.orderlists = Orderlist.query();
+        vm.cars = Car.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
@@ -26,15 +25,15 @@
 
         function save () {
             vm.isSaving = true;
-            if (vm.car.id !== null) {
-                Car.update(vm.car, onSaveSuccess, onSaveError);
+            if (vm.orderlist.id !== null) {
+                Orderlist.update(vm.orderlist, onSaveSuccess, onSaveError);
             } else {
-                Car.save(vm.car, onSaveSuccess, onSaveError);
+                Orderlist.save(vm.orderlist, onSaveSuccess, onSaveError);
             }
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('btcarsApp:carUpdate', result);
+            $scope.$emit('btcarsApp:orderlistUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }
