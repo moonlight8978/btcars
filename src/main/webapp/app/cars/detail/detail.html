@@ -93,7 +93,7 @@
                      ng-show="(vm.car.status == 0)">
                <i class="fa fa-times"></i>
             </div>
-            <div role="button" class="col-sm-5 buy-now"
+            <div role="button" class="col-sm-5 buy-now" ng-click="vm.buy(vm.car, false)"
                      ng-disabled="(vm.car.status == 0) || ((vm.car.quantity - vm.car.sold) == 0)">
                <i class="fa fa-shopping-cart"></i>
                <span>buy now</span>

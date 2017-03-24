@@ -5,14 +5,15 @@
         .module('btcarsApp')
         .controller('DetailController', DetailController);
 
-    DetailController.$inject = ['$stateParams', 'getCarFactory', 'CartService'];
+    DetailController.$inject = ['$stateParams', 'getCarFactory', 'CartService', 'BuyService'];
 
-    function DetailController($stateParams, getCarFactory, CartService) {
+    function DetailController($stateParams, getCarFactory, CartService, BuyService) {
         var vm = this;
 
         vm.addItem = CartService.addItem;
         vm.hot = [];
         vm.car = {};
+        vm.buy = BuyService.buy;
 
         getCarFactory.getCarById($stateParams.id).then(function (responseCar) {
             vm.car = responseCar.data;
@@ -26,6 +27,7 @@
         }, function (error) {
             console.log('Error while getting hot cars!');
         });
+
 
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
