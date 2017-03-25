@@ -13,6 +13,7 @@
             openAdd: openAdd,
             deleteItem: deleteItem,
             openDelete: openDelete,
+            openCart: openCart,
             car: null
         };
 
@@ -29,7 +30,7 @@
             modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/cart/cart-add.html',
-                controller: 'CartController',
+                controller: 'CartDialogueController',
                 controllerAs: 'vm',
                 resolve: {
                     car: function () {
@@ -53,7 +54,7 @@
             modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'app/components/cart/cart-delete.html',
-                controller: 'CartController',
+                controller: 'CartDialogueController',
                 controllerAs: 'vm',
                 resolve: {
                     car: function () {
@@ -70,6 +71,22 @@
         function deleteItem(car) {
             cart.car = car;
             openDelete();
+        }
+
+        function openCart() {
+            if (modalInstance !== null) return;
+            modalInstance = $uibModal.open({
+                animation: true,
+                backdrop: 'static',
+                templateUrl: 'app/components/cart/cart.html',
+                controller: 'CartController',
+                controllerAs: 'vm',
+                size: 'lg'
+            });
+            modalInstance.result.then(
+                resetModal,
+                resetModal
+            );
         }
     }
 

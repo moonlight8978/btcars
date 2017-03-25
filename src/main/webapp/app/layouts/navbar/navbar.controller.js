@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService', '$localStorage'];
+    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService', '$localStorage', 'CartService'];
 
-    function NavbarController ($state, Auth, Principal, ProfileService, LoginService, $localStorage) {
+    function NavbarController ($state, Auth, Principal, ProfileService, LoginService, $localStorage, CartService) {
         var vm = this;
 
         vm.isNavbarCollapsed = true;
@@ -20,6 +20,7 @@
             vm.swaggerEnabled = response.swaggerEnabled;
         });
 
+        vm.openCart = CartService.openCart;
         vm.login = login;
         vm.logout = logout;
         vm.toggleNavbar = toggleNavbar;

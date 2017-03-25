@@ -1,0 +1,56 @@
+<div class="modal-header">
+   <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="vm.clear()">
+      &times;
+   </button>
+   <h4 class="modal-title" id="myOrderlistLabel">Your Cart</h4>
+</div>
+
+<div class="modal-body">
+   <div class="cart-head">
+      <div class="col-sm-8 hidden-xs">
+         Name
+      </div>
+      <div class="col-sm-2 hidden-xs">
+         Quantity
+      </div>
+      <div class="col-sm-2 hidden-xs">
+         Price
+      </div>
+      <div class="col-xs-12 visible-xs">
+         Name / Quantity / Price
+      </div>
+      <div class="clearfix"></div>
+   </div>
+
+   <div class="cart-body">
+      <div class="" ng-repeat="car in vm.cart">
+         <div class="col-sm-8">
+            <div class="col-sm-5">
+               <img class="img-thumbnail" ng-src="content/images/cars/{{ car.id }}/1.jpg">
+            </div>
+            <div class="col-sm-7">
+               {{ car.make }} {{ car.model }}<br>
+               {{ car.trim }}<br>
+               {{ car.year }}
+            </div>
+         </div>
+         <div class="col-sm-2">
+            1
+         </div>
+         <div class="col-sm-2">
+            ${{ car.priceFix }}
+         </div>
+         <div class="clearfix"></div>
+      </div>
+   </div>
+
+</div>
+
+<div class="modal-footer">
+   <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+   </span>&nbsp;<span>Continue Shopping</span>
+   </button>
+   <button type="submit" class="btn btn-primary" ng-click="vm.buy(vm.cart, true)">
+      </span>&nbsp;<span>Buy All</span>
+   </button>
+</div>
