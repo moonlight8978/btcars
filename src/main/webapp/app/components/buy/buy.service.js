@@ -36,7 +36,6 @@
             );
         }
 
-
         function buy(cars, isArray) {
             if (!isArray) {
                 var car = cars;

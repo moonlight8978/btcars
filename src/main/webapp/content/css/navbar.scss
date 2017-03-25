@@ -115,6 +115,7 @@
       }
       .mini-nav-item {
          display: inline-block;
+         position: relative;
          a {
             display: block;
             font-size: 22px;
@@ -126,9 +127,57 @@
             &.nav-cart {background-color: $navcart;}
             &.nav-total {background-color: $navtotal;}
          }
-         &.cart:hover a {background-color: $navcartHover;}
-         &.total:hover a {background-color: $navtotalHover;}
+         &.cart:hover {
+            a {background-color: $navcartHover;}
+            .quantity {background-color: $navquantityHover;}
+         }
+         &.total:hover {
+            a {background-color: $navtotalHover;}
+            .navtotal {opacity: 1;}
+         }
       }
+   }
+}
+
+.navquantity {
+   position: absolute;
+   top: -5px;
+   left: -5px;
+   display: inline-block;
+   font-size: 14px;
+   font-weight: bold;
+   width: 25px;
+   height: 25px;
+   line-height: 25px;
+   border-radius: 50% !important;
+   background-color: $navquantity;
+   text-align: center;
+   color: $textColorDarkBg;
+}
+
+.navtotal {
+   position: absolute;
+   top: -25px;
+   right: 0;
+   display: inline-block;
+   font-size: 14px;
+   background-color: $bgDark;
+   color: $textColorDarkBg;
+   padding: 0px 10px;
+   height: 20px;
+   line-height: 20px;
+   opacity: 0;
+   transition: opacity 0.3s ease;
+   &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      right: 25px;
+      width: 0;
+      height: 0;
+      border-top: 5px solid $bgDark;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
    }
 }
 

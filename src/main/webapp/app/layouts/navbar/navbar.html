@@ -156,11 +156,13 @@
 
       <div class="col-sm-4 mini-nav">
          <div>
-            <div class="mini-nav-item cart" data-toggle="tooltip" title="{{ vm.$storage.customer.carts.length }} items">
+            <div class="mini-nav-item cart">
                <a ui-sref="cart" class="nav-cart"><i class="fa fa-shopping-cart"></i></a>
+               <span class="navquantity">{{ vm.$storage.customer.carts.length }}</span>
             </div>
-            <div class="mini-nav-item total" data-toggle="tooltip" title="${{ vm.$storage.totalFix }}">
+            <div class="mini-nav-item total">
                <a class="nav-total"><i class="fa fa-usd"></i></a>
+               <span class="navtotal"> ${{ vm.$storage.totalFix }}</span>
             </div>
          </div>
       </div>

@@ -10,9 +10,9 @@
     function DetailController($stateParams, getCarFactory, CartService, BuyService) {
         var vm = this;
 
-        vm.addItem = CartService.addItem;
         vm.hot = [];
         vm.car = {};
+        vm.addItem = addItem;
         vm.buy = BuyService.buy;
 
         getCarFactory.getCarById($stateParams.id).then(function (responseCar) {
@@ -28,8 +28,12 @@
             console.log('Error while getting hot cars!');
         });
 
+        function addItem(car) {
+            CartService.car = car;
+            CartService.openAdd();
+        }
 
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
         });
     }

@@ -86,7 +86,8 @@
       width: 120px;
       margin: auto; }
     .nav-middle .mini-nav .mini-nav-item {
-      display: inline-block; }
+      display: inline-block;
+      position: relative; }
       .nav-middle .mini-nav .mini-nav-item a {
         display: block;
         font-size: 22px;
@@ -101,8 +102,51 @@
           background-color: #9b59b6; }
       .nav-middle .mini-nav .mini-nav-item.cart:hover a {
         background-color: #2980b9; }
+      .nav-middle .mini-nav .mini-nav-item.cart:hover .quantity {
+        background-color: #c63d2f; }
       .nav-middle .mini-nav .mini-nav-item.total:hover a {
         background-color: #864f9d; }
+      .nav-middle .mini-nav .mini-nav-item.total:hover .navtotal {
+        opacity: 1; }
+
+.navquantity {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 50% !important;
+  background-color: #e74c3c;
+  text-align: center;
+  color: #fff; }
+
+.navtotal {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  display: inline-block;
+  font-size: 14px;
+  background-color: #000;
+  color: #fff;
+  padding: 0px 10px;
+  height: 20px;
+  line-height: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease; }
+  .navtotal::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: 25px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid #000;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent; }
 
 @media (min-width: 768px) {
   .mini-nav {
