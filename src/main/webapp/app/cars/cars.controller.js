@@ -5,14 +5,15 @@
         .module('btcarsApp')
         .controller('CarsController', CarsController);
 
-    CarsController.$inject = ['getCarFactory', 'CartService'];
+    CarsController.$inject = ['getCarFactory', 'CartService', 'BuyService'];
 
-    function CarsController(getCarFactory, CartService) {
+    function CarsController(getCarFactory, CartService, BuyService) {
         var vm = this;
 
         vm.hot = [];
         vm.all = [];
         vm.addItem = CartService.addItem;
+        vm.buy = BuyService.buy;
         vm.sort = 'id';
         vm.range = {
             min: 0,
@@ -47,7 +48,7 @@
             vm.hpRange.max = max;
         }
 
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
         });
     }

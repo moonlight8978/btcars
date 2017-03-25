@@ -23,7 +23,6 @@
         });
 
         function clear () {
-            BuyService.cars = [];
             $uibModalInstance.dismiss('cancel');
         }
 
@@ -33,7 +32,6 @@
         }
 
         function onSaveSuccess (result) {
-            BuyService.cars = [];
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

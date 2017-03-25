@@ -9,7 +9,9 @@
 
     function CartService($uibModal) {
         var cart = {
+            addItem: addItem,
             openAdd: openAdd,
+            deleteItem: deleteItem,
             openDelete: openDelete,
             car: null
         };
@@ -41,6 +43,11 @@
             );
         }
 
+        function addItem(car) {
+            cart.car = car;
+            openAdd();
+        }
+
         function openDelete() {
             if (modalInstance !== null) return;
             modalInstance = $uibModal.open({
@@ -58,6 +65,11 @@
                 resetModal,
                 resetModal
             );
+        }
+
+        function deleteItem(car) {
+            cart.car = car;
+            openDelete();
         }
     }
 

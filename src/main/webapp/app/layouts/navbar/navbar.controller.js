@@ -39,6 +39,7 @@
         function logout() {
             collapseNavbar();
             Auth.logout();
+            $localStorage.$reset();
             $state.go('home');
         }
 

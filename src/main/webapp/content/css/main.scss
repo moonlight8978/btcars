@@ -612,7 +612,9 @@ a {
       &.status-suspended {background-color: $suspendedBgColor;}
    }
    .buy-now {background-color: $buyNowBgColor;}
+   .buy-now:hover {background-color: $buynowHover;}
    .add-to-cart {background-color: $addToCartBgColor;}
+   .add-to-cart:hover {background-color: $addtocartHover;}
 }
 
 // ****************************************

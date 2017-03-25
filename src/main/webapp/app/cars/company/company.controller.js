@@ -5,12 +5,13 @@
         .module('btcarsApp')
         .controller('CompanyController', CompanyController);
 
-    CompanyController.$inject = ['$stateParams', 'getCarFactory', 'CartService'];
+    CompanyController.$inject = ['$stateParams', 'getCarFactory', 'CartService', 'BuyService'];
 
-    function CompanyController($stateParams, getCarFactory, CartService) {
+    function CompanyController($stateParams, getCarFactory, CartService, BuyService) {
         var vm = this;
 
         vm.addItem = CartService.addItem;
+        vm.buy = BuyService.buy;
         vm.cars = [];
         vm.hots = [];
         vm.sort = 'id';

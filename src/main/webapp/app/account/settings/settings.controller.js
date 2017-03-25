@@ -15,7 +15,7 @@
         vm.settingsAccount = null;
         vm.success = null;
 
-        vm.deleteItem = deleteItem;
+        vm.deleteItem = CartService.deleteItem;
         vm.$storage = $localStorage;
         /**
          * Store the "settings account" in a separate variable, and not in the shared "account" variable.
@@ -48,11 +48,6 @@
                 vm.success = null;
                 vm.error = 'ERROR';
             });
-        }
-
-        function deleteItem(car) {
-            CartService.car = car;
-            CartService.openDelete();
         }
     }
 })();

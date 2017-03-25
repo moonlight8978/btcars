@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$localStorage', 'getCarFactory', 'CartService'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$localStorage', 'getCarFactory', 'CartService', 'BuyService'];
 
-    function HomeController ($scope, Principal, LoginService, $state, $localStorage, getCarFactory, CartService) {
+    function HomeController ($scope, Principal, LoginService, $state, $localStorage, getCarFactory, CartService, BuyService) {
         var vm = this;
 
         vm.account = null;
@@ -15,6 +15,7 @@
         vm.login = LoginService.open;
         vm.register = register;
 
+        vm.buy = BuyService.buy;
         vm.addItem = CartService.addItem;
         vm.hot = [];
         vm.recommend = [];

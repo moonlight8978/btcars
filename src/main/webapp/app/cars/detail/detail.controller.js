@@ -12,7 +12,7 @@
 
         vm.hot = [];
         vm.car = {};
-        vm.addItem = addItem;
+        vm.addItem = CartService.addItem;
         vm.buy = BuyService.buy;
 
         getCarFactory.getCarById($stateParams.id).then(function (responseCar) {
@@ -27,11 +27,6 @@
         }, function (error) {
             console.log('Error while getting hot cars!');
         });
-
-        function addItem(car) {
-            CartService.car = car;
-            CartService.openAdd();
-        }
 
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();

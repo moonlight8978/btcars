@@ -17,6 +17,7 @@
 
         var modalInstance = null;
         var resetModal = function () {
+            service.cars = [];
             modalInstance = null;
         };
 
