@@ -23,6 +23,11 @@
             modalInstance = null;
         };
 
+        var mainModalInstance = null;
+        var resetMainModal = function () {
+            mainModalInstance = null;
+        };
+
         return cart;
 
         function openAdd() {
@@ -74,8 +79,8 @@
         }
 
         function openCart() {
-            if (modalInstance !== null) return;
-            modalInstance = $uibModal.open({
+            if (mainModalInstance !== null) return;
+            mainModalInstance = $uibModal.open({
                 animation: true,
                 backdrop: 'static',
                 templateUrl: 'app/components/cart/cart.html',
@@ -83,9 +88,9 @@
                 controllerAs: 'vm',
                 size: 'lg'
             });
-            modalInstance.result.then(
-                resetModal,
-                resetModal
+            mainModalInstance.result.then(
+                resetMainModal,
+                resetMainModal
             );
         }
     }
