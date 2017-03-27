@@ -23,6 +23,9 @@
         vm.new = [];
 
         $localStorage.customer = {};
+        $localStorage.customer.id = null;
+        $localStorage.customer.carts = [];
+        $localStorage.customer.user = null;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -34,6 +37,7 @@
             Principal.identity().then(function(account) {
                 vm.account = account;
                 vm.isAuthenticated = Principal.isAuthenticated;
+                $localStorage.customer.user = account;
                 if (vm.account !== null)
                     getCart(vm.account.id);
             });
