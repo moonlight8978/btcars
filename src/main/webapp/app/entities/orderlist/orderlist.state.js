@@ -95,9 +95,10 @@
                     resolve: {
                         entity: function () {
                             return {
-                                ho: null,
-                                ten: null,
+                                firstname: null,
+                                lastname: null,
                                 address: null,
+                                phonenumber: null,
                                 total: null,
                                 id: null
                             };

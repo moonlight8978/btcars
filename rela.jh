@@ -1,0 +1,32 @@
+entity Car {
+	make String required,
+    model String required,
+    year Integer required,
+    trim String required,
+    country String required,
+    price Integer required,
+    ed Integer,
+    ev Integer,
+    emp Integer,
+    w Integer,
+    status Integer required,
+    quantity Integer required,
+    sold Integer required
+}
+entity Customer {}
+relationship OneToOne {
+	Customer{user} to User
+}
+relationship ManyToMany {
+	Customer{car} to Car{customer}
+}
+entity Orderlist {
+	first_name String required,
+	last_name String required,
+	address String required,
+	phone_number Integer required,
+	total Integer required
+}
+relationship ManyToMany {
+	Orderlist{car} to Car{orderlist}
+}

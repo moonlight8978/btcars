@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -16,9 +16,15 @@
 
         <div class="form-group">
             <label for="field_car">Car</label>
-            <select class="form-control" id="field_car" name="car" ng-model="vm.recommend.car" ng-options="car as car.id for car in vm.cars | orderBy:'id' track by car.id">
+            <select class="form-control" id="field_car" name="car" ng-model="vm.recommend.car" ng-options="car as car.id for car in vm.cars | orderBy:'id' track by car.id" required>
                 <option value=""></option>
             </select>
+        </div>
+        <div ng-show="editForm.car.$invalid">
+            <p class="help-block"
+                ng-show="editForm.car.$error.required">
+                This field is required.
+            </p>
         </div>
     </div>
     <div class="modal-footer">

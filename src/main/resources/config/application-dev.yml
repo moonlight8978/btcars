@@ -44,6 +44,16 @@ spring:
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
+    data:
+        elasticsearch:
+            cluster-name:
+            cluster-nodes:
+            properties:
+                path:
+                  logs: target/elasticsearch/log
+                  data: target/elasticsearch/data
+                http:
+                  enabled: true
     mail:
         host: localhost
         port: 25
@@ -70,7 +80,7 @@ jhipster:
     security:
         remember-me:
             # security key (this key should be unique for your application, and kept secret)
-            key: 7e5dfca9a9ab33546e6ceab08c5f818aae145ad9
+            key: 3581516108bb3889da5cfd44964868a7a520fcb4
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: btcars@localhost
         base-url: http://127.0.0.1:8080

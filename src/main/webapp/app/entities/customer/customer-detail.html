@@ -4,15 +4,15 @@
     <hr>
     <jhi-alert-error></jhi-alert-error>
     <dl class="row jh-entity-details">
-        <dt><span>Cart</span></dt>
-        <dd>
-            <span ng-repeat="cart in vm.customer.carts">
-                <a ui-sref="car-detail({id: cart.id})">{{cart.id}}</a>{{$last ? '' : ', '}}
-            </span>
-        </dd>
         <dt><span>User</span></dt>
         <dd>
-            {{vm.customer.user.login}}
+            {{vm.customer.user.id}}
+        </dd>
+        <dt><span>Car</span></dt>
+        <dd>
+            <span ng-repeat="car in vm.customer.cars">
+                <a ui-sref="car-detail({id: car.id})">{{car.id}}</a>{{$last ? '' : ', '}}
+            </span>
         </dd>
     </dl>
 

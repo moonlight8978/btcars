@@ -45,6 +45,11 @@
                         <span>User management</span>
                      </a>
                   </li>
+                  <li ui-sref-active="active">
+                     <a ui-sref="elasticsearch-reindex" ng-click="vm.collapseNavbar()">
+                        <span>ElasticSearch Reindex</span>
+                     </a>
+                  </li>
                   <li ui-sref-active="active" class="dropdown-hover">
                      <a href="">
                         <span>Entities</span>
@@ -158,7 +163,7 @@
          <div>
             <div class="mini-nav-item cart" ng-click="vm.openCart()">
                <a class="nav-cart"><i class="fa fa-shopping-cart"></i></a>
-               <span class="navquantity">{{ vm.$storage.customer.carts.length }}</span>
+               <span class="navquantity">{{ vm.$storage.customer.cars.length }}</span>
             </div>
             <div class="mini-nav-item total">
                <a class="nav-total"><i class="fa fa-usd"></i></a>

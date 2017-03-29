@@ -2,24 +2,24 @@
     "fluentMethods": true,
     "relationships": [
         {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "orderlist",
             "relationshipName": "car",
             "otherEntityName": "car",
-            "relationshipType": "many-to-many",
             "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "orderlist"
+            "ownerSide": true
         }
     ],
     "fields": [
         {
-            "fieldName": "ho",
+            "fieldName": "firstname",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "ten",
+            "fieldName": "lastname",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
@@ -33,16 +33,23 @@
             ]
         },
         {
+            "fieldName": "phonenumber",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
             "fieldName": "total",
-            "fieldType": "Long",
+            "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
             ]
         }
     ],
-    "changelogDate": "20170324034826",
-    "dto": "no",
-    "service": "no",
+    "changelogDate": "20170328101105",
     "entityTableName": "orderlist",
-    "pagination": "no"
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
 }

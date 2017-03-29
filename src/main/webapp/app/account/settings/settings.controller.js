@@ -16,7 +16,7 @@
         vm.success = null;
 
         vm.deleteItem = CartService.deleteItem;
-        vm.$storage = $localStorage;
+        vm.cart = $localStorage.customer.cars;
         /**
          * Store the "settings account" in a separate variable, and not in the shared "account" variable.
          */
@@ -34,7 +34,6 @@
 
         Principal.identity().then(function(account) {
             vm.settingsAccount = copyAccount(account);
-            //getCart(vm.settingsAccount.id);
         });
 
         function save () {

@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('CompanyController', CompanyController);
 
-    CompanyController.$inject = ['$stateParams', 'getCarFactory', 'CartService', 'BuyService'];
+    CompanyController.$inject = ['$stateParams', 'getCarFactory', 'CartService', 'BuyService', 'Car'];
 
-    function CompanyController($stateParams, getCarFactory, CartService, BuyService) {
+    function CompanyController($stateParams, getCarFactory, CartService, BuyService, Car) {
         var vm = this;
 
         vm.addItem = CartService.addItem;
@@ -26,14 +26,15 @@
         };
         vm.setHpFilter = setHpFilter;
 
-        getCarFactory.getHotCar().then(function (responseHot) {
-            vm.hot = responseHot.data;
+        Car.query({ category: 'hot' }, function (result) {
+            vm.hot = result;
             getCarFactory.priceWithCommas(vm.hot, true);
         }, function (error) {
             console.log('Error while getting hot cars!');
         });
-        getCarFactory.getCarByCompany($stateParams.company).then(function (responseCarFilterByCompany) {
-            vm.cars = responseCarFilterByCompany.data;
+
+        Car.query({ company: $stateParams.company }, function (result) {
+            vm.cars = result;
             getCarFactory.priceWithCommas(vm.cars, true);
         }, function (error) {
             console.log('Error while getting cars!');

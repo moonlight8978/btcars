@@ -21,8 +21,7 @@
                     controller: 'HomeController',
                     controllerAs: 'vm'
                 }
-            },
-            resolve: {}
+            }
         });
     }
 })();

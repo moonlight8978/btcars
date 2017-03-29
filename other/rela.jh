@@ -1,3 +1,0 @@
-relationship ManyToMany {
-  User{cart} to Car{user}
-}

@@ -2,16 +2,16 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipName": "cart",
-            "otherEntityName": "customer",
             "relationshipType": "many-to-many",
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
             "ownerSide": false,
-            "otherEntityRelationshipName": "cart"
+            "otherEntityRelationshipName": "car"
         },
         {
+            "relationshipType": "many-to-many",
             "relationshipName": "orderlist",
             "otherEntityName": "orderlist",
-            "relationshipType": "many-to-many",
             "ownerSide": false,
             "otherEntityRelationshipName": "car"
         }
@@ -97,9 +97,9 @@
             ]
         }
     ],
-    "changelogDate": "20170309161920",
-    "dto": "no",
-    "service": "no",
+    "changelogDate": "20170328101105",
     "entityTableName": "car",
-    "pagination": "no"
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
 }

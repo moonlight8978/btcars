@@ -14,25 +14,25 @@
                     ng-model="vm.orderlist.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_ho">Ho</label>
-            <input type="text" class="form-control" name="ho" id="field_ho"
-                    ng-model="vm.orderlist.ho"
+            <label class="control-label" for="field_firstname">Firstname</label>
+            <input type="text" class="form-control" name="firstname" id="field_firstname"
+                    ng-model="vm.orderlist.firstname"
                     required/>
-            <div ng-show="editForm.ho.$invalid">
+            <div ng-show="editForm.firstname.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.ho.$error.required">
+                    ng-show="editForm.firstname.$error.required">
                     This field is required.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" for="field_ten">Ten</label>
-            <input type="text" class="form-control" name="ten" id="field_ten"
-                    ng-model="vm.orderlist.ten"
+            <label class="control-label" for="field_lastname">Lastname</label>
+            <input type="text" class="form-control" name="lastname" id="field_lastname"
+                    ng-model="vm.orderlist.lastname"
                     required/>
-            <div ng-show="editForm.ten.$invalid">
+            <div ng-show="editForm.lastname.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.ten.$error.required">
+                    ng-show="editForm.lastname.$error.required">
                     This field is required.
                 </p>
             </div>
@@ -46,6 +46,22 @@
                 <p class="help-block"
                     ng-show="editForm.address.$error.required">
                     This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_phonenumber">Phonenumber</label>
+            <input type="number" class="form-control" name="phonenumber" id="field_phonenumber"
+                    ng-model="vm.orderlist.phonenumber"
+                    required/>
+            <div ng-show="editForm.phonenumber.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.phonenumber.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.phonenumber.$error.number">
+                    This field should be a number.
                 </p>
             </div>
         </div>

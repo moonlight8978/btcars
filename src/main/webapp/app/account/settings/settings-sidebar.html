@@ -4,13 +4,13 @@
       cart
    </li>
    <div class="sidebar-list-body">
-      <li class="list-group-item" ng-show="vm.$storage.customer.carts.length == 0">
+      <li class="list-group-item" ng-show="vm.cart == 0">
          Cart is Empty!
       </li>
-      <li class="list-group-item item" ng-repeat="car in vm.$storage.customer.carts">
+      <li class="list-group-item item" ng-repeat="car in vm.cart">
          <span class="badge" ng-click="vm.deleteItem(car)">x</span>
          <div class="col-xs-5 sidebar-img">
-            <img class="img-responsive img-thumbnail" ng-src="content/images/cars/{{car.id}}/1.jpg" alt="">
+            <img class="img-responsive img-thumbnail" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
          </div>
          <div class="col-xs-7 info">
             <a class="sidebar-content-title" ui-sref="detail({id:{{ car.id }}})">

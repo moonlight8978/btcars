@@ -15,7 +15,7 @@
         vm.deleteItem = CartService.deleteItem;
 
         vm.total = $localStorage.totalFix;
-        vm.cart = $localStorage.customer.carts;
+        vm.cart = $localStorage.customer.cars;
 
         function clear() {
             $uibModalInstance.dismiss('cancel');

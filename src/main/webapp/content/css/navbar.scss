@@ -160,6 +160,8 @@
    top: -25px;
    right: 0;
    display: inline-block;
+   min-width: 60px;
+   text-align: center;
    font-size: 14px;
    background-color: $bgDark;
    color: $textColorDarkBg;

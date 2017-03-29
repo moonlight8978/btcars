@@ -5,12 +5,15 @@
         .module('btcarsApp')
         .controller('CarController', CarController);
 
-    CarController.$inject = ['Car'];
+    CarController.$inject = ['Car', 'CarSearch'];
 
-    function CarController(Car) {
+    function CarController(Car, CarSearch) {
         var vm = this;
 
         vm.cars = [];
+        vm.clear = clear;
+        vm.search = search;
+        vm.loadAll = loadAll;
 
         loadAll();
 
@@ -20,5 +23,20 @@
                 vm.searchQuery = null;
             });
         }
+
+        function search() {
+            if (!vm.searchQuery) {
+                return vm.loadAll();
+            }
+            CarSearch.query({query: vm.searchQuery}, function(result) {
+                vm.cars = result;
+                vm.currentSearch = vm.searchQuery;
+            });
+        }
+
+        function clear() {
+            vm.searchQuery = null;
+            loadAll();
+        }    
     }
 })();

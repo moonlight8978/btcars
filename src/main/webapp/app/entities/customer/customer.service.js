@@ -20,7 +20,8 @@
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'queryByUserId': { method: 'GET', isArray: false},
+            'update': { method: 'PUT' }
         });
     }
 })();

@@ -18,8 +18,8 @@
         vm.clear = clear;
 
         Principal.identity().then(function(account) {
-            vm.order.ho = account.lastName;
-            vm.order.ten = account.firstName;
+            vm.order.lastname = account.lastName;
+            vm.order.firstname = account.firstName;
         });
 
         function clear () {

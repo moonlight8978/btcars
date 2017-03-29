@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$localStorage', 'getCarFactory', 'CartService', 'BuyService'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$localStorage', 'getCarFactory', 'CartService', 'BuyService', 'Recommend', 'Car', 'Customer'];
 
-    function HomeController ($scope, Principal, LoginService, $state, $localStorage, getCarFactory, CartService, BuyService) {
+    function HomeController ($scope, Principal, LoginService, $state, $localStorage, getCarFactory, CartService, BuyService, Recommend, Car, Customer) {
         var vm = this;
 
         vm.account = null;
@@ -22,10 +22,11 @@
         vm.random = [];
         vm.new = [];
 
-        $localStorage.customer = {};
-        $localStorage.customer.id = null;
-        $localStorage.customer.carts = [];
-        $localStorage.customer.user = null;
+        $localStorage.customer = {
+            id: null,
+            cars: [],
+            user: null
+        };
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -47,40 +48,40 @@
         }
 
         function getCart(id) {
-            getCarFactory.getData('api/customers/user/' + id).then(function (customer) {
-                $localStorage.customer = customer.data;
-                getCarFactory.priceWithCommas($localStorage.customer.carts, true);
-                $localStorage.total = getCarFactory.calTotalPrice($localStorage.customer.carts);
+            Customer.queryByUserId({ userid: id }, function (result) {
+                $localStorage.customer = result;
+                getCarFactory.priceWithCommas($localStorage.customer.cars, true);
+                $localStorage.total = getCarFactory.calTotalPrice($localStorage.customer.cars);
                 $localStorage.totalFix = $localStorage.total.toLocaleString();
             }, function (error) {
-                $localStorage.customer.carts = [];
+                $localStorage.customer.cars = [];
                 $localStorage.total = 0;
             });
         }
 
-        getCarFactory.getHotCar().then(function (responseHot) {
-            vm.hot = responseHot.data;
+        Car.query({ category: 'hot' }, function (result) {
+            vm.hot = result;
             getCarFactory.priceWithCommas(vm.hot, true);
         }, function (error) {
             console.log('Error while getting hot cars!');
         });
 
-        getCarFactory.getNewCar().then(function (responseNew) {
-            vm.new = responseNew.data;
+        Car.query({ category: 'new' }, function (result) {
+            vm.new = result;
             getCarFactory.priceWithCommas(vm.new, true);
         }, function (error) {
             console.log('Error while getting new cars!');
         });
 
-        getCarFactory.getRndCar().then(function (responseRandom) {
-            vm.random = responseRandom.data;
+        Car.query({ category: 'random' }, function (result) {
+            vm.random = result;
             getCarFactory.priceWithCommas(vm.random, true);
         }, function (error) {
             console.log('Error while getting random cars!');
         });
 
-        getCarFactory.getRecommendCar().then(function (responseRecommend) {
-            var recc = responseRecommend.data,
+        Recommend.query(function(result) {
+            var recc = result,
                 length = recc.length,
                 i;
             for (i=0; i<length; i++)

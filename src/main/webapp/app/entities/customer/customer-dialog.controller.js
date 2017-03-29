@@ -5,16 +5,16 @@
         .module('btcarsApp')
         .controller('CustomerDialogController', CustomerDialogController);
 
-    CustomerDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Customer', 'Car', 'User'];
+    CustomerDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Customer', 'User', 'Car'];
 
-    function CustomerDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Customer, Car, User) {
+    function CustomerDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Customer, User, Car) {
         var vm = this;
 
         vm.customer = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.cars = Car.query();
         vm.users = User.query();
+        vm.cars = Car.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
