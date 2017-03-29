@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService', '$localStorage', 'CartService'];
+    NavbarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService', '$localStorage', 'CartService', 'Search'];
 
-    function NavbarController ($state, Auth, Principal, ProfileService, LoginService, $localStorage, CartService) {
+    function NavbarController ($state, Auth, Principal, ProfileService, LoginService, $localStorage, CartService, Search) {
         var vm = this;
 
         vm.isNavbarCollapsed = true;
@@ -31,6 +31,9 @@
         vm.disableSearch = disableSearch;
         vm.$state = $state;
         vm.$storage = $localStorage;
+
+        vm.search = search;
+        vm.searchQuery = '';
 
         function login() {
             collapseNavbar();
@@ -66,6 +69,11 @@
 
         function disableSearch() {
             vm.isSearchEnable = false;
+        }
+
+        function search() {
+            Search.searchQuery = vm.searchQuery;
+            $state.go('search', { q: Search.searchQuery });
         }
 
         $(document).ready(function(){

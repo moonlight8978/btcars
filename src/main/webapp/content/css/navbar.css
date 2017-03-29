@@ -98,7 +98,7 @@
           background-color: #9b59b6; }
       .nav-middle .mini-nav .mini-nav-item.cart:hover a {
         background-color: #2980b9; }
-      .nav-middle .mini-nav .mini-nav-item.cart:hover .quantity {
+      .nav-middle .mini-nav .mini-nav-item.cart:hover .navquantity {
         background-color: #c63d2f; }
       .nav-middle .mini-nav .mini-nav-item.total:hover a {
         background-color: #864f9d; }

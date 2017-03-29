@@ -11,7 +11,11 @@
    </ol>
 </div>
 
-<div class="col-sm-9 content-container">
+<div class="col-sm-9 error-notfound" ng-show="!vm.loading && !vm.found">
+   Not found!
+</div>
+
+<div class="col-sm-9 content-container" ng-show="vm.loading || vm.found">
    <div class="car-detail-infobox row">
       <div class="col-md-5 slideshow-container">
          <div id="slidedetail" class="carousel slide detail-slide" data-ride="carousel">

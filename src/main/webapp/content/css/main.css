@@ -690,4 +690,10 @@ a {
     .account-block .btn.btn-account-password {
       background-color: #3498db; }
 
+.badge {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  z-index: 10; }
+
 /*# sourceMappingURL=main.css.map */

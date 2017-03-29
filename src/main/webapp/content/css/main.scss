@@ -759,3 +759,10 @@ a {
       &.btn-account-password {background-color: $btnPasswordBgColor;}
    }
 }
+
+.badge {
+   position: absolute;
+   top: 5px;
+   right: 10px;
+   z-index: 10;
+}

@@ -17,12 +17,14 @@
             car: null
         };
 
+        //modalInstance for add/delete action
         var modalInstance = null;
         var resetModal = function () {
             cart.car = null;
             modalInstance = null;
         };
 
+        //modalInstance for cart on navbar
         var mainModalInstance = null;
         var resetMainModal = function () {
             mainModalInstance = null;
@@ -49,6 +51,8 @@
             );
         }
 
+        /*  Add function
+            To be used in controller */
         function addItem(car) {
             cart.car = car;
             openAdd();
@@ -73,6 +77,8 @@
             );
         }
 
+        /*  Delete function
+            To be used in controller */
         function deleteItem(car) {
             cart.car = car;
             openDelete();

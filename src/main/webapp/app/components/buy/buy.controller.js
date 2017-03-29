@@ -10,6 +10,7 @@
     function BuyController (Orderlist, $uibModalInstance, BuyService, Principal) {
         var vm = this;
 
+        // Customer object (database)
         vm.order = {};
         vm.order.total = BuyService.total;
         vm.order.cars = BuyService.cars;
@@ -17,6 +18,8 @@
         vm.save = save;
         vm.clear = clear;
 
+        // Get current user info
+        // Then bind to view
         Principal.identity().then(function(account) {
             vm.order.lastname = account.lastName;
             vm.order.firstname = account.firstName;

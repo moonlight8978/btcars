@@ -14,12 +14,18 @@
         vm.car = {};
         vm.addItem = CartService.addItem;
         vm.buy = BuyService.buy;
+        vm.loading = true;
+        vm.found = false;
 
         Car.get({ id: $stateParams.id }, function (result) {
             vm.car = result;
             getCarFactory.priceWithCommas(vm.car, false);
+            vm.loading = false;
+            vm.found = true;
         }, function (error) {
             console.log('Error while getting car!');
+            vm.loading = false;
+            vm.found = false;
         });
         
         Car.query({ category: 'hot' }, function (result) {

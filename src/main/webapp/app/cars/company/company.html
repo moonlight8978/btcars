@@ -6,7 +6,11 @@
    </ol>
 </div>
 
-<div class="col-sm-9 right-lg content-container">
+<div class="col-sm-9 error-notfound" ng-show="!vm.loading && !vm.found">
+   Not found!
+</div>
+
+<div class="col-sm-9 right-lg content-container" ng-show="vm.loading || vm.found">
    <div class="car-container">
       <div class="car-container-title">
          {{ vm.cars[0].make }}

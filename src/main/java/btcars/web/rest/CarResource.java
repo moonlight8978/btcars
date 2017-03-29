@@ -9,7 +9,7 @@ import btcars.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -147,9 +147,9 @@ public class CarResource {
 	/* ----- Get Specific company's Cars ----- */
 	@GetMapping(value = "/cars", params = "company")
 	@Timed
-    public List<Car> getCompanyCars(@RequestParam String company) {
+    public ResponseEntity<List<Car>> getCompanyCars(@RequestParam String company) {
         log.debug("REST request to search Cars for query by company", company);
-		String make = "";
+		String make = null;
 		if (company.equals("lamborghini"))
 			make = "Lamborghini";
 		else if (company.equals("porsche"))
@@ -158,8 +158,10 @@ public class CarResource {
 			make = "Ferrari";
 		else if (company.equals("rollsroyce"))
 			make = "Rolls-Royce";
+        else
+            return new ResponseEntity<List<Car>>(HttpStatus.NOT_FOUND);
 		List<Car> cars = carRepository.findByMake(make);
-        return cars;
+        return new ResponseEntity<List<Car>>(cars, HttpStatus.OK);
     }
 
     /* ----- Get Car By Category ----- */

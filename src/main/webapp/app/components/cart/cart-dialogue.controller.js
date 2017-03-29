@@ -10,7 +10,7 @@
     function CartDialogueController ($localStorage, $uibModalInstance, CartService, getCarFactory, Customer, car) {
         var vm = this;
 
-        vm.car = car;
+        vm.car = car;   // get car info from prev state
         vm.addItem = addItem;
         vm.deleteItem = deleteItem;
         vm.clear = clear;
@@ -20,6 +20,10 @@
             $uibModalInstance.dismiss('cancel');
         }
 
+        /*  To delete an item from cart
+            Find item's index
+            Delete it, if fail show ERROR
+            Then update total price */
         function deleteItem(item) {
             vm.isSaving = true;
             var index = $localStorage.customer.cars.indexOf(item);
@@ -36,6 +40,10 @@
             });
         }
 
+        /*  Add item to cart
+            Check if item was exist or not (by id)
+            Add item to cart/ Or show ERROR
+            Update total price      */
         function addItem(item) {
             vm.isSaving = true;
             var length = $localStorage.customer.cars.length;

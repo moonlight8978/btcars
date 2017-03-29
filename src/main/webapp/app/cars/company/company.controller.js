@@ -26,6 +26,9 @@
         };
         vm.setHpFilter = setHpFilter;
 
+        vm.loading = true;
+        vm.found = false;
+
         Car.query({ category: 'hot' }, function (result) {
             vm.hot = result;
             getCarFactory.priceWithCommas(vm.hot, true);
@@ -35,9 +38,13 @@
 
         Car.query({ company: $stateParams.company }, function (result) {
             vm.cars = result;
+            vm.loading = false;
+            vm.found = true;
             getCarFactory.priceWithCommas(vm.cars, true);
         }, function (error) {
             console.log('Error while getting cars!');
+            vm.loading = false;
+            vm.found = false;
         });
 
         function setPriceFilter(min, max) {

@@ -16,6 +16,7 @@
         vm.success = null;
 
         vm.deleteItem = CartService.deleteItem;
+        vm.total = $localStorage.totalFix;
         vm.cart = $localStorage.customer.cars;
         /**
          * Store the "settings account" in a separate variable, and not in the shared "account" variable.
