@@ -11,6 +11,7 @@
         var service = {
             open: open,
             buy: buy,
+            openList: openList,
             cars: [],
             total: 0
         };
@@ -20,6 +21,11 @@
             service.cars = [];
             service.total = 0;
             modalInstance = null;
+        };
+
+        var listModalInstance = null;
+        var resetListModal = function () {
+            listModalInstance = null;
         };
 
         return service;
@@ -52,6 +58,20 @@
                 }
             }
             service.open();
+        }
+
+        function openList() {
+            if (listModalInstance !== null) return;
+            listModalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'app/components/buy/buy-list.html',
+                controller: 'BuyController',
+                controllerAs: 'vm'
+            });
+            listModalInstance.result.then(
+                resetListModal,
+                resetListModal
+            );
         }
     }
 })();

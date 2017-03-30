@@ -7,6 +7,8 @@
 
 	function Search() {
 		var search = {
+			/* 	Store the searchQuery from navbar
+				Then pass to search controller 	*/
 			searchQuery: ''
 		};
 

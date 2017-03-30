@@ -1,9 +1,67 @@
-<div>
-	{{ vm.searchQuery }}	
+<div class="col-sm-12">
+   <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
+      <li class="breadcrumb-item active">Search results</li>
+   </ol>
 </div>
 
-<div ng-repeat="car in vm.cars">
+
+<div class="col-sm-9 content-container">
 	<div>
-		{{ car.id }}
+		Showing results for {{ vm.searchQuery }}: {{ vm.cars.length }} results. 	
+	</div>
+	<div ng-show="!vm.loading">
+		<div ng-repeat="car in vm.cars">
+			<div class="col-sm-4">
+				<img class="img-thumbnail" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
+			</div>
+
+			<div class="col-sm-8">
+				<div>
+					<a ui-sref="detail({id:{{ car.id }}})">
+						<div>
+							{{ car.year }} {{ car.make }} {{ car.model }}
+						</div>
+					</a>
+					<div>
+						{{ car.trim }}
+					</div>
+				</div>
+				
+				<div>
+					<div class="col-sm-7">
+						<table>
+							<tr>
+								<th>ED</th>
+								<th>EV</th>
+							</tr>
+							<tr>
+								<td>{{ car.ed }}</td>
+								<td>{{ car.ev }}</td>
+							</tr>
+							<tr>
+								<th>EMP</th>
+								<th>Weight</th>
+							</tr>
+							<tr>
+								<td>{{ car.emp }}</td>
+								<td>{{ car.w }}</td>
+							</tr>
+						</table>
+					</div>
+					<div class="col-sm-5">
+						${{ car.priceFix }}
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
 	</div>
 </div>
+
+<div class="col-sm-3 sidebar">
+   <div ng-include="'app/cars/detail/detail-sidebar.html'"></div>
+</div>
+
+<div class="clearfix"></div>

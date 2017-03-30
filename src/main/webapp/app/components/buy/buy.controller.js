@@ -13,8 +13,9 @@
         // Customer object (database)
         vm.order = {};
         vm.order.total = BuyService.total;
+        vm.order.totalFix = vm.order.total.toLocaleString();
         vm.order.cars = BuyService.cars;
-
+        vm.openList = BuyService.openList;
         vm.save = save;
         vm.clear = clear;
 
