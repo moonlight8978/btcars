@@ -1,67 +1,72 @@
 <div class="col-sm-12">
-   <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
-      <li class="breadcrumb-item active">Search results</li>
-   </ol>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
+    <li class="breadcrumb-item active">Search results</li>
+  </ol>
 </div>
 
 
-<div class="col-sm-9 content-container">
-	<div>
-		Showing results for {{ vm.searchQuery }}: {{ vm.cars.length }} results. 	
-	</div>
-	<div ng-show="!vm.loading">
-		<div ng-repeat="car in vm.cars">
-			<div class="col-sm-4">
-				<img class="img-thumbnail" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
-			</div>
+<div class="col-sm-9 content-container car-container search-result-container">
+  <div class="car-container-title">
+    Results for [{{ vm.searchQuery }}]
+  </div>
+  <div class="search-results" ng-show="!vm.loading">
+    <div class="title">
+      Found {{ vm.cars.length }} results.</span>
+    </div>
+    <div class="result" ng-repeat="car in vm.cars">
+      <div class="col-sm-4 result-img">
+        <img class="img-responsive" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
+      </div>
 
-			<div class="col-sm-8">
-				<div>
-					<a ui-sref="detail({id:{{ car.id }}})">
-						<div>
-							{{ car.year }} {{ car.make }} {{ car.model }}
-						</div>
-					</a>
-					<div>
-						{{ car.trim }}
-					</div>
-				</div>
-				
-				<div>
-					<div class="col-sm-7">
-						<table>
-							<tr>
-								<th>ED</th>
-								<th>EV</th>
-							</tr>
-							<tr>
-								<td>{{ car.ed }}</td>
-								<td>{{ car.ev }}</td>
-							</tr>
-							<tr>
-								<th>EMP</th>
-								<th>Weight</th>
-							</tr>
-							<tr>
-								<td>{{ car.emp }}</td>
-								<td>{{ car.w }}</td>
-							</tr>
-						</table>
-					</div>
-					<div class="col-sm-5">
-						${{ car.priceFix }}
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
+      <div class="col-sm-8 result-info">
+        <div class="title">
+          <a class="name" ui-sref="detail({id:{{ car.id }}})">
+            <div>
+              {{ car.year }} {{ car.make }} {{ car.model }}
+            </div>
+          </a>
+          <div class="trim">
+            {{ car.trim }}
+          </div>
+        </div>
+
+        <div class="row">
+          <table class="col-xs-6 specs">
+            <tr>
+              <th class="col-xs-5 ed">ED</th>
+              <th class="col-xs-5 ev">EV</th>
+              <th class="col no-border"></th>
+            </tr>
+            <tr>
+              <td class="col-xs-5">{{ car.ed }}</td>
+              <td class="col-xs-5">{{ car.ev }}</td>
+              <td class="col no-border"></td>
+            </tr>
+            <tr>
+              <th class="col-xs-5 emp">EMP</th>
+              <th class="col-xs-5 weight">Weight</th>
+              <th class="col no-border"></th>
+            </tr>
+            <tr>
+              <td class="col-xs-5">{{ car.emp }}</td>
+              <td class="col-xs-5">{{ car.w }}</td>
+              <td class="col no-border"></td>
+            </tr>
+          </table>
+          <div class="col-xs-6 price">
+            ${{ car.priceFix }}
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
 </div>
 
 <div class="col-sm-3 sidebar">
-   <div ng-include="'app/cars/detail/detail-sidebar.html'"></div>
+  <div ng-include="'app/cars/detail/detail-sidebar.html'"></div>
 </div>
 
 <div class="clearfix"></div>

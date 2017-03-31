@@ -1,0 +1,46 @@
+.search-results > .title {
+  background-color: #fff;
+  font-size: 1.1em;
+  padding: 5px 20px;
+  margin: 15px 0; }
+
+.search-results > .result {
+  background-color: #fff;
+  padding: 15px 0;
+  margin-bottom: 20px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .search-results > .result > .result-info > .title {
+    margin: 10px 0; }
+    .search-results > .result > .result-info > .title .name {
+      font-size: 1.1em; }
+    .search-results > .result > .result-info > .title .trim {
+      font-size: 1em; }
+    .search-results > .result > .result-info > .title:hover .name, .search-results > .result > .result-info > .title:hover .trim {
+      color: #e74c3c !important; }
+  .search-results > .result .specs th {
+    color: #fff; }
+  .search-results > .result .specs td, .search-results > .result .specs th {
+    padding: 3px 0;
+    text-align: center;
+    border-right: 5px solid #fff; }
+    .search-results > .result .specs td.no-border, .search-results > .result .specs th.no-border {
+      border-right: 0; }
+  .search-results > .result .specs .ed {
+    background-color: #3498db; }
+  .search-results > .result .specs .ev {
+    background-color: #e74c3c; }
+  .search-results > .result .specs .emp {
+    background-color: #f5791f; }
+  .search-results > .result .specs .weight {
+    background-color: #1abc9c; }
+  .search-results > .result .specs .ng-binding {
+    background-color: #f1f1f1; }
+  .search-results > .result .price {
+    height: 80px;
+    line-height: 80px;
+    font-size: 1.5em;
+    color: red;
+    font-weight: bold;
+    text-align: center; }
+  .search-results > .result:hover {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22); }

@@ -23,11 +23,11 @@
                 }
             },
             resolve: {
-                searchQuery: function (Search) {
-                    return Search.searchQuery;
+                searchQuery: function ($stateParams) {
+                    return $stateParams.q;
                 }
             }
         });
     }
-    
+
 })();

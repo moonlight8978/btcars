@@ -5,16 +5,16 @@
         .module('btcarsApp')
         .controller('SearchController', SearchController);
 
-    SearchController.$inject = ['searchQuery', 'CarSearch', 'Search', 'Car', 'getCarFactory'];
+    SearchController.$inject = ['searchQuery', 'CarSearch', 'Car', 'getCarFactory'];
 
-    function SearchController(searchQuery, CarSearch, Search, Car, getCarFactory) {
+    function SearchController(searchQuery, CarSearch, Car, getCarFactory) {
     	var vm = this;
 
     	vm.cars = [];
         vm.hot = [];
         vm.loading = true;
 
-        vm.searchQuery = searchQuery;   //  will not reset after reset Search service
+        vm.searchQuery = searchQuery;
 
         Car.query({ category: 'hot' }, function (result) {
             vm.hot = result;
@@ -23,10 +23,9 @@
             console.log('Error while getting hot cars!');
         });
 
-    	CarSearch.query({ query: Search.searchQuery }, function(result) {
+    	CarSearch.query({ query: searchQuery }, function(result) {
             vm.cars = result;
             getCarFactory.priceWithCommas(vm.cars, true);
-            Search.searchQuery = '';    //  Reset searchQuery
             vm.loading = false;
         });
     }

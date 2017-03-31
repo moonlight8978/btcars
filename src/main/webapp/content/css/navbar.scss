@@ -129,7 +129,7 @@
          }
          &.cart:hover {
             a {background-color: $navcartHover;}
-            .navquantity {background-color: $navquantityHover;}
+            //.navquantity {background-color: $navquantityHover;}
          }
          &.total:hover {
             a {background-color: $navtotalHover;}
