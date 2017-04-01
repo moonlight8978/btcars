@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$localStorage', 'getCarFactory', 'CartService', 'BuyService', 'Recommend', 'Car', 'Customer'];
+    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state', '$localStorage', 'getCarFactory', 'CartService', 'BuyService', 'Recommend', 'Car', 'CurrentCustomer'];
 
-    function HomeController ($scope, Principal, LoginService, $state, $localStorage, getCarFactory, CartService, BuyService, Recommend, Car, Customer) {
+    function HomeController ($scope, Principal, LoginService, $state, $localStorage, getCarFactory, CartService, BuyService, Recommend, Car, CurrentCustomer) {
         var vm = this;
 
         vm.account = null;
@@ -40,15 +40,15 @@
                 vm.isAuthenticated = Principal.isAuthenticated;
                 $localStorage.customer.user = account;
                 if (vm.account !== null)
-                    getCart(vm.account.id);
+                    getCart();
             });
         }
         function register () {
             $state.go('register');
         }
 
-        function getCart(id) {
-            Customer.queryByUserId({ userid: id }, function (result) {
+        function getCart() {
+            CurrentCustomer.get(function (result) {
                 $localStorage.customer = result;
                 getCarFactory.priceWithCommas($localStorage.customer.cars, true);
                 $localStorage.total = getCarFactory.calTotalPrice($localStorage.customer.cars);

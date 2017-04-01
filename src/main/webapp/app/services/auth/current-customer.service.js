@@ -1,16 +1,14 @@
 (function() {
     'use strict';
+
     angular
         .module('btcarsApp')
-        .factory('Customer', Customer);
+        .factory('CurrentCustomer', CurrentCustomer);
 
-    Customer.$inject = ['$resource'];
+    CurrentCustomer.$inject = ['$resource'];
 
-    function Customer ($resource) {
-        var resourceUrl =  'api/customers/:id';
-
-        return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+    function CurrentCustomer ($resource) {
+        var service = $resource('api/customers/user', {}, {
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
@@ -19,8 +17,9 @@
                     }
                     return data;
                 }
-            },
-            'update': { method: 'PUT' }
+            }
         });
+
+        return service;
     }
 })();

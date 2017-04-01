@@ -5,11 +5,13 @@ import btcars.domain.Recommend;
 
 import btcars.repository.RecommendRepository;
 import btcars.repository.search.RecommendSearchRepository;
+import btcars.security.AuthoritiesConstants;
 import btcars.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,6 +53,7 @@ public class RecommendResource {
      */
     @PostMapping("/recommends")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Recommend> createRecommend(@Valid @RequestBody Recommend recommend) throws URISyntaxException {
         log.debug("REST request to save Recommend : {}", recommend);
         if (recommend.getId() != null) {
@@ -74,6 +77,7 @@ public class RecommendResource {
      */
     @PutMapping("/recommends")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Recommend> updateRecommend(@Valid @RequestBody Recommend recommend) throws URISyntaxException {
         log.debug("REST request to update Recommend : {}", recommend);
         if (recommend.getId() == null) {
@@ -121,6 +125,7 @@ public class RecommendResource {
      */
     @DeleteMapping("/recommends/{id}")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteRecommend(@PathVariable Long id) {
         log.debug("REST request to delete Recommend : {}", id);
         recommendRepository.delete(id);
@@ -137,6 +142,7 @@ public class RecommendResource {
      */
     @GetMapping("/_search/recommends")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public List<Recommend> searchRecommends(@RequestParam String query) {
         log.debug("REST request to search Recommends for query {}", query);
         return StreamSupport

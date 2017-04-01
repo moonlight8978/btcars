@@ -5,11 +5,13 @@ import btcars.domain.Orderlist;
 
 import btcars.repository.OrderlistRepository;
 import btcars.repository.search.OrderlistSearchRepository;
+import btcars.security.AuthoritiesConstants;
 import btcars.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,6 +53,7 @@ public class OrderlistResource {
      */
     @PostMapping("/orderlists")
     @Timed
+    @Secured(AuthoritiesConstants.USER)
     public ResponseEntity<Orderlist> createOrderlist(@Valid @RequestBody Orderlist orderlist) throws URISyntaxException {
         log.debug("REST request to save Orderlist : {}", orderlist);
         if (orderlist.getId() != null) {
@@ -71,9 +74,10 @@ public class OrderlistResource {
      * or with status 400 (Bad Request) if the orderlist is not valid,
      * or with status 500 (Internal Server Error) if the orderlist couldnt be updated
      * @throws URISyntaxException if the Location URI syntax is incorrect
-     */
+     
     @PutMapping("/orderlists")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Orderlist> updateOrderlist(@Valid @RequestBody Orderlist orderlist) throws URISyntaxException {
         log.debug("REST request to update Orderlist : {}", orderlist);
         if (orderlist.getId() == null) {
@@ -85,6 +89,7 @@ public class OrderlistResource {
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, orderlist.getId().toString()))
             .body(result);
     }
+    */
 
     /**
      * GET  /orderlists : get all the orderlists.
@@ -93,6 +98,7 @@ public class OrderlistResource {
      */
     @GetMapping("/orderlists")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public List<Orderlist> getAllOrderlists() {
         log.debug("REST request to get all Orderlists");
         List<Orderlist> orderlists = orderlistRepository.findAllWithEagerRelationships();
@@ -107,6 +113,7 @@ public class OrderlistResource {
      */
     @GetMapping("/orderlists/{id}")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Orderlist> getOrderlist(@PathVariable Long id) {
         log.debug("REST request to get Orderlist : {}", id);
         Orderlist orderlist = orderlistRepository.findOneWithEagerRelationships(id);
@@ -121,6 +128,7 @@ public class OrderlistResource {
      */
     @DeleteMapping("/orderlists/{id}")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteOrderlist(@PathVariable Long id) {
         log.debug("REST request to delete Orderlist : {}", id);
         orderlistRepository.delete(id);
@@ -137,12 +145,12 @@ public class OrderlistResource {
      */
     @GetMapping("/_search/orderlists")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public List<Orderlist> searchOrderlists(@RequestParam String query) {
         log.debug("REST request to search Orderlists for query {}", query);
         return StreamSupport
             .stream(orderlistSearchRepository.search(queryStringQuery(query)).spliterator(), false)
             .collect(Collectors.toList());
     }
-
 
 }

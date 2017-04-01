@@ -5,9 +5,9 @@
         .module('btcarsApp')
         .controller('CartDialogueController', CartDialogueController);
 
-    CartDialogueController.$inject = ['$localStorage', '$uibModalInstance', 'CartService', 'getCarFactory', 'Customer', 'car'];
+    CartDialogueController.$inject = ['$localStorage', '$uibModalInstance', 'CartService', 'getCarFactory', 'Customer', 'car', 'Principal', 'LoginService'];
 
-    function CartDialogueController ($localStorage, $uibModalInstance, CartService, getCarFactory, Customer, car) {
+    function CartDialogueController ($localStorage, $uibModalInstance, CartService, getCarFactory, Customer, car, Principal, LoginService) {
         var vm = this;
 
         vm.car = car;   // get car info from prev state
@@ -15,6 +15,7 @@
         vm.deleteItem = deleteItem;
         vm.clear = clear;
         vm.error = null;
+        vm.authenticate = Principal.isAuthenticated();
 
         function clear() {
             $uibModalInstance.dismiss('cancel');
@@ -46,25 +47,31 @@
             Update total price      */
         function addItem(item) {
             vm.isSaving = true;
-            var length = $localStorage.customer.cars.length;
-            var i=0;
-            if (length > 0) {
-                for (i=0; i<length; i++) {
-                    if (item.id == $localStorage.customer.cars[i].id)
-                        break;
+            if (vm.authenticate) {
+                var length = $localStorage.customer.cars.length;
+                var i=0;
+                if (length > 0) {
+                    for (i=0; i<length; i++) {
+                        if (item.id == $localStorage.customer.cars[i].id)
+                            break;
+                    }
                 }
-            }
-            if (i == length) {
-                $localStorage.customer.cars.push(item);
-                Customer.update($localStorage.customer, function (result) {
-                    $localStorage.total = getCarFactory.calTotalPrice($localStorage.customer.cars);
-                    $localStorage.totalFix = $localStorage.total.toLocaleString();
-                    vm.error = null;
-                    $uibModalInstance.close(result);
+                if (i == length) {
+                    $localStorage.customer.cars.push(item);
+                    Customer.update($localStorage.customer, function (result) {
+                        $localStorage.total = getCarFactory.calTotalPrice($localStorage.customer.cars);
+                        $localStorage.totalFix = $localStorage.total.toLocaleString();
+                        vm.error = null;
+                        $uibModalInstance.close(result);
+                        vm.isSaving = false;
+                    });
+                } else {
+                    vm.error = 'ERROR';
                     vm.isSaving = false;
-                });
+                }
             } else {
-                vm.error = 'ERROR';
+                vm.error = null;
+                LoginService.open();
                 vm.isSaving = false;
             }
         }

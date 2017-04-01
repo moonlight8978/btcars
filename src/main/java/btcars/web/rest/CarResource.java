@@ -5,11 +5,13 @@ import btcars.domain.Car;
 
 import btcars.repository.CarRepository;
 import btcars.repository.search.CarSearchRepository;
+import btcars.security.AuthoritiesConstants;
 import btcars.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.*;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -51,6 +53,7 @@ public class CarResource {
      */
     @PostMapping("/cars")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Car> createCar(@Valid @RequestBody Car car) throws URISyntaxException {
         log.debug("REST request to save Car : {}", car);
         if (car.getId() != null) {
@@ -74,6 +77,7 @@ public class CarResource {
      */
     @PutMapping("/cars")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Car> updateCar(@Valid @RequestBody Car car) throws URISyntaxException {
         log.debug("REST request to update Car : {}", car);
         if (car.getId() == null) {
@@ -121,6 +125,7 @@ public class CarResource {
      */
     @DeleteMapping("/cars/{id}")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteCar(@PathVariable Long id) {
         log.debug("REST request to delete Car : {}", id);
         carRepository.delete(id);

@@ -10,6 +10,10 @@
       <strong>Item has been already in your Cart!</strong>
    </div>
 
+   <div class="alert alert-danger" ng-show="!vm.authenticate" >
+      <strong>You need to login to use this feature!</strong>
+   </div>
+
    <div class="modal-body">
       Do you want to add {{ vm.car.year }} {{ vm.car.make }} {{ vm.car.model }} {{ vm.car.trim }} to your cart?
    </div>

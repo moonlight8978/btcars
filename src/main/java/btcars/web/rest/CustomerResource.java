@@ -5,11 +5,14 @@ import btcars.domain.Customer;
 
 import btcars.repository.CustomerRepository;
 import btcars.repository.search.CustomerSearchRepository;
+import btcars.security.AuthoritiesConstants;
+import btcars.security.SecurityUtils;
 import btcars.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -92,6 +95,7 @@ public class CustomerResource {
      */
     @GetMapping("/customers")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public List<Customer> getAllCustomers() {
         log.debug("REST request to get all Customers");
         List<Customer> customers = customerRepository.findAllWithEagerRelationships();
@@ -106,6 +110,7 @@ public class CustomerResource {
      */
     @GetMapping("/customers/{id}")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Customer> getCustomer(@PathVariable Long id) {
         log.debug("REST request to get Customer : {}", id);
         Customer customer = customerRepository.findOneWithEagerRelationships(id);
@@ -118,11 +123,11 @@ public class CustomerResource {
      * @param userid the userid of the customer to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the customer, or with status 404 (Not Found)
      */
-    @GetMapping(value = "/customers", params = "userid")
+    @GetMapping(value = "/customers/user")
     @Timed
-    public ResponseEntity<Customer> getCustomerByUserId(@RequestParam Long userid) {
-        log.debug("REST request to get Customer with UserId : ", userid);
-        Customer customer = customerRepository.findOneByUser(userid);
+    public ResponseEntity<Customer> getCustomerByUser() {
+        log.debug("REST request to get Customer info");
+        Customer customer = customerRepository.findOneByUser(SecurityUtils.getCurrentUserLogin());
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(customer));
     }
 
@@ -134,6 +139,7 @@ public class CustomerResource {
      */
     @DeleteMapping("/customers/{id}")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
         log.debug("REST request to delete Customer : {}", id);
         customerRepository.delete(id);
@@ -150,6 +156,7 @@ public class CustomerResource {
      */
     @GetMapping("/_search/customers")
     @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
     public List<Customer> searchCustomers(@RequestParam String query) {
         log.debug("REST request to search Customers for query {}", query);
         return StreamSupport
