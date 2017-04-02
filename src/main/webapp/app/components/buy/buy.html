@@ -1,94 +1,126 @@
 <form name="buyForm" role="form" novalidate ng-submit="vm.save()" show-validation>
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myOrderlistLabel">Buy</h4>
-    </div>
+  <div class="modal-header buy custom-modal">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+        ng-click="vm.clear()">&times;</button>
+    <h3 class="modal-title" id="myOrderlistLabel">Order</h3>
+  </div>
 
+  <div class="modal-body custom-modal">
     <div class="alert alert-danger" ng-show="vm.error" >
-       <strong>Error has occured!</strong>
+      <strong>Error has occured!</strong>
     </div>
 
     <div class="alert alert-danger" ng-show="!vm.authenticate" >
-       <strong>You need to login to use this feature!</strong>
+      <strong>You need to login to use this feature!</strong>
     </div>
 
-    <div class="modal-body">
-        <div class="row">
-            <div class="form-group col-sm-6">
-                <label class="control-label" for="field_lastname">Last Name</label>
-                <input type="text" class="form-control" name="lastname" id="field_lastname"
-                        ng-model="vm.order.lastname" required/>
-                <div ng-show="buyForm.lastname.$invalid">
-                    <p class="help-block"
-                            ng-show="buyForm.lastname.$error.required">
-                        This field is required.
-                    </p>
-                </div>
+    <div class="row input-block">
+      <div class="title">
+        Your Information
+      </div>
+      <div class="body">
+        <div class="row first">
+          <div class="col-sm-6 form-group">
+            <label class="control-label" for="lastname">Last Name</label>
+            <input type="text" class="form-control" name="lastname" id="field_lastname"
+                ng-model="vm.order.lastname" placeholder="Please enter your real name..."
+                autocomplete="off" required>
+            <div ng-show="buyForm.lastname.$invalid">
+              <p class="help-block" ng-show="buyForm.lastname.$error.required">
+                This field is required.
+              </p>
             </div>
-            <div class="form-group col-sm-6 row">
-                <label class="control-label" for="field_firstname">First Name</label>
-                <input type="text" class="form-control" name="firstname" id="field_firstname"
-                        ng-model="vm.order.firstname" required/>
-                <div ng-show="buyForm.firstname.$invalid">
-                    <p class="help-block"
-                            ng-show="buyForm.firstname.$error.required">
-                        This field is required.
-                    </p>
-                </div>
+          </div>
+          <div class="col-sm-6 form-group">
+            <label class="control-label" for="firstname">First Name</label>
+            <input type="text" class="form-control" name="firstname" id="field_firstname"
+                ng-model="vm.order.firstname" placeholder="Please enter your real name..."
+                autocomplete="off" required>
+            <div ng-show="buyForm.firstname.$invalid">
+              <p class="help-block" ng-show="buyForm.firstname.$error.required">
+                This field is required.
+              </p>
             </div>
-            <div class="clearfix"></div>
+          </div>
+          <div class="clearfix"></div>
         </div>
-
-
-        <div class="form-group col-xs-12 row">
-            <label class="control-label" for="field_address">Phone number</label>
-            <input type="text" class="form-control" name="phone" id="field_phone"
-                    ng-model="vm.order.phonenumber"
-                    required/>
-            <div ng-show="buyForm.phone.$invalid">
-                <p class="help-block"
-                    ng-show="buyForm.phone.$error.required">
-                    This field is required.
-                </p>
-            </div>
+        <div class="col-xs-12 form-group row">
+          <label class="control-label" for="phone">Phonenumber</label>
+          <input type="text" class="form-control" name="phone" id="field_phone"
+              ng-model="vm.order.phonenumber" placeholder="Please enter your real phonenumber..."
+              autocomplete="off" required>
+          <div ng-show="buyForm.phone.$invalid">
+            <p class="help-block" ng-show="buyForm.phone.$error.required">
+              This field is required.
+            </p>
+          </div>
         </div>
-
-        <div class="form-group col-xs-12 row">
-            <label class="control-label" for="field_address">Address</label>
-            <input type="text" class="form-control" name="address" id="field_address"
-                    ng-model="vm.order.address"
-                    required/>
-            <div ng-show="buyForm.address.$invalid">
-                <p class="help-block"
-                    ng-show="buyForm.address.$error.required">
-                    This field is required.
-                </p>
-            </div>
+        <div class="col-xs-12 form-group row last">
+          <label class="control-label" for="address">Address</label>
+          <input type="text" class="form-control" name="address" id="field_address"
+              ng-model="vm.order.address" placeholder="Please enter your real address..."
+              autocomplete="off" required>
+          <div ng-show="buyForm.address.$invalid">
+            <p class="help-block" ng-show="buyForm.address.$error.required">
+              This field is required.
+            </p>
+          </div>
         </div>
-
-        <div class="form-group col-xs-12 row">
-            <div class="col-sm-5">
-                <span ng-click="vm.openList()">[ Click here to view your order list ]</span>
-            </div>
-            <div class="col-sm-7">
-                <label class="control-label">Total</label>
-                <span class="price">
-                    ${{ vm.order.totalFix }}
-                </span>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-
-
-
+        <div class="clearfix"></div>
+      </div>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
-        </button>
-        <button type="submit" ng-disabled="buyForm.$invalid || vm.isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
-        </button>
+
+    <!--
+    <div class="row input-block">
+      <div class="title">
+        Your Contacts
+      </div>
+      <div class="body">
+        <div class="form-group">
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
     </div>
+    -->
+
+    <div class="row input-block order">
+      <div class="title">
+        Your Order Details
+      </div>
+      <div class="body">
+        <div class="row first last">
+          <div class="col-sm-6">
+            <a ng-click="vm.openList()">
+              [ Click here to view your order list ]
+            </a>
+          </div>
+          <div class="col-sm-6 price-container">
+            <label class="control-label price-label">Total:</label>
+            <span class="price">
+              ${{ vm.order.totalFix }}
+            </span>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="confirm buy pull-right">
+      <!--
+      <button type="button" class="btn btn-default" data-dismiss="modal"
+          ng-click="vm.clear()">
+        <span class="glyphicon glyphicon-ban-circle"></span>
+        &nbsp;
+        <span>Cancel</span>
+      </button>
+      -->
+      <button type="submit" ng-disabled="buyForm.$invalid || vm.isSaving"
+          class="btn">
+        <i class="fa fa-shopping-basket"></i>
+        <span>Order</span>
+      </button>
+    </div>
+    <div class="clearfix"></div>
+  </div>
 </form>

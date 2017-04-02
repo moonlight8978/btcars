@@ -1,0 +1,106 @@
+.modal-header.custom-modal {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 10px;
+  border: 0 !important; }
+  .modal-header.custom-modal .close {
+    font-size: 40px;
+    float: none;
+    position: absolute;
+    right: 10px; }
+  .modal-header.custom-modal.buy {
+    background-color: #3498db; }
+  .modal-header.custom-modal.buy-list {
+    background-color: #2ecc71; }
+
+.modal-body.custom-modal {
+  background-color: #e0f2f6;
+  padding: 20px 20px; }
+  .modal-body.custom-modal .title {
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    background-color: #34495e; }
+  .modal-body.custom-modal .body a:hover {
+    color: #e74c3c; }
+  .modal-body.custom-modal .confirm button {
+    padding: 6px 20px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    color: #fff; }
+  .modal-body.custom-modal .confirm.buy button {
+    background-color: #f5791f; }
+    .modal-body.custom-modal .confirm.buy button:hover {
+      background-color: #e46f19; }
+
+.input-block {
+  background-color: #fff;
+  margin: 0 0 20px; }
+  .input-block:last-child {
+    margin: 0; }
+  .input-block .body {
+    padding: 15px 0; }
+    .input-block .body .help-block {
+      margin: 5px 0 0; }
+    .input-block .body .clearfix {
+      margin: 0; }
+    .input-block .body .form-group {
+      margin: 0; }
+    .input-block .body > .row {
+      padding: 0 20px;
+      margin-bottom: 15px; }
+      .input-block .body > .row > div:first-child {
+        margin-bottom: 15px; }
+      .input-block .body > .row.last {
+        margin: 0; }
+      .input-block .body > .row.first {
+        padding: 0 5px; }
+
+@media (min-width: 768px) {
+  .input-block .body > .row > div:first-child {
+    margin-bottom: 0 !important; } }
+
+.order .price-container .price-label {
+  vertical-align: top;
+  font-size: 1.1em; }
+
+.order .price-container .price {
+  font-size: 2em;
+  padding-top: 15px;
+  display: inline-block;
+  color: red;
+  float: right;
+  line-height: 1; }
+
+/* ==========================================================================
+Ordered Car List
+========================================================================== */
+.modal-body.custom-modal.buy-list .item {
+  background-color: #fff;
+  padding: 15px 0px;
+  margin-bottom: 20px; }
+  .modal-body.custom-modal.buy-list .item img {
+    display: block;
+    max-width: 160px;
+    width: 100%; }
+  .modal-body.custom-modal.buy-list .item > .item-info > .item-title {
+    margin: 0 0 10px;
+    cursor: pointer; }
+    .modal-body.custom-modal.buy-list .item > .item-info > .item-title .name, .modal-body.custom-modal.buy-list .item > .item-info > .item-title .trim {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden; }
+    .modal-body.custom-modal.buy-list .item > .item-info > .item-title .name {
+      font-size: 1.1em; }
+    .modal-body.custom-modal.buy-list .item > .item-info > .item-title:hover .name, .modal-body.custom-modal.buy-list .item > .item-info > .item-title:hover .trim {
+      color: #e74c3c !important; }
+  .modal-body.custom-modal.buy-list .item .price {
+    font-size: 1.5em;
+    color: red;
+    font-weight: bold;
+    text-align: right; }
+  .modal-body.custom-modal.buy-list .item:last-child {
+    margin-bottom: 0; }

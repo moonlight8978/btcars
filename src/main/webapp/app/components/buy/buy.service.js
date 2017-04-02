@@ -34,9 +34,11 @@
             if (modalInstance !== null) return;
             modalInstance = $uibModal.open({
                 animation: true,
+                backdrop: 'static',
                 templateUrl: 'app/components/buy/buy.html',
                 controller: 'BuyController',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                size: 'lg'
             });
             modalInstance.result.then(
                 resetModal,

@@ -1,0 +1,118 @@
+@import 'color';
+@import 'bs3-variables';
+
+.modal-header.custom-modal {
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: $textColorDarkBg;
+  padding: 10px;
+  border: 0 !important;
+  .close {
+    font-size: 40px;
+    float: none;
+    position: absolute;
+    right: 10px;
+  }
+  &.buy {background-color: $buy-modal-title-bg;}
+  &.buy-list {background-color: $buylist-modal-title-bg;}
+}
+
+.modal-body.custom-modal {
+  background-color: $bgColor;
+  padding: 20px 20px;
+  .title {
+    color: $textColorDarkBg;
+    padding: 8px 20px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    background-color: $homeListTitleBgColor;
+  }
+  .body {
+    a:hover {color: $linkHoverTextColor;}
+  }
+  .confirm {
+    button {
+      padding: 6px 20px;
+      font-size: 1.1em;
+      text-transform: uppercase;
+      color: $textColorDarkBg;
+    }
+    &.buy button {
+      background-color: $buyconfirm-bg;
+      &:hover {background-color: $buyconfirm-hover-bg;}
+    }
+  }
+}
+
+.input-block {
+  background-color: $bgMain;
+  margin: 0 0 20px;
+  &:last-child {margin: 0;}
+  .body {
+    padding: 15px 0;
+    .help-block {margin: 5px 0 0;}
+    .clearfix {margin: 0;}
+    .form-group {margin: 0;}
+    > .row {
+      padding: 0 20px;
+      margin-bottom: 15px;
+      > div:first-child {margin-bottom: 15px;}
+      &.last {margin: 0;}
+      &.first {padding: 0 5px;}
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .input-block .body > .row > div:first-child {margin-bottom: 0 !important;}
+}
+
+.order .price-container {
+  .price-label {
+    vertical-align: top;
+    font-size: 1.1em;
+  }
+  .price {
+    font-size: 2em;
+    padding-top: 15px;
+    display:  inline-block;
+    color:  red;
+    float: right;
+    line-height: 1;
+  }
+}
+
+
+/* ==========================================================================
+Ordered Car List
+========================================================================== */
+
+.modal-body.custom-modal.buy-list .item {
+  background-color: $bgMain;
+  padding: 15px 0px;
+  margin-bottom: 20px;
+  img {
+    display: block;
+    max-width: 160px;
+    width: 100%;
+  }
+  > .item-info > .item-title {
+    margin: 0 0 10px;
+    cursor: pointer;
+    .name, .trim {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    .name {font-size: 1.1em;}
+    &:hover {.name, .trim {color: $link-hover-color !important;}}
+  }
+  .price {
+    font-size: 1.5em;
+    color: $price;
+    font-weight: bold;
+    text-align: right;
+  }
+  &:last-child {margin-bottom: 0;}
+}

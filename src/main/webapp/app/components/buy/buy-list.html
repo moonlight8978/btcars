@@ -1,33 +1,28 @@
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-            ng-click="vm.clear()">&times;</button>
-    <h4 class="modal-title" id="myOrderlistLabel">Your Order List</h4>
+<div class="modal-header custom-modal buy-list">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+      ng-click="vm.clear()">&times;</button>
+  <h3 class="modal-title" id="myOrderlistLabel">Your Order List</h3>
 </div>
-<div class="modal-body">
-    <div ng-repeat="car in vm.order.cars">
-        <div class="col-sm-4">
-            <img class="img-thumbnail" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
-        </div>
-
-        <div class="col-sm-8">
-            <div>
-                {{ car.year }} {{ car.make }} {{ car.model }}
-            </div>
-            <div>
-                {{ car.trim }}
-            </div>
-            <div>
-                ${{ car.priceFix }}                
-            </div>
-        </div>
-
-        <div class="clearfix"></div>
+<div class="modal-body custom-modal buy-list">
+  <div class="item" ng-repeat="car in vm.order.cars">
+    <div class="col-xs-4">
+      <img class="img-thumbnail" ng-src="content/images/cars/{{ car.id }}/1.jpg" alt="">
     </div>
-    
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-        <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Close</span>
-    </button>
-</div>
 
+    <div class="col-xs-8 item-info">
+      <div class="item-title">
+        <a><div class="name">
+          {{ car.year }} {{ car.make }} {{ car.model }}
+        </div></a>
+        <div class="trim">
+          {{ car.trim }}
+        </div>
+      </div>
+      <div class="price">
+        ${{ car.priceFix }}
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+</div>
