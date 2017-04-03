@@ -1,4 +1,4 @@
-@import "color";
+@import 'color';
 
 body {
   background: #fafafa;
@@ -371,10 +371,10 @@ body {
 
 a {
   text-decoration: none !important;
-  color: $text-color-black;
+  color: $text--dark;
   &:hover {
     text-decoration: none !important;
-    color: $text-color-black;
+    color: $text--dark;
   }
 }
 
@@ -384,7 +384,7 @@ a {
   outline: none;
 }
 
-.container {background: $bg-main;}
+.container {background: $body__background;}
 
 .clear {clear: both;}
 
@@ -395,12 +395,12 @@ a {
 .sidebar-img {padding: 0 !important;}
 
 .breadcrumb {
-  background-color: $bg-white !important;
+  background-color: $background--light !important;
   border-radius: 0 !important;
   margin: 30px 0;
   a {
-    color: $text-color-black;
-    &:hover {color: $link-color-hover;}
+    color: $text--dark;
+    &:hover {color: $link__text-hover;}
   }
 }
 
@@ -422,12 +422,12 @@ a {
   }
   .car-buy {
     font-size: 0.9em !important;
-    .status {border-right: 1px solid $bg-white;}
+    .status {border-right: 1px solid $background--light;}
     .buy-now {
-      border-left: 1px solid $bg-white;
-      border-right: 1px solid $bg-white;
+      border-left: 1px solid $background--light;
+      border-right: 1px solid $background--light;
     }
-    .add-to-cart {border-left: 1px solid $bg-white;}
+    .add-to-cart {border-left: 1px solid $background--light;}
   }
   .left-lg    {float: left !important;}
   .right-lg   {float: right !important;}
@@ -462,10 +462,10 @@ a {
 
 //for all slideshow
 .slide-custom {
-  background: $bg-white;
+  background: $background--light;
   .slide-control {
-    color: #ccc;
-    background: $slideButtonColor;
+    color: $slider-control__text;
+    background: $slider-control__background;
     padding: 10px;
     opacity: 0.5;
     position: absolute;
@@ -474,7 +474,7 @@ a {
     &.slide-control-right {right: 30px;}
     &:hover {
       opacity: 0.8;
-      color: $text-color-white !important;
+      color: $text--light !important;
     }
   }
 }
@@ -507,24 +507,24 @@ a {
 .sidebar-group {
   margin-bottom: 30px !important;
   .sidebar-list-title {
-    background-color: $sidebarTitleBgColor;
-    color: $text-color-white;
+    background-color: $sidebar-manufactures-title__background;
+    color: $text--light;
     border: none !important;
     text-transform: uppercase;
     font-size: 1.2em;
     padding: 12px 20px !important;
-    &.filter {background-color: $filter;}
-    &.sort   {background-color: $sort;}
-    &.hot    {background-color: $hot;}
+    &.filter {background-color: $sidebar-filter-title__background;}
+    &.sort   {background-color: $sidebar-sort-title__background;}
+    &.hot    {background-color: $sidebar-bestsellers-title__background;}
   }
   .sidebar-list-body {
     padding: 10px 0;
-    background: $bg-white;
+    background: $background--light;
     li {
-      color: $text-color-black;
+      color: $text--dark;
       &:hover {
-        background: $sidebarLinkHoverBgColor;
-        color: $sidebarLinkHoverTextColor;
+        background: $sidebar-item__background-hover;
+        color: $link__text-hover;
       }
     }
   }
@@ -538,18 +538,17 @@ a {
 //hot items (override)
 .sidebar-carlist {
   .info {padding-right: 0 !important;}
-  .sidebar-content-title {color: $text-color-black;}
+  .sidebar-content-title {color: $text--dark;}
   .price {
-    color: $text-color-price;
+    color: $price__text;
     font-weight: bold;
     font-size: 1.1em;
   }
   li:hover {
-    .emp {color: $text-color-white;}
-    .sidebar-content-title {
-      color: $sidebarLinkHoverTextColor;
-      &:hover {color: $sidebarLinkHoverTextColor;}
+    .sidebar-content-title, .sidebar-content-title:hover {
+      color: $link__text-hover;
     }
+    .emp {color: $text--dark;}
   }
 }
 
@@ -561,8 +560,8 @@ a {
 
 .car-container {
   .car-container-title {
-    background: $homeListTitleBgColor;
-    color: $textColorDarkBg;
+    background: $container-title__background;
+    color: $text--light;
     padding: 10px 20px;
     text-transform: uppercase;
     font-size: 1.3em;
@@ -577,14 +576,14 @@ a {
   .car-item-wrap-3 {margin-top: 15px;}
   .car-item {
     //transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    background: $bgMain;
+    background: $background--light;
     //&:hover {box-shadow: 0 5px 10px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);}
   }
   img {margin: auto;}
   .car-info {
     padding: 10px 15px;
     > div {padding: 3px 0px;}
-    span {color: $defaultTextColor;}
+    span {color: $text--dark;}
     a {
       display: block;
       white-space: nowrap;
@@ -592,11 +591,11 @@ a {
       text-overflow: ellipsis;
       vertical-align: top;
       font-size: 1.2em;
-      &:hover span {color: $linkHoverTextColor;}
+      &:hover span {color: $link__text-hover;}
     }
   }
   .price {
-    color: $price;
+    color: $price__text;
     font-weight: bold;
     font-size: 1.3em;
   }
@@ -605,7 +604,7 @@ a {
 
 .car-buy {
   text-align: center;
-  color: $textColorDarkBg;
+  color: $text--light;
   text-transform: uppercase;
   font-size: 1.1em;
   div {
@@ -613,14 +612,14 @@ a {
     &.clearfix {padding: 0;}
   }
   .status {
-    &.status-instock {background-color: $instockBgColor;}
-    &.status-outofstock {background-color: $outofstockBgColor;}
-    &.status-suspended {background-color: $suspendedBgColor;}
+    &.status-instock {background-color: $buysection-status-instock__background;}
+    &.status-outofstock {background-color: $buysection-status-outofstock__background;}
+    &.status-suspended {background-color: $buysection-status-suspended__background;}
   }
-  .buy-now {background-color: $buyNowBgColor;}
-  .buy-now:hover {background-color: $buynowHover;}
-  .add-to-cart {background-color: $addToCartBgColor;}
-  .add-to-cart:hover {background-color: $addtocartHover;}
+  .buy-now {background-color: $buysection-buy__background;}
+  .buy-now:hover {background-color: $buysection-buy__background-hover;}
+  .add-to-cart {background-color: $buysection-cart__background;}
+  .add-to-cart:hover {background-color: $buysection-cart__background-hover;}
 }
 
 // ****************************************
@@ -633,7 +632,7 @@ a {
   margin-right: 0;
 }
 
-.car-detail-infobox {background-color: $bgMain;}
+.car-detail-infobox {background-color: $background--light;}
 
 .slideshow-container {padding: 20px 10px;}
 
@@ -651,10 +650,10 @@ a {
       max-width: 60px;
       display: inline-block;
       border-radius: 0 !important;
-      border: 1px solid $lightBorderColor;
+      border: 1px solid $border--mid-dark;
       background-color: transparent;
       &.active {
-        border-color: $darkBorderColor;
+        border-color: $border--dark;
         width: auto;
         height: auto;
       }
@@ -687,7 +686,7 @@ a {
   .price {
     font-size: 1.5em;
     word-spacing: 1.3;
-    color: $price;
+    color: $price__text;
     font-weight: bold;
     margin-bottom: 20px;
   }
@@ -695,21 +694,21 @@ a {
 
 .detail-specs {
   // heading
-  background-color: $bgMain;
+  background-color: $background--light;
   margin-top: 30px;
   padding-bottom: 20px;
-  li a {background-color: $tabTitleBgColor;}
+  li a {background-color: $details-title__background-focusout;}
   .descr {
-    &.active a, a:hover {background-color: $descrTitleBgColor !important;}
+    &.active a, a:hover {background-color: $details-descrtitle__background-focus !important;}
   }
   .specs {
-    &.active a, a:hover {background-color: $specsTitleBgColor !important;}
+    &.active a, a:hover {background-color: $details-specstitle__background-focus !important;}
   }
   a {
     text-transform: uppercase;
     font-size: 1.2em;
     padding: 10px 20px;
-    color: $textColorDarkBg !important;
+    color: $text--light !important;
     border: 0 !important;
     border-radius: 0 !important;
     &:first-child {margin-right: 1px;}
@@ -721,16 +720,16 @@ a {
     h3 {text-align: center;}
     table {
       max-width: 100%;
-      tr {border-bottom: 1px solid $bgMain;}
+      tr {border-bottom: 1px solid $background--light;}
       th, td {
         display: block;
         padding: 10px;
       }
       th {
-        background-color: $thBgColor;
-        color: $textColorDarkBg;
+        background-color: $details-tabletitle__background;
+        color: $text--light;
       }
-      td {background-color: $tdBgColor;}
+      td {background-color: $details-tablecontent__background;}
     }
   }
 }
@@ -738,14 +737,14 @@ a {
 
 // ****************************************
 // ****************************************
-//          Account Setting
+//          Account Settings
 // ****************************************
 // ****************************************
 .account-block {
-  background-color: $bgMain;
+  background-color: $background--light;
   .account-container-title {
-    background: $accBlockTitle;
-    color: $textColorDarkBg;
+    background: $container-title__background;
+    color: $text--light;
     padding: 10px 20px;
     text-transform: uppercase;
     font-size: 1.3em;
@@ -757,12 +756,12 @@ a {
     margin-bottom: 30px;
   }
   .btn {
-    color: $textColorDarkBg;
+    color: $text--light;
     float: right;
     text-transform: uppercase;
     padding: 10px 15px;
-    &.btn-account-info {background-color: $btnInfoBgColor;}
-    &.btn-account-password {background-color: $btnPasswordBgColor;}
+    &.btn-account-info {background-color: $settings-info-save__background;}
+    &.btn-account-password {background-color: $settings-pw-save__background;}
   }
 }
 

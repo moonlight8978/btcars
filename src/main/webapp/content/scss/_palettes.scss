@@ -1,0 +1,24 @@
+@function palette($palette, $tone: 'base') {
+  @return map-get(map-get($palettes, $palette), $tone);
+}
+
+$palettes: (
+  white: (
+    x-light: #fff,
+    light: #f1f1f1,
+    dark: #eee
+  ),
+  black: (
+    light: #3f3f3f,
+    base:   #1f2228,
+    x-dark:   #000
+  ),
+  red: (
+    base: #e74c3c,
+    dark: #c63d2f,
+    x-dark: red
+  ),
+  orange: (
+    base: #f5791f
+  )
+);

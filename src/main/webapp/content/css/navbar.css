@@ -39,14 +39,14 @@
     color: #3498db !important; }
 
 .nav-top .nav > li > a {
-  border-bottom: 1px solid #eee !important; }
+  border-bottom: 1px solid #f1f1f1 !important; }
 
 .nav-top #logout > a {
   border-bottom: 0px; }
 
 .dropdown-menu {
   border: 0 !important;
-  border-bottom: 1px solid #eee !important;
+  border-bottom: 1px solid #999 !important;
   background-color: #fff !important;
   box-shadow: none !important; }
   .dropdown-menu > li > a {
@@ -95,7 +95,7 @@
         width: 60px;
         text-align: center;
         padding: 15px 0;
-        border-left: 1px solid #e0f2f6; }
+        border-left: 1px solid #fff; }
         .nav-middle .mini-nav .mini-nav-item a.nav-cart {
           background-color: #3498db; }
         .nav-middle .mini-nav .mini-nav-item a.nav-total {
@@ -112,6 +112,7 @@
   top: -5px;
   left: -5px;
   display: inline-block;
+  text-align: center;
   font-size: 14px;
   font-weight: bold;
   width: 25px;
@@ -119,7 +120,6 @@
   line-height: 25px;
   border-radius: 50% !important;
   background-color: #e74c3c;
-  text-align: center;
   color: #fff; }
 
 .navtotal {
@@ -175,11 +175,13 @@
     color: #3498db !important; }
 
 .mainmenu .nav > li > a {
-  border-bottom: 1px solid #eee !important; }
+  border-bottom: 1px solid #f1f1f1 !important; }
 
 @media (min-width: 768px) {
   .mainmenu .nav > li span {
     color: #fff !important; }
+  .mainmenu .nav > li > a {
+    border-bottom: 0 !important; }
   .mainmenu.navbar {
     background-color: transparent !important;
     border: 0 !important;
@@ -195,7 +197,7 @@
       padding-bottom: 30px !important;
       text-align: center !important;
       transition: background-color 0.1s ease;
-      border-right: 1px solid #e0f2f6; }
+      border-right: 1px solid #fff; }
     .mainmenu-item:last-child {
       border-right: 0; }
     .mainmenu-item:hover a {
@@ -282,11 +284,11 @@
       width: 100%;
       margin: 0;
       display: table-cell !important;
-      height: 81px !important;
+      height: 80px !important;
       vertical-align: middle !important;
       text-align: left !important;
       padding: 0 30px !important; } }
 
 @media (min-width: 992px) {
   .mainmenu-search.search-enable .searchbar {
-    height: 91px !important; } }
+    height: 90px !important; } }

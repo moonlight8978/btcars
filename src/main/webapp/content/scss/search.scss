@@ -2,7 +2,7 @@
 
 .search-results {
   > .title {
-    background-color: $bg-white;
+    background-color: $background--light;
     font-size: 1.1em;
     padding: 5px 20px;
     margin: 15px 0;
@@ -11,7 +11,7 @@
 }
 
 .search-results > .result {
-  background-color: $bgMain;
+  background-color: $background--light;
   padding: 15px 0;
   margin-bottom: 20px;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
@@ -19,27 +19,27 @@
     margin: 10px 0;
     .name {font-size: 1.1em;}
     .trim {font-size: 1em;}
-    &:hover {.name, .trim {color: $linkHoverTextColor !important;}}
+    &:hover {.name, .trim {color: $link__text-hover !important;}}
   }
   .specs {
-    th {color: $textColorDarkBg;}
+    th {color: $text--light;}
     td, th {
       padding: 3px 0;
       text-align: center;
-      border-right: 5px solid $bgMain;
+      border-right: 5px solid $background--light;
       &.no-border {border-right: 0;}
     }
-    .ed     {background-color: $edBg;}
-    .ev     {background-color: $evBg;}
-    .emp    {background-color: $empBg;}
-    .weight {background-color: $weightBg;}
-    .ng-binding {background-color: $tdBgColor;}
+    .ed     {background-color: $result-specs-ed__background;}
+    .ev     {background-color: $result-specs-ev__background;}
+    .emp    {background-color: $result-specs-emp__background;}
+    .weight {background-color: $result-specs-weight__background;}
+    .ng-binding {background-color: $details-tablecontent__background;}
   }
   .price {
     height: 80px;
     line-height: 80px;
     font-size: 1.5em;
-    color: $price;
+    color: $price__text;
     font-weight: bold;
     text-align: center;
   }

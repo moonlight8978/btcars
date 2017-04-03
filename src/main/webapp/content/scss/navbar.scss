@@ -16,7 +16,7 @@
 .navbar {
   min-height: auto;
   margin: 0 !important;
-  background-color: $bgMain;
+  background-color: $background--light;
   border: 0 !important;
   .head {
     position: relative;
@@ -40,27 +40,23 @@
 // ****************************************
 .nav-top {
   a {
-    color: $defaultTextColor !important;
+    color: $text--dark !important;
     background-color: transparent !important;
     padding-top: 8px !important;
     padding-bottom: 8px !important;
     font-size: 0.9em;
     &:hover {
-      color: $linkHover !important;
+      color: $navtop-link__text-hover !important;
     }
   }
-  .nav > li > a {
-    border-bottom: 1px solid $lighterBorder !important;
-  }
-  #logout > a {
-    border-bottom: 0px;
-  }
+  .nav > li > a {border-bottom: 1px solid $border--mid-light !important;}
+  #logout > a {border-bottom: 0px;}
 }
 
 .dropdown-menu {
   border: 0 !important;
-  border-bottom: 1px solid $lighterBorder !important;
-  background-color: $bgMain !important;
+  border-bottom: 1px solid $border--mid-dark !important;
+  background-color: $background--light !important;
   box-shadow: none !important;
   > li > a {text-align: center;}
 }
@@ -101,7 +97,7 @@
     text-align: center;
     .phone {
       padding: 10px 0 5px 0;
-      color: $phone;
+      color: $phone__text;
       font-size: 1.7em;
       font-weight: bold;
     }
@@ -119,20 +115,20 @@
       a {
         display: block;
         font-size: 22px;
-        color: $textColorDarkBg;
+        color: $text--light;
         width: 60px;
         text-align: center;
         padding: 15px 0;
-        border-left: 1px solid $bgColor;
-        &.nav-cart {background-color: $navcart;}
-        &.nav-total {background-color: $navtotal;}
+        border-left: 1px solid $background--light;
+        &.nav-cart {background-color: $navmini-cart__background;}
+        &.nav-total {background-color: $navmini-total__background;}
       }
       &.cart:hover {
-        a {background-color: $navcartHover;}
-        //.navquantity {background-color: $navquantityHover;}
+        a {background-color: $navmini-cart__background-hover;}
+        //.navquantity {background-color: $navmini-quantity__background-hover;}
       }
       &.total:hover {
-        a {background-color: $navtotalHover;}
+        a {background-color: $navmini-total__background-hover;}
         .navtotal {opacity: 1;}
       }
     }
@@ -144,15 +140,15 @@
   top: -5px;
   left: -5px;
   display: inline-block;
+  text-align: center;
   font-size: 14px;
   font-weight: bold;
   width: 25px;
   height: 25px;
   line-height: 25px;
   border-radius: 50% !important;
-  background-color: $navquantity;
-  text-align: center;
-  color: $textColorDarkBg;
+  background-color: $navmini-quantity__background;
+  color: $text--light;
 }
 
 .navtotal {
@@ -163,8 +159,8 @@
   min-width: 60px;
   text-align: center;
   font-size: 14px;
-  background-color: $bgDark;
-  color: $textColorDarkBg;
+  background-color: $background--dark;
+  color: $text--light;
   padding: 0px 10px;
   height: 20px;
   line-height: 20px;
@@ -177,7 +173,7 @@
     right: 25px;
     width: 0;
     height: 0;
-    border-top: 5px solid $bgDark;
+    border-top: 5px solid $border--dark;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
   }
@@ -196,9 +192,7 @@
 }
 
 @media (min-width: 992px) {
-  .logo img {
-    max-width: 240px !important;
-  }
+  .logo img {max-width: 240px !important;}
 }
 //END nav middle
 
@@ -210,28 +204,25 @@
 // ****************************************
 .mainmenu {
   a {
-    color: $defaultTextColor !important;
+    color: $text--dark !important;
     background-color: transparent !important;
     padding-top: 8px !important;
     padding-bottom: 8px !important;
     font-size: 0.9em;
     text-transform: uppercase;
     font-size: 1.3em;
-    > i {
-      padding-right: 5px;
-    }
-    &:hover {
-      color: $linkHover !important;
-    }
+    > i {padding-right: 5px;}
+    &:hover {color: $nav-xs__text-hover !important;}
   }
-  .nav > li > a {
-    border-bottom: 1px solid $lighterBorder !important;
-  }
+  .nav > li > a {border-bottom: 1px solid $border--mid-light !important;}
 }
 
 //media main mainmenu
 @media (min-width: 768px) {
-  .mainmenu .nav > li span {color: $textColorDarkBg !important;}
+  .mainmenu .nav > li {
+    span {color: $text--light !important;}
+    > a {border-bottom: 0 !important;}
+  }
   .mainmenu.navbar {
     background-color: transparent !important;
     border: 0 !important;
@@ -249,30 +240,30 @@
       padding-bottom: 30px !important;
       text-align: center !important;
       transition: background-color 0.1s ease;
-      border-right: 1px solid $bgColor;
+      border-right: 1px solid $background--light;
     }
     &:last-child {border-right: 0;}
-    &:hover a {background-color: $navhover !important;}
+    &:hover a {background-color: $nav-item__background-hover !important;}
   }
   .mainmenu-home {
     width: 21%;
-    a {background-color: $navhome !important;}
+    a {background-color: $nav-home__background !important;}
   }
   .mainmenu-all {
     width: 21%;
-    a {background-color: $navall !important;}
+    a {background-color: $nav-cars__background !important;}
   }
   .mainmenu-contacts {
     width: 21%;
-    a {background-color: $navcontacts !important;}
+    a {background-color: $nav-contacts__background !important;}
   }
   .mainmenu-about {
     width: 21%;
-    a {background-color: $navabout !important;}
+    a {background-color: $nav-about__background !important;}
   }
   .mainmenu-search {
     width: 16%;
-    a {background-color: $navsearch !important;}
+    a {background-color: $nav-search__background !important;}
   }
 }
 
@@ -293,7 +284,7 @@
   }
 }
 
-//search bar
+//search bar (Open source)
 #custom-search-input {
   padding: 3px;
   border: solid 1px #E4E4E4;
@@ -343,7 +334,7 @@
       width: 100%;
       margin: 0;
       display: table-cell !important;
-      height: 81px !important;
+      height: 80px !important;
       vertical-align: middle !important;
       text-align: left !important;
       padding: 0 30px !important;
@@ -352,6 +343,6 @@
 }
 
 @media (min-width: 992px) {
-  .mainmenu-search.search-enable .searchbar {height: 91px !important;}
+  .mainmenu-search.search-enable .searchbar {height: 90px !important;}
 }
 //END main menu

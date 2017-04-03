@@ -1,100 +1,77 @@
-$bgColor: #e0f2f6;
-$bgDark: #000;
-$darkBorderColor: #000;
-$lightBorderColor: #999;
-$lighterBorder: #eee;
-$slideButtonColor: #34495e;
-$bgMain: #fff;
-$defaultTextColor: #1f2228;
-$textColorDarkBg: #fff;
+@import 'palettes';
 
-$bg-main: #e0f2f6;
-$bg-white: #fff;
-$bg-black: #000;
+// commons
+$text--light: palette(white, x-light);
+$text--dark: palette(black);
+$link__text-hover: #e74c3c;
 
-$text-color-black:	#1f2228;
-$text-color-white: #fff;
-$color-white: #fff;
+$body__background: #e0f2f6;
+$background--light: palette(white, x-light);
+$background--dark: palette(black, x-dark);
 
-$border-color-light:  #999;
-$border-color-lighter: #eee;
-$border-color-black: #000;
+$border--dark: palette(black, x-dark);
+$border--light: palette(white, x-light);
+$border--mid-light: palette(white, light);
+$border--mid-dark: #999;
 
-$title-color-darkbackground: #fff;
-$title-color-lightbackground: #1f2228;
+//  specifies
+$container-title__background: #34495e;
 
-$sidebarTitleBgColor: #e74c3c;
-$filter: #1abc9c;
-$sort: #3498db;
-$hot: #9b59b6;
-$sidebarLinkHoverBgColor: #f7f7f7;
-$sidebarLinkHoverTextColor: #e74c3c;
-$sidebarBorderColor: #3f3f3f;
+$sidebar-manufactures-title__background: palette(red, base);
+$sidebar-bestsellers-title__background: #9b59b6;
+$sidebar-sort-title__background: #3498db;
+$sidebar-filter-title__background: #1abc9c;
+$sidebar-item__background-hover: palette(white, light);
+$sidebar__border: palette(black, light);
 
+$slider-control__background: #34495e;
+$slider-control__text: #ccc;
 
-$homeListTitleBgColor: #34495e;
-$bg-container-title: #34495e;
-$linkHoverTextColor: #e74c3c;
-$link-hover-color:  #e74c3c;
-$link-color-hover: 	#e74c3c;
-$caritemHoverBgColor: #f7f7f7;
+$price__text: palette(red, x-dark);
 
+$buy-button__background: #f5791f;
+$buy-button__background-hover: #e46f19;
+$buy-modaltitle__background: #3498db;
+$buylist-modaltitle__background: #2ecc71;
 
-$instockBgColor: #2ecc71;
-$outofstockBgColor: #f5791f;
-$suspendedBgColor: #e74c3c;
-$buyNowBgColor: #3498db;
-$buynowHover: #2b80b9;
-$addToCartBgColor: #9b59b6;
-$addtocartHover: #8647a0;
-$price: red;
-$text-color-price: red;
+$buysection-status-instock__background: #2ecc71;
+$buysection-status-outofstock__background: #f5791f;
+$buysection-status-suspended__background: #e74c3c;
+$buysection-buy__background: #3498db;
+$buysection-buy__background-hover: #2b80b9;
+$buysection-cart__background: #9b59b6;
+$buysection-cart__background-hover: #8647a0;
 
-$detailBuyBgColor: #f1f1f1;
-$tabTitleBgColor: #a1aaaf;
-$descrTitleBgColor: #e74c3c;
-$specsTitleBgColor: #1abc9c;
+$details-title__background-focusout: #a1aaaf;
+$details-descrtitle__background-focus: #e74c3c;
+$details-specstitle__background-focus: #1abc9c;
+$details-tabletitle__background: #34495e;
+$details-tablecontent__background: #f1f1f1;
 
-$thBgColor: #34495e;
-$tdBgColor: #f1f1f1;
+$settings-info-save__background: #f5791f;
+$settings-pw-save__background: #3498db;
 
+$result-specs-ed__background: #3498db;
+$result-specs-ev__background: #e74c3c;
+$result-specs-emp__background: #f5791f;
+$result-specs-weight__background: #1abc9c;
 
-// account-setting
-$accBlockTitle: #34495e;
-$btnInfoBgColor: #f5791f;
-$btnPasswordBgColor: #3498db;
+$navtop-link__text-hover: #3498db;
 
+$navmini-quantity__background: #e74c3c;
+$navmini-quantity__background-hover: #c63d2f;
+$navmini-cart__background: #3498db;
+$navmini-cart__background-hover: #2980b9;
+$navmini-total__background: #9b59b6;
+$navmini-total__background-hover: #864f9d;
 
-//nav color
-$navhome: #1abc9c;
-$navall: #e74c3c;
-$navcontacts: #3498db;
-$navabout: #f5791f;
-$navsearch: #2ecc71;
-$navhover: #34495e;
+$nav-home__background: #1abc9c;
+$nav-cars__background: #e74c3c;
+$nav-contacts__background: #3498db;
+$nav-about__background: #f5791f;
+$nav-search__background: #2ecc71;
+$nav-item__background-hover: #34495e;
 
-$linkHover: #3498db;
+$nav-xs__text-hover: #3498db;
 
-$navquantity: #e74c3c;
-$navquantityHover: #c63d2f;
-$navcart: #3498db;
-$navcartHover: #2980b9;
-$navtotal: #9b59b6;
-$navtotalHover: #864f9d;
-
-$phone: #1abc9c;
-
-
-//  search results page
-$edBg:    #3498db;
-$evBg:     #e74c3c;
-$empBg:   #f5791f;
-$weightBg: #1abc9c;
-
-
-//modal
-$bg-buy-modal-title:	#3498db;
-$bg-buylist-modal-title: 	#2ecc71;
-
-$bg-buyconfirm: 	#f5791f;
-$bg-buyconfirm-hover: 	#e46f19;
+$phone__text: #1abc9c;
