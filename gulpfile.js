@@ -22,13 +22,16 @@ var handleErrors = require('./gulp/handle-errors'),
     util = require('./gulp/utils'),
     copy = require('./gulp/copy'),
     inject = require('./gulp/inject'),
-    build = require('./gulp/build');
+    build = require('./gulp/build'),
+	sassBuild = require('./gulp/sass');
 
 var config = require('./gulp/config');
 
 gulp.task('clean', function () {
     return del([config.dist], { dot: true });
 });
+
+gulp.task('sass', sassBuild.compile);
 
 gulp.task('copy', ['copy:fonts', 'copy:common']);
 
@@ -143,10 +146,10 @@ gulp.task('test', ['inject:test', 'ngconstant:dev'], function (done) {
     }, done).start();
 });
 
-
 gulp.task('watch', function () {
     gulp.watch('bower.json', ['install']);
     gulp.watch(['gulpfile.js', 'pom.xml'], ['ngconstant:dev']);
+	gulp.watch(config.app + 'content/scss/*.scss', ['sass']);
     gulp.watch(config.app + 'content/css/**/*.css', ['styles']);
     gulp.watch(config.app + 'content/images/**', ['images']);
     gulp.watch(config.app + 'app/**/*.js', ['inject:app']);
@@ -158,6 +161,17 @@ gulp.task('install', function () {
 });
 
 gulp.task('serve', ['install'], serve);
+
+gulp.task('serve-frontend', serve);
+
+gulp.task('watch-frontend', function () {
+	gulp.watch(config.app + 'content/scss/*.scss', ['sass']);
+    gulp.watch(config.app + 'content/css/**/*.css', ['styles']);
+    gulp.watch(config.app + 'content/images/**', ['images']);
+	gulp.watch([config.app + '*.html', config.app + 'app/**', config.app + 'i18n/**']).on('change', browserSync.reload);
+});
+
+gulp.task('frontend', ['serve-frontend', 'watch-frontend']);
 
 gulp.task('build', ['clean'], function (cb) {
     runSequence(['copy', 'inject:vendor', 'ngconstant:prod'], 'inject:app', 'inject:troubleshoot', 'assets:prod', cb);

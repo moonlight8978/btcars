@@ -40,7 +40,7 @@
     }
     &.buy button {
       background-color: $buyconfirm-bg;
-      &:hover {background-color: $buyconfirm-hover-bg;}
+      &:hover {background-color: $buyconfirm-bg-hover;}
     }
   }
 }
