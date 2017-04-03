@@ -1,20 +1,27 @@
 $bgColor: #e0f2f6;
-$bg-main: #e0f2f6;
 $bgDark: #000;
-$bg-black: #000;
 $darkBorderColor: #000;
-$border-color-black: #000;
 $lightBorderColor: #999;
-$border-color-light:  #999;
-$border-color-lighter: #eee;
 $lighterBorder: #eee;
 $slideButtonColor: #34495e;
 $bgMain: #fff;
-$bg-white: #fff;
 $defaultTextColor: #1f2228;
-$text-black:	#1f2228;
 $textColorDarkBg: #fff;
-$text-white: #fff;
+
+$bg-main: #e0f2f6;
+$bg-white: #fff;
+$bg-black: #000;
+
+$text-color-black:	#1f2228;
+$text-color-white: #fff;
+$color-white: #fff;
+
+$border-color-light:  #999;
+$border-color-lighter: #eee;
+$border-color-black: #000;
+
+$title-color-darkbackground: #fff;
+$title-color-lightbackground: #1f2228;
 
 $sidebarTitleBgColor: #e74c3c;
 $filter: #1abc9c;
@@ -26,6 +33,7 @@ $sidebarBorderColor: #3f3f3f;
 
 
 $homeListTitleBgColor: #34495e;
+$bg-container-title: #34495e;
 $linkHoverTextColor: #e74c3c;
 $link-hover-color:  #e74c3c;
 $link-color-hover: 	#e74c3c;
@@ -40,6 +48,7 @@ $buynowHover: #2b80b9;
 $addToCartBgColor: #9b59b6;
 $addtocartHover: #8647a0;
 $price: red;
+$text-color-price: red;
 
 $detailBuyBgColor: #f1f1f1;
 $tabTitleBgColor: #a1aaaf;
@@ -84,8 +93,8 @@ $weightBg: #1abc9c;
 
 
 //modal
-$buy-modal-title-bg:  #3498db;
-$buylist-modal-title-bg:  #2ecc71;
+$bg-buy-modal-title:	#3498db;
+$bg-buylist-modal-title: 	#2ecc71;
 
-$buyconfirm-bg:  #f5791f;
-$buyconfirm-bg-hover: #e46f19;
+$bg-buyconfirm: 	#f5791f;
+$bg-buyconfirm-hover: 	#e46f19;

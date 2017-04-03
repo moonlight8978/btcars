@@ -5,7 +5,7 @@
   position: relative;
   text-align: center;
   text-transform: uppercase;
-  color: $textColorDarkBg;
+  color: $text-color-white;
   padding: 10px;
   border: 0 !important;
   .close {
@@ -14,39 +14,39 @@
     position: absolute;
     right: 10px;
   }
-  &.buy {background-color: $buy-modal-title-bg;}
-  &.buy-list {background-color: $buylist-modal-title-bg;}
+  &.buy {background-color: $bg-buy-modal-title;}
+  &.buy-list {background-color: $bg-buylist-modal-title;}
 }
 
 .modal-body.custom-modal {
-  background-color: $bgColor;
+  background-color: $bg-main;
   padding: 20px 20px;
   .title {
-    color: $textColorDarkBg;
+    color: $text-color-white;
     padding: 8px 20px;
     font-size: 1.1em;
     text-transform: uppercase;
-    background-color: $homeListTitleBgColor;
+    background-color: $bg-container-title;
   }
   .body {
-    a:hover {color: $linkHoverTextColor;}
+    a:hover {color: $link-color-hover;}
   }
   .confirm {
     button {
       padding: 6px 20px;
       font-size: 1.1em;
       text-transform: uppercase;
-      color: $textColorDarkBg;
+      color: $text-color-white;
     }
     &.buy button {
-      background-color: $buyconfirm-bg;
-      &:hover {background-color: $buyconfirm-bg-hover;}
+      background-color: $bg-buyconfirm;
+      &:hover {background-color: $bg-buyconfirm-hover;}
     }
   }
 }
 
 .input-block {
-  background-color: $bgMain;
+  background-color: $bg-white;
   margin: 0 0 20px;
   &:last-child {margin: 0;}
   .body {
@@ -76,8 +76,8 @@
   .price {
     font-size: 2em;
     padding-top: 15px;
-    display:  inline-block;
-    color:  red;
+    display: inline-block;
+    color: $text-color-price;
     float: right;
     line-height: 1;
   }
@@ -89,7 +89,7 @@ Ordered Car List
 ========================================================================== */
 
 .modal-body.custom-modal.buy-list .item {
-  background-color: $bgMain;
+  background-color: $bg-white;
   padding: 15px 0px;
   margin-bottom: 20px;
   img {
@@ -106,11 +106,11 @@ Ordered Car List
       overflow: hidden;
     }
     .name {font-size: 1.1em;}
-    &:hover {.name, .trim {color: $link-hover-color !important;}}
+    &:hover {.name, .trim {color: $link-color-hover !important;}}
   }
   .price {
     font-size: 1.5em;
-    color: $price;
+    color: $text-color-price;
     font-weight: bold;
     text-align: right;
   }

@@ -218,7 +218,7 @@ Custom alerts for notification
 entity tables helpers
 ========================================================================== */
 /* Remove Bootstrap padding from the element
-   http://stackoverflow.com/questions/19562903/remove-padding-from-columns-in-bootstrap-3 */
+http://stackoverflow.com/questions/19562903/remove-padding-from-columns-in-bootstrap-3 */
 .no-padding-left {
   padding-left: 0 !important; }
 
@@ -235,12 +235,12 @@ entity tables helpers
   padding: 0 !important; }
 
 /* bootstrap 3 input-group 100% width
-   http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
+http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 .width-min {
   width: 1% !important; }
 
 /* Makes toolbar not wrap on smaller screens
- http://www.sketchingwithcss.com/samplechapter/cheatsheet.html#right */
+http://www.sketchingwithcss.com/samplechapter/cheatsheet.html#right */
 .flex-btn-group-container {
   display: -webkit-flex;
   display: flex;
@@ -507,7 +507,7 @@ a {
   font-size: 1.1em; }
 
 .sidebar-carlist li:hover .emp {
-  color: #1f2228; }
+  color: #fff; }
 
 .sidebar-carlist li:hover .sidebar-content-title {
   color: #e74c3c; }
