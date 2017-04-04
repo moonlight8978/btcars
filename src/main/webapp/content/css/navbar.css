@@ -95,7 +95,7 @@
         width: 60px;
         text-align: center;
         padding: 15px 0;
-        border-left: 1px solid #fff; }
+        border-left: 1px solid #e0f2f6; }
         .nav-middle .mini-nav .mini-nav-item a.nav-cart {
           background-color: #3498db; }
         .nav-middle .mini-nav .mini-nav-item a.nav-total {
@@ -197,7 +197,7 @@
       padding-bottom: 30px !important;
       text-align: center !important;
       transition: background-color 0.1s ease;
-      border-right: 1px solid #fff; }
+      border-right: 1px solid #e0f2f6; }
     .mainmenu-item:last-child {
       border-right: 0; }
     .mainmenu-item:hover a {
