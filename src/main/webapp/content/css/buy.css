@@ -10,10 +10,12 @@
     float: none;
     position: absolute;
     right: 10px; }
-  .modal-header.custom-modal.buy {
-    background-color: #3498db; }
-  .modal-header.custom-modal.buy-list {
-    background-color: #2ecc71; }
+
+.modal-header.custom-modal.buy {
+  background-color: #3498db; }
+
+.modal-header.custom-modal.buy-list {
+  background-color: #2ecc71; }
 
 .modal-body.custom-modal {
   background-color: #e0f2f6;
@@ -26,15 +28,16 @@
     background-color: #34495e; }
   .modal-body.custom-modal .body a:hover {
     color: #e74c3c; }
-  .modal-body.custom-modal .confirm button {
+  .modal-body.custom-modal .confirm .btn {
     padding: 6px 20px;
     font-size: 1.1em;
     text-transform: uppercase;
     color: #fff; }
-  .modal-body.custom-modal .confirm.buy button {
-    background-color: #f5791f; }
-    .modal-body.custom-modal .confirm.buy button:hover {
-      background-color: #e46f19; }
+
+.modal-body.custom-modal .confirm .btn-buy {
+  background-color: #f5791f; }
+  .modal-body.custom-modal .confirm .btn-buy:hover {
+    background-color: #e46f19; }
 
 .input-block {
   background-color: #fff;
@@ -78,29 +81,33 @@
 /* ==========================================================================
 Ordered Car List
 ========================================================================== */
-.modal-body.custom-modal.buy-list .item {
+.modal-body.custom-modal.car-list .item {
   background-color: #fff;
   padding: 15px 0px;
   margin-bottom: 20px; }
-  .modal-body.custom-modal.buy-list .item img {
+  .modal-body.custom-modal.car-list .item .img-wrap {
+    padding: 0; }
+  .modal-body.custom-modal.car-list .item img {
     display: block;
     max-width: 160px;
-    width: 100%; }
-  .modal-body.custom-modal.buy-list .item > .item-info > .item-title {
+    min-width: 100px;
+    width: 100%;
+    margin: auto; }
+  .modal-body.custom-modal.car-list .item .item-info .item-title {
     margin: 0 0 10px;
     cursor: pointer; }
-    .modal-body.custom-modal.buy-list .item > .item-info > .item-title .name, .modal-body.custom-modal.buy-list .item > .item-info > .item-title .trim {
+    .modal-body.custom-modal.car-list .item .item-info .item-title .name, .modal-body.custom-modal.car-list .item .item-info .item-title .trim {
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden; }
-    .modal-body.custom-modal.buy-list .item > .item-info > .item-title .name {
+    .modal-body.custom-modal.car-list .item .item-info .item-title .name {
       font-size: 1.1em; }
-    .modal-body.custom-modal.buy-list .item > .item-info > .item-title:hover .name, .modal-body.custom-modal.buy-list .item > .item-info > .item-title:hover .trim {
+    .modal-body.custom-modal.car-list .item .item-info .item-title:hover .name, .modal-body.custom-modal.car-list .item .item-info .item-title:hover .trim {
       color: #e74c3c !important; }
-  .modal-body.custom-modal.buy-list .item .price {
+  .modal-body.custom-modal.car-list .item .price {
     font-size: 1.5em;
     color: red;
     font-weight: bold;
     text-align: right; }
-  .modal-body.custom-modal.buy-list .item:last-child {
+  .modal-body.custom-modal.car-list .item:last-child {
     margin-bottom: 0; }

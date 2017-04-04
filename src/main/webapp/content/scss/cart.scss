@@ -1,0 +1,101 @@
+@import 'color';
+@import 'bs3-variables';
+
+/*
+.modal-container.cart {
+  max-height: 570px;
+  overflow-y: auto;
+}
+*/
+
+.modal-header.custom-modal.cart {
+  background-color: $cart-modaltitle__background;
+}
+.modal-body.custom-modal .confirm .btn.btn-close {
+  background-color: $close-button__background;
+  &:hover {background-color: $close-button__background-hover;}
+}
+
+.modal-body.custom-modal.car-list {
+  .cart-head {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 8px 0;
+    div {padding: 0;}
+  }
+  .cart-body {
+    .item {}
+    .cart-total {
+      background-color: $background--light;
+      font-weight: bold;
+      font-size: 1em;
+      line-height: 30px;
+      margin-bottom: 20px;
+      .price {
+        line-height: 30px;
+        font-size: 1.3em;
+        color: $price__text;
+      }
+    }
+  }
+}
+
+.modal-body.custom-modal.car-list .cart-body .item {
+  margin-bottom: 15px;
+  .index {
+    display: table;
+    padding: 0;
+    div {
+      display: table-cell;
+      height: 100%;
+      vertical-align: middle;
+    }
+    &.hidden-xs:hover {
+      .counter {display: none;}
+      .hidden {display: table-cell !important;}
+    }
+    &.visible-xs:hover {
+      .counter {display: none;}
+      .hidden {display: table-cell !important;}
+    }
+  }
+  .img-wrap {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .item-title {margin: 0 0;}
+  .price.price-cart {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 0;
+  }
+}
+
+
+@media (min-width: 490px) {.modal-body.custom-modal.car-list .cart-body .item .price.price-cart {
+  width: 25% !important;
+}}
+
+@media (max-width: 767px) {.index.visible-xs {display: table !important;}}
+
+@media (min-width: $screen-sm-min) {
+  .modal-body.custom-modal.car-list .cart-body .item {
+    .index {height: 96px !important;}
+    .img-wrap {
+      width: 25% !important;
+      margin-bottom: 0 !important;
+    }
+    .item-title {width: 58.33333333333% !important;}
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .modal-body.custom-modal.car-list .cart-body .item {
+    .index {height: 109px !important;}
+    .price.price-cart {font-size: 1.5em !important;}
+  }
+  .cart-total.price {font-size: 1.5em !important;}
+}

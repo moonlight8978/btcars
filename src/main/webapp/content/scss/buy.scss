@@ -14,6 +14,9 @@
     position: absolute;
     right: 10px;
   }
+}
+
+.modal-header.custom-modal {
   &.buy {background-color: $buy-modaltitle__background;}
   &.buy-list {background-color: $buylist-modaltitle__background;}
 }
@@ -32,17 +35,18 @@
     a:hover {color: $link__text-hover;}
   }
   .confirm {
-    button {
+    .btn {
       padding: 6px 20px;
       font-size: 1.1em;
       text-transform: uppercase;
       color: $text--light;
     }
-    &.buy button {
-      background-color: $buy-button__background;
-      &:hover {background-color: $buy-button__background-hover;}
-    }
   }
+}
+
+.modal-body.custom-modal .confirm .btn-buy {
+  background-color: $buy-button__background;
+  &:hover {background-color: $buy-button__background-hover;}
 }
 
 .input-block {
@@ -88,16 +92,19 @@
 Ordered Car List
 ========================================================================== */
 
-.modal-body.custom-modal.buy-list .item {
+.modal-body.custom-modal.car-list .item {
   background-color: $background--light;
   padding: 15px 0px;
   margin-bottom: 20px;
+  .img-wrap {padding: 0;}
   img {
     display: block;
     max-width: 160px;
+    min-width: 100px;
     width: 100%;
+    margin: auto;
   }
-  > .item-info > .item-title {
+  .item-info .item-title {
     margin: 0 0 10px;
     cursor: pointer;
     .name, .trim {

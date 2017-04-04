@@ -1,72 +1,96 @@
-<div class="modal-header">
-   <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="vm.clear()">
+<div class="modal-container cart">
+  <div class="modal-header custom-modal cart">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="vm.clear()">
       &times;
-   </button>
-   <h4 class="modal-title" id="myOrderlistLabel">Your Cart</h4>
-</div>
+    </button>
+    <h4 class="modal-title" id="myOrderlistLabel">Your Cart</h4>
+  </div>
 
-<div class="modal-body">
-   <div class="cart-head">
-      <div class="col-sm-1 hidden-xs">
-      </div>
-      <div class="col-sm-6 hidden-xs">
-         Name
-      </div>
-      <div class="col-sm-2 hidden-xs">
-         Quantity
-      </div>
-      <div class="col-sm-3 hidden-xs">
-         Price
+  <div class="modal-body custom-modal car-list">
+    <div class="cart-head title">
+      <div class="hidden-xs">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-3"></div>
+        <div class="col-sm-8">
+          <div class="col-sm-7">
+            Name
+          </div>
+          <div class="col-sm-2 visible-sm">
+            QTTY
+          </div>
+          <div class="col-sm-2 hidden-sm">
+            Quantity
+          </div>
+          <div class="col-sm-3">
+            Price
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
       </div>
       <div class="col-xs-12 visible-xs">
-         Name / Quantity / Price
+        Name / Quantity / Price
       </div>
       <div class="clearfix"></div>
-   </div>
+    </div>
 
-   <div class="cart-body">
-      <div class="" ng-repeat="car in vm.cart">
-         <div class="col-xs-1" ng-click="vm.deleteItem(car)">
-            <span>{{ $index + 1 }}</span>
-            <span >&times;</span>
-         </div>
-         <div class="col-xs-6">
-            <div class="col-sm-5">
-               <img class="img-thumbnail" ng-src="content/images/cars/{{ car.id }}/1.jpg">
+    <div class="cart-body">
+      <div class="item" ng-repeat="car in vm.cart">
+        <div class="col-sm-1 hidden-xs text-center index">
+          <div class="counter">{{ $index + 1 }}</div>
+          <div class="hidden" ng-click="vm.deleteItem(car)">
+            <i class="fa fa-times"></i>
+          </div>
+        </div>
+        <a ui-sref="detail({id:{{car.id}}})" class="col-sm-3 img-wrap" ng-click="vm.clear()">
+          <img class="img-thumbnail" ng-src="content/images/cars/{{ car.id }}/1.jpg">
+        </a>
+        <div class="col-sm-8 item-info">
+          <div class="col-xs-1 visible-xs text-center index">
+            <div class="counter">{{ $index + 1 }}</div>
+            <div class="hidden" ng-click="vm.deleteItem(car)">
+              <i class="fa fa-times"></i>
             </div>
-            <a ui-sref="detail({id:{{car.id}}})" ng-click="vm.clear()">
-               <div class="col-sm-7">
-                  {{ car.make }} {{ car.model }}<br>
-                  {{ car.trim }}<br>
-                  {{ car.year }}
-               </div>
-            </a>
-         </div>
-         <div class="col-xs-2">
+          </div>
+          <a ui-sref="detail({id:{{car.id}}})" class="item-title col-xs-6" ng-click="vm.clear()">
+            <div class="name">
+              {{ car.make }} {{ car.model }}<br>
+              <span class="hidden-xs">{{ car.trim }}<br>{{ car.year }}</span>
+            </div>
+          </a>
+          <div class="col-xs-2 text-center quantity">
             1
-         </div>
-         <div class="col-xs-3">
+          </div>
+          <div class="col-sm-3 text-center price price-cart">
             ${{ car.priceFix }}
-         </div>
-         <div class="clearfix"></div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
       </div>
       <div class="cart-total">
-         <div class="col-xs-9">
-            Total
-         </div>
-         <div class="col-xs-3">
-            ${{ vm.total }}
-         </div>
-         <div class="clearfix"></div>
+        <div class="col-xs-3 text-left">
+          Total:
+        </div>
+        <div class="col-xs-9 text-right price">
+          ${{ vm.total }}
+        </div>
+        <div class="clearfix"></div>
       </div>
-   </div>
-</div>
+    </div>
 
-<div class="modal-footer">
-   <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-   </span>&nbsp;<span>Continue Shopping</span>
-   </button>
-   <button type="submit" class="btn btn-primary" ng-click="vm.clear(); vm.buy(vm.cart, true)">
-      </span>&nbsp;<span>Buy All</span>
-   </button>
+    <div class="confirm pull-right">
+      <button type="button" class="btn btn-close" data-dismiss="modal"
+          ng-click="vm.clear()">
+        <i class="fa fa-shopping-cart"></i>
+        <span>Continue Shopping</span>
+      </button>
+      <button type="submit" class="btn btn-buy"
+          ng-click="vm.clear(); vm.buy(vm.cart, true)">
+        <i class="fa fa-shopping-basket"></i>
+        <span>Buy All</span>
+      </button>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
 </div>
