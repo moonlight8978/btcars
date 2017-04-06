@@ -1,3 +1,16 @@
+<ul class="list-group sidebar-group">
+   <li class="list-group-item sidebar-list-title">
+      <i class="fa fa-folder-open-o"></i>
+      Manufactures
+   </li>
+   <div class="sidebar-list-body">
+      <a ui-sref="company({company:'ferrari'})"><li class="list-group-item">Ferrari</li></a>
+      <a ui-sref="company({company:'lamborghini'})"><li class="list-group-item">Lamborghini</li></a>
+      <a ui-sref="company({company:'porsche'})"><li class="list-group-item">Porsche</li></a>
+      <a ui-sref="company({company:'rollsroyce'})"><li class="list-group-item">Rolls-Royce</li></a>
+   </div>
+</ul>
+
 <ul class="list-group">
    <div class="sidebar-filtersorting sidebar-group">
       <li class="list-group-item sidebar-list-title filter" role="button"
@@ -65,23 +78,23 @@
             <div class="list-group-item">
                <div class="radio">
                   <label>
-                     <input name="sort" type="radio" ng-model="vm.sort" value="id" selected>
+                     <input name="sort" type="radio" ng-focus="vm.setOrderBy('id')" checked>
                      Default
                   </label><br>
                   <label>
-                     <input name="sort" type="radio" ng-model="vm.sort" value="price">
+                     <input name="sort" type="radio" ng-focus="vm.setOrderBy('price')">
                      Sort by Price
                   </label><br>
                   <label>
-                     <input name="sort" type="radio" ng-model="vm.sort" value="emp">
+                     <input name="sort" type="radio" ng-focus="vm.setOrderBy('hp')">
                      Sort by Horse Power
                   </label><br>
                   <label>
-                     <input name="sort" type="radio" ng-model="vm.sort" value="w">
+                     <input name="sort" type="radio" ng-focus="vm.setOrderBy('w')">
                      Sort by Weight
                   </label><br>
                   <label>
-                     <input name="sort" type="radio" ng-model="vm.sort" value="model">
+                     <input name="sort" type="radio" ng-focus="vm.setOrderBy('model')">
                      Sort by Model
                   </label><br>
                </div>

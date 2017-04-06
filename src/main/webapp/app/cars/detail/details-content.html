@@ -1,21 +1,4 @@
-<div class="col-sm-12">
-   <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a ui-sref="home">Home</a></li>
-      <li class="breadcrumb-item"><a ui-sref="cars">Cars</a></li>
-      <li class="breadcrumb-item active">
-         {{ vm.car.year }}
-         {{ vm.car.make }}
-         {{ vm.car.model }}
-         {{ vm.car.trim }}
-      </li>
-   </ol>
-</div>
 
-<div class="col-sm-9 error-notfound" ng-show="!vm.loading && !vm.found">
-   Not found!
-</div>
-
-<div class="col-sm-9 content-container" ng-show="vm.loading || vm.found">
    <div class="car-detail-infobox row">
       <div class="col-md-5 slideshow-container">
          <div id="slidedetail" class="carousel slide detail-slide" data-ride="carousel">
@@ -179,11 +162,3 @@
          </div>
       </div>
    </div>
-
-</div>
-
-<div class="col-sm-3 sidebar">
-   <div ng-include="'app/cars/detail/detail-sidebar.html'"></div>
-</div>
-
-<div class="clearfix"></div>

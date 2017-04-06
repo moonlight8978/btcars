@@ -10,19 +10,16 @@
     function stateConfig($stateProvider) {
         $stateProvider.state('cars', {
             parent: 'app',
+            abtract: true,
             url: '/cars',
-            data: {
-                authorities: [],
-                pageTitle: 'All Cars ・ BT Cars - Best Choice!'
-            },
-            views: {
-                'content@': {
-                    templateUrl: 'app/cars/cars.html',
-                    controller: 'CarsController',
-                    controllerAs: 'vm'
+            resolve: {
+                hot: function (Car, $q) {
+                    var hot = Car.query({ category: 'hot' });
+                    return $q.resolve(hot.$promise).then(function (result) {
+                        return result;
+                    });
                 }
-            },
-            resolve: {}
+            }
         });
     }
 
