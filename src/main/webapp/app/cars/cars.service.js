@@ -7,6 +7,7 @@
 
     function CarsService() {
         let service = {
+            reset: reset,
             setPriceFilter: setPriceFilter,
             getPriceFilter: getPriceFilter,
             setHpFilter: setHpFilter,
@@ -19,6 +20,12 @@
         };
 
         return service;
+
+        function reset() {
+            setPriceFilter(0, 999999999);
+            setHpFilter(0,999999999);
+            setSort('id');
+        }
 
         function setHpFilter(min, max) {
             service.hpRange.min = min;

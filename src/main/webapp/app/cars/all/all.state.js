@@ -28,6 +28,9 @@
                     controllerAs: 'vm'
                 }
             },
+            onEnter: ['CarsService', function (CarsService) {
+                CarsService.reset();
+            }],
             resolve: {
                 cars: function (Car, $q) {
                     let cars = Car.query();

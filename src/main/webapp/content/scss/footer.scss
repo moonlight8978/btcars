@@ -1,0 +1,50 @@
+@import 'color';
+@import 'bs3-variables';
+
+footer {margin-top: 50px;}
+
+.footer-top {
+  padding-bottom: 20px;
+	background-color: $background--light;
+	.title {
+    padding: 15px 15px 5px;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+    border-bottom: 1px solid $border--mid-light;
+  }
+  .contact {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding: 10px 0 0 15px;
+  }
+  table {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+    th {
+      width: 40px;
+      text-align: center;
+    }
+    td {
+      max-width: 200px;
+      max-height: 40px;
+    }
+  }
+  .partner-container {
+    .partner-title {@extend .contact;}
+    .partner-img-container {display: flex;}
+  }
+}
+
+.footer-bottom {
+  padding: 20px 15px;
+}
+
+@media (min-width: $screen-sm-min) {
+  .footer-top .partner-container .partner-title {
+    text-align: center;
+  }
+  .footer-bottom .pay img {
+    float: right;
+  }
+}

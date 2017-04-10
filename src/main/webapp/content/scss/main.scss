@@ -638,7 +638,9 @@ a {
 
 .detail-slide {
   position: relative;
-  .carousel-inner {}
+  .carousel-inner {
+    img {width: 100%;}
+  }
   .carousel-indicators {all: initial;}
   .detail-indicators {
     display: block;
@@ -649,6 +651,7 @@ a {
     img {
       max-width: 60px;
       display: inline-block;
+      width: 100%;
       border-radius: 0 !important;
       border: 1px solid $border--mid-dark;
       background-color: transparent;

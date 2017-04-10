@@ -5,39 +5,29 @@
         .module('btcarsApp')
         .controller('AllController', AllController);
 
-    AllController.$inject = ['getCarFactory', 'cars', 'CartService', 'BuyService'];
+    AllController.$inject = ['$scope', 'getCarFactory', 'cars', 'CartService', 'BuyService', 'CarsService'];
 
-    function AllController(getCarFactory, cars, CartService, BuyService) {
+    function AllController($scope, getCarFactory, cars, CartService, BuyService, CarsService) {
         var vm = this;
 
-         vm.all = cars;
-         getCarFactory.priceWithCommas(vm.all, true);
+        vm.all = cars;
+        getCarFactory.priceWithCommas(vm.all, true);
 
         vm.addItem = CartService.addItem;
         vm.buy = BuyService.buy;
-        vm.sort = 'id';
-        vm.range = {
-            min: 0,
-            max: 999999999
-        };
-        vm.setPriceFilter = setPriceFilter;
-        vm.hpRange = {
-            min: 0,
-            max: 99999
-        };
-        vm.setHpFilter = setHpFilter;
+        
+        vm.range = CarsService.priceRange;
+        vm.hpRange = CarsService.hpRange;
+        vm.sort = CarsService.getSort();
 
-        function setPriceFilter(min, max) {
-            vm.range.min = min;
-            vm.range.max = max;
-        }
-        function setHpFilter(min, max) {
-            vm.hpRange.min = min;
-            vm.hpRange.max = max;
-        }
+        $scope.$watch(CarsService.getSort, function (newValue, oldValue) {
+            if ( newValue !== oldValue ) 
+                vm.sort = CarsService.getSort();
+        });
 
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
         });
     }
+
 })();

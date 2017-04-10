@@ -594,6 +594,8 @@ a {
 
 .detail-slide {
   position: relative; }
+  .detail-slide .carousel-inner img {
+    width: 100%; }
   .detail-slide .carousel-indicators {
     all: initial; }
   .detail-slide .detail-indicators {
@@ -605,6 +607,7 @@ a {
     .detail-slide .detail-indicators img {
       max-width: 60px;
       display: inline-block;
+      width: 100%;
       border-radius: 0 !important;
       border: 1px solid #999;
       background-color: transparent; }

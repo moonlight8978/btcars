@@ -78,20 +78,24 @@
             <div class="list-group-item">
                <div class="radio">
                   <label>
-                     <input name="sort" type="radio" ng-model="vm.sort" value="id" selected>
+                     <input name="sort" type="radio" ng-focus="vm.setSort('id')" checked>
                      Default
                   </label><br>
                   <label>
-                     <input name="sort" type="radio" ng-model="vm.sort" value="price">
+                     <input name="sort" type="radio" ng-focus="vm.setSort('price')">
                      Sort by Price
                   </label><br>
                   <label>
-                     <input name="sort" type="radio" ng-model="vm.sort" value="emp">
+                     <input name="sort" type="radio" ng-focus="vm.setSort('hp')">
                      Sort by Horse Power
                   </label><br>
                   <label>
-                     <input name="sort" type="radio" ng-model="vm.sort" value="w">
+                     <input name="sort" type="radio" ng-focus="vm.setSort('w')">
                      Sort by Weight
+                  </label><br>
+                  <label>
+                     <input name="sort" type="radio" ng-focus="vm.setSort('model')">
+                     Sort by Model
                   </label><br>
                </div>
             </div>

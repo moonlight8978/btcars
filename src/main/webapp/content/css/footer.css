@@ -1,0 +1,36 @@
+footer {
+  margin-top: 50px; }
+
+.footer-top {
+  padding-bottom: 20px;
+  background-color: #fff; }
+  .footer-top .title {
+    padding: 15px 15px 5px;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+    border-bottom: 1px solid #f1f1f1; }
+  .footer-top .contact, .footer-top .partner-container .partner-title {
+    font-size: 1.2em;
+    text-transform: uppercase;
+    padding: 10px 0 0 15px; }
+  .footer-top table {
+    border-collapse: separate;
+    border-spacing: 0 5px; }
+    .footer-top table th {
+      width: 40px;
+      text-align: center; }
+    .footer-top table td {
+      max-width: 200px;
+      max-height: 40px; }
+  .footer-top .partner-container .partner-img-container {
+    display: flex; }
+
+.footer-bottom {
+  padding: 20px 15px; }
+
+@media (min-width: 768px) {
+  .footer-top .partner-container .partner-title {
+    text-align: center; }
+  .footer-bottom .pay img {
+    float: right; } }

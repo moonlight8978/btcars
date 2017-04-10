@@ -25,7 +25,10 @@
                     controller: 'CompanySidebarController',
                     controllerAs: 'vm'
                 }
-            }
+            },
+            onEnter: ['CarsService', function (CarsService) {
+                CarsService.reset();
+            }]
         })
         .state('company', {
             parent: 'companyParent',
