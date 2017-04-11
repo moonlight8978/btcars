@@ -1,0 +1,39 @@
+.container-body.info {
+  background-color: #fff;
+  padding: 20px; }
+
+.contacts-map ng-map {
+  height: 500px; }
+
+.contacts-info table {
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 0px 10px; }
+  .contacts-info table th {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.5em;
+    color: #fff;
+    width: 40px; }
+    .contacts-info table th i {
+      width: 40px;
+      height: 40px;
+      background-color: #2ecc71;
+      vertical-align: middle;
+      display: table-cell; }
+  .contacts-info table td {
+    font-size: 1.1em;
+    max-width: 200px;
+    padding-left: 15px; }
+
+@media (min-width: 768px) {
+  .contacts-info-wrapper-sm {
+    width: 90%;
+    margin: auto;
+    display: flex; }
+    .contacts-info-wrapper-sm > div {
+      width: 50%; } }
+
+@media (min-width: 992px) {
+  .contacts-info-wrapper-sm {
+    width: 70% !important; } }

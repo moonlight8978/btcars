@@ -1,0 +1,55 @@
+@import 'color';
+@import 'bs3-variables';
+
+.container-body.info {
+	background-color: $background--light;
+	padding: 20px;
+}
+
+.contacts-map ng-map {
+  height: 500px;
+}
+
+.contacts-info {
+	table {
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 0px 10px;
+    th {
+      vertical-align: middle;
+      text-align: center;
+      font-size: 1.5em;
+      color: $text--light;
+      width: 40px;
+      i {
+        width: 40px;
+        height: 40px;
+        background-color: $contacts-icon__background;
+        vertical-align: middle;
+        display: table-cell;
+      }
+    }
+    td {
+      font-size: 1.1em;
+      max-width: 200px;
+      padding-left: 15px;
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .contacts-info-wrapper-sm {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    > div {
+      width: 50%;
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .contacts-info-wrapper-sm {
+    width: 70% !important;
+  }
+}
